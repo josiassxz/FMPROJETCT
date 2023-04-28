@@ -1,6 +1,7 @@
 package com.project.fmproject.api.controller;
 
 import com.project.fmproject.domain.model.Empresa;
+import com.project.fmproject.domain.repository.EmpresaRepository;
 import com.project.fmproject.domain.service.EmpresaService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -8,14 +9,36 @@ import org.springframework.web.bind.annotation.*;
 
 
 import java.util.List;
+import java.util.Optional;
+
 @RestController
 @RequestMapping("/empresas")
 public class EmpresaController {
 
     private final EmpresaService empresaService;
 
-    public EmpresaController(EmpresaService empresaService) {
+    private final EmpresaRepository empresaRepository;
+
+    public EmpresaController(EmpresaService empresaService, EmpresaRepository empresaRepository) {
         this.empresaService = empresaService;
+        this.empresaRepository = empresaRepository;
+    }
+
+
+    @GetMapping("/buscarPorNome")
+    public List<Empresa> buscarPorNome(@RequestParam String nome) {
+        return empresaRepository.findByNomeContainingIgnoreCase(nome);
+    }
+
+
+    @GetMapping("/buscarPorCnpj")
+    public ResponseEntity<Empresa> buscarPorCnpj(@RequestParam String cnpj) {
+        Optional<Empresa> empresaOptional = empresaRepository.findByCnpj(cnpj);
+        if (empresaOptional.isPresent()) {
+            return ResponseEntity.ok(empresaOptional.get());
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 
     @GetMapping
