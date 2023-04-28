@@ -1,12 +1,17 @@
 package com.project.fmproject.domain.service;
 
 
+import com.project.fmproject.domain.dto.UsuarioDTO;
 import com.project.fmproject.domain.exception.EntidadeNaoEncontradaException;
 import com.project.fmproject.domain.model.Usuario;
 import com.project.fmproject.domain.repository.UsuarioRepository;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class UsuarioService {
@@ -40,4 +45,19 @@ public class UsuarioService {
     public void deletarUsuario(Long id) {
         usuarioRepository.deleteById(id);
     }
+
+    public UsuarioDTO findByEmailAndSenha(String email, String senha) {
+        Usuario usuario = usuarioRepository.findByEmailAndSenha(email, senha);
+        if (usuario != null) {
+            UsuarioDTO usuarioDTO = new UsuarioDTO();
+            usuarioDTO.setId(usuario.getId());
+            usuarioDTO.setEmail(usuario.getEmail());
+            usuarioDTO.setNome(usuario.getNome());
+            usuarioDTO.setTipo(usuario.getTipo());
+            return usuarioDTO;
+        } else {
+            return null;
+        }
+    }
+
 }

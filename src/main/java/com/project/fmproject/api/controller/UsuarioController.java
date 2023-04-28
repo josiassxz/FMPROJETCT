@@ -1,12 +1,15 @@
 package com.project.fmproject.api.controller;
 
+import com.project.fmproject.domain.dto.UsuarioDTO;
 import com.project.fmproject.domain.model.Usuario;
+import com.project.fmproject.domain.repository.UsuarioRepository;
 import com.project.fmproject.domain.service.UsuarioService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/usuarios")
@@ -14,8 +17,12 @@ public class UsuarioController {
 
     private final UsuarioService usuarioService;
 
-    public UsuarioController(UsuarioService usuarioService) {
+
+    private final UsuarioRepository usuarioRepository;
+
+    public UsuarioController(UsuarioService usuarioService, UsuarioRepository usuarioRepository) {
         this.usuarioService = usuarioService;
+        this.usuarioRepository = usuarioRepository;
     }
 
     @GetMapping
@@ -46,6 +53,16 @@ public class UsuarioController {
     public ResponseEntity<Void> deletarUsuario(@PathVariable Long id) {
         usuarioService.deletarUsuario(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<UsuarioDTO> login(@RequestBody Usuario usuario) {
+        UsuarioDTO usuarioDTO = usuarioService.findByEmailAndSenha(usuario.getEmail(), usuario.getSenha());
+        if (usuarioDTO != null) {
+            return ResponseEntity.ok(usuarioDTO);
+        } else {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+        }
     }
 
 }
