@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -19,15 +20,15 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URI;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
+
 
 
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping("/equipamentos")
 public class EquipamentosController {
 
@@ -57,21 +58,43 @@ public class EquipamentosController {
     }
 
 
+
+
+/* RETORNA UM BASE64 NAO RECOMENDADO*/
+//    @CrossOrigin(origins = "*")
+//    @GetMapping("/download/{idDocumento}")
+//    public ResponseEntity<String> downloadDocumento(@PathVariable Long idDocumento) {
+//        Optional<Documentos> optionalDocumento = documentosRepository.findById(idDocumento);
+//        if (optionalDocumento.isPresent()) {
+//            Documentos documento = optionalDocumento.get();
+//            Path caminho = Paths.get(documento.getCaminho());
+//            try {
+//                byte[] bytes = Files.readAllBytes(caminho);
+//                String base64 = Base64.getEncoder().encodeToString(bytes);
+//                HttpHeaders headers = new HttpHeaders();
+//                headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
+//                headers.setContentDispositionFormData("attachment", caminho.getFileName().toString());
+//                return new ResponseEntity<>(base64, headers, HttpStatus.OK);
+//            } catch (IOException e) {
+//                throw new RuntimeException("Erro ao fazer o download do arquivo");
+//            }
+//        } else {
+//            return ResponseEntity.notFound().build();
+//        }
+//    }
+
+
+    /*RETORNAR UM BINARIO !! RECOMENDADO*/
     @GetMapping("/download/{idDocumento}")
-    public ResponseEntity<Resource> downloadDocumento(@PathVariable Long idDocumento) {
+    public ResponseEntity<byte[]> downloadDocumento(@PathVariable Long idDocumento) throws IOException {
         Optional<Documentos> optionalDocumento = documentosRepository.findById(idDocumento);
         if (optionalDocumento.isPresent()) {
             Documentos documento = optionalDocumento.get();
             Path caminho = Paths.get(documento.getCaminho());
-            Resource resource;
-            try {
-                resource = new UrlResource(caminho.toUri());
-            } catch (MalformedURLException e) {
-                throw new RuntimeException("Erro ao fazer o download do arquivo");
-            }
+            byte[] bytes = Files.readAllBytes(caminho);
             return ResponseEntity.ok()
-                    .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + resource.getFilename() + "\"")
-                    .body(resource);
+                    .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + caminho.getFileName().toString() + "\"")
+                    .body(bytes);
         } else {
             return ResponseEntity.notFound().build();
         }
