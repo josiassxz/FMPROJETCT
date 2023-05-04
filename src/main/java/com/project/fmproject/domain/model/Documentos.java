@@ -15,6 +15,8 @@ public class Documentos {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String caminho;
+
     private String nome;
 
     private String tipo;

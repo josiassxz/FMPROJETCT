@@ -14,6 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.net.URI;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
@@ -38,10 +39,11 @@ public class EquipamentosController {
     }
 
 
+
     @PostMapping(value = "/salvar")
-    public ResponseEntity<Equipamentos> salvar(@RequestParam("equipamento") String equipamentos,
+    public ResponseEntity<Equipamentos> salvar(@RequestParam("equipamento") String equipamentosJson,
                                                @RequestPart("files") List<MultipartFile> files) throws IOException {
-        Equipamentos novoEquipamento = service.salvar(equipamentos, files.toArray(new MultipartFile[files.size()]));
+        Equipamentos novoEquipamento = service.salvar(equipamentosJson, files);
         return ResponseEntity.created(URI.create("/equipamentos/" + novoEquipamento.getId())).body(novoEquipamento);
     }
 

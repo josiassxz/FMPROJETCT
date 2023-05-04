@@ -11,6 +11,9 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.EntityNotFoundException;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.Optional;
 
@@ -34,23 +37,21 @@ public class EquipamentosService {
         return repository.findById(id);
     }
 
-//    public Equipamentos salvarEquipamentosComDocumentos(Equipamentos equipamentos, Documentos documentos) {
-//        documentos.setEquipamento(equipamentos);
-//        equipamentos.getDocumentos().add(documentos);
-//        equipamentosRepository.save(equipamentos);
-//        return equipamentos;
-//    }
 
 
-    public Equipamentos salvar(String equipamentosJson, MultipartFile[] files) throws IOException {
+
+    public Equipamentos salvar(String equipamentosJson, List<MultipartFile> files) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
         Equipamentos equipamentos = mapper.readValue(equipamentosJson, Equipamentos.class);
         for (MultipartFile file : files) {
+            String caminho = "C:\\Users\\josia\\OneDrive\\Área de Trabalho\\Arquivos\\" + file.getOriginalFilename();
+            byte[] bytes = file.getBytes();
+            Path path = Paths.get(caminho);
+            Files.write(path, bytes);
             Documentos documento = new Documentos();
-            documento.setArquivo(file);
-            equipamentos.getDocumentos().add(documento);
+            documento.setCaminho(caminho);
+            equipamentos.adicionarDocumento(documento, caminho);
         }
-
         return equipamentosRepository.save(equipamentos);
     }
 

@@ -8,6 +8,46 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+//@Entity
+//@Data
+//public class Equipamentos {
+//
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    private Long id;
+//
+//    private String tag;
+//
+//    private String descricao;
+//
+//    private String localizacao;
+//
+//    private String categoria;
+//
+//    private String condicao;
+//
+//    private String categoriaEquipamento;
+//
+//    private String inspecaoExterna;
+//
+//    private String inspecaoInterna;
+//
+//    private String proximaInspecao;
+//
+//    private String tipoInspecao;
+//
+//
+//    @ManyToOne
+//    @JsonIgnoreProperties("empresa")
+//    @JoinColumn(name = "empresa_id")
+//    private Empresa empresa;
+//
+//    @JsonIgnoreProperties("equipamento")
+//    @OneToMany(mappedBy = "equipamento", cascade = CascadeType.ALL, orphanRemoval = true)
+//    private List<Documentos> documentos = new ArrayList<>();
+//}
+
+
 @Entity
 @Data
 public class Equipamentos {
@@ -36,7 +76,6 @@ public class Equipamentos {
 
     private String tipoInspecao;
 
-
     @ManyToOne
     @JsonIgnoreProperties("empresa")
     @JoinColumn(name = "empresa_id")
@@ -45,8 +84,22 @@ public class Equipamentos {
     @JsonIgnoreProperties("equipamento")
     @OneToMany(mappedBy = "equipamento", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Documentos> documentos = new ArrayList<>();
-}
 
+    @ElementCollection
+    private List<String> caminhosDocumentos = new ArrayList<>();
+
+    public void adicionarDocumento(Documentos documento, String caminho) {
+        this.documentos.add(documento);
+        this.caminhosDocumentos.add(caminho);
+        documento.setEquipamento(this);
+    }
+
+    public void removeDocumento(Documentos documento) {
+        this.documentos.remove(documento);
+        this.caminhosDocumentos.remove(documento.getCaminho());
+        documento.setEquipamento(null);
+    }
+}
 
 
 
