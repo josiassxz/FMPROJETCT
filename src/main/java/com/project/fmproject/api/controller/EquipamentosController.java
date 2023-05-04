@@ -1,6 +1,7 @@
 package com.project.fmproject.api.controller;
 
 
+import com.project.fmproject.domain.model.Documentos;
 import com.project.fmproject.domain.model.Equipamentos;
 import com.project.fmproject.domain.service.EquipamentosService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,28 +32,21 @@ public class EquipamentosController {
         return equipamentos.map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
     }
 
-    @PostMapping
-    public Equipamentos save(@RequestBody Equipamentos equipamentos) {
-        return service.save(equipamentos);
+    @PostMapping("/salvar")
+    public Equipamentos salvarEquipamentosComDocumentos(@RequestBody Equipamentos equipamentos, Documentos documentos) {
+        return service.salvarEquipamentosComDocumentos(equipamentos, documentos);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Equipamentos> update(@PathVariable Long id, @RequestBody Equipamentos equipamentos) {
-        if (!service.findById(id).isPresent()) {
-            return ResponseEntity.notFound().build();
-        }
+    public Equipamentos atualizarEquipamento(@PathVariable Long id, @RequestBody Equipamentos equipamentos, Documentos documentos) {
         equipamentos.setId(id);
-        return ResponseEntity.ok(service.save(equipamentos));
+        return service.salvarEquipamentosComDocumentos(equipamentos, documentos);
     }
 
+
     @DeleteMapping("/{id}")
-    public ResponseEntity<Equipamentos> delete(@PathVariable Long id) {
-        Optional<Equipamentos> equipamentos = service.findById(id);
-        if (!equipamentos.isPresent()) {
-            return ResponseEntity.notFound().build();
-        }
-        service.deleteById(id);
-        return ResponseEntity.ok().build();
+    public void removerEquipamento(@PathVariable Long id) {
+        service.removerEquipamento(id);
     }
 
 }

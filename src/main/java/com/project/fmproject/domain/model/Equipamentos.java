@@ -1,5 +1,6 @@
 package com.project.fmproject.domain.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -35,13 +36,17 @@ public class Equipamentos {
 
     private String tipoInspecao;
 
+
     @ManyToOne
+    @JsonIgnoreProperties("empresa")
     @JoinColumn(name = "empresa_id")
     private Empresa empresa;
+
+    @JsonIgnoreProperties("equipamento")
+    @OneToMany(mappedBy = "equipamento", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Documentos> documentos = new ArrayList<>();
 }
 
-//    @OneToMany(mappedBy = "equipamento", cascade = CascadeType.ALL, orphanRemoval = true)
-//    private List<Documentos> documentos = new ArrayList<>();
 
 
 
