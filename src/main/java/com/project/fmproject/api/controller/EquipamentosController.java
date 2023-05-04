@@ -49,7 +49,6 @@ public class EquipamentosController {
     }
 
 
-
     @PostMapping(value = "/salvar")
     public ResponseEntity<Equipamentos> salvar(@RequestParam("equipamento") String equipamentosJson,
                                                @RequestPart("files") List<MultipartFile> files) throws IOException {
@@ -79,12 +78,15 @@ public class EquipamentosController {
     }
 
 
-
-
     @PutMapping("/{id}")
-    public ResponseEntity<Equipamentos> atualizar(@PathVariable Long id, @RequestBody Equipamentos equipamentos, @RequestParam(name = "files", required = false) MultipartFile[] files) throws IOException {
-        Equipamentos equipamentoAtualizado = service.atualizar(id, equipamentos, files);
-        return ResponseEntity.ok(equipamentoAtualizado);
+    public ResponseEntity<Equipamentos> alterar(@PathVariable Long id, @RequestParam("equipamento") String equipamentosJson, @RequestParam("files") List<MultipartFile> files) {
+        try {
+            Equipamentos equipamentos = service.alterar(id, equipamentosJson, files);
+            return ResponseEntity.ok(equipamentos);
+        } catch (IOException e) {
+            e.printStackTrace();
+            return ResponseEntity.badRequest().build();
+        }
     }
 
 
