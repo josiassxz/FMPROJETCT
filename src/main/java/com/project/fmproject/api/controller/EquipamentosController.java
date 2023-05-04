@@ -5,11 +5,16 @@ import com.project.fmproject.domain.model.Documentos;
 import com.project.fmproject.domain.model.Equipamentos;
 import com.project.fmproject.domain.service.EquipamentosService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
+import java.net.URI;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -32,15 +37,21 @@ public class EquipamentosController {
         return equipamentos.map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
     }
 
-    @PostMapping("/salvar")
-    public Equipamentos salvarEquipamentosComDocumentos(@RequestBody Equipamentos equipamentos, Documentos documentos) {
-        return service.salvarEquipamentosComDocumentos(equipamentos, documentos);
+
+    @PostMapping(value = "/equipamentos", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public ResponseEntity<Equipamentos> salvar(@RequestPart("equipamento") Equipamentos equipamentos,
+                                               @RequestPart("files") List<MultipartFile> files) throws IOException {
+        Equipamentos novoEquipamento = service.salvar(equipamentos, files.toArray(new MultipartFile[files.size()]));
+        return ResponseEntity.created(URI.create("/equipamentos/" + novoEquipamento.getId())).body(novoEquipamento);
     }
 
+
+
+
     @PutMapping("/{id}")
-    public Equipamentos atualizarEquipamento(@PathVariable Long id, @RequestBody Equipamentos equipamentos, Documentos documentos) {
-        equipamentos.setId(id);
-        return service.salvarEquipamentosComDocumentos(equipamentos, documentos);
+    public ResponseEntity<Equipamentos> atualizar(@PathVariable Long id, @RequestBody Equipamentos equipamentos, @RequestParam(name = "files", required = false) MultipartFile[] files) throws IOException {
+        Equipamentos equipamentoAtualizado = service.atualizar(id, equipamentos, files);
+        return ResponseEntity.ok(equipamentoAtualizado);
     }
 
 

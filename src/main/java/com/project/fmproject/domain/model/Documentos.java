@@ -2,8 +2,10 @@ package com.project.fmproject.domain.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;
+import java.io.IOException;
 
 @Entity
 @Data
@@ -17,12 +19,18 @@ public class Documentos {
 
     private String tipo;
 
-    private String caminhoArquivo;
+    @Lob
+    private byte[] arquivo;
 
     @ManyToOne
     @JsonIgnoreProperties("documentos")
     @JoinColumn(name = "equipamento_id")
     private Equipamentos equipamento;
 
-    // getters e setters
+    public void setArquivo(MultipartFile file) throws IOException {
+        this.nome = file.getOriginalFilename();
+        this.tipo = file.getContentType();
+        this.arquivo = file.getBytes();
+    }
 }
+
