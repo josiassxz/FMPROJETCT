@@ -16,6 +16,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
 public class EquipamentosService {
@@ -44,7 +45,7 @@ public class EquipamentosService {
         ObjectMapper mapper = new ObjectMapper();
         Equipamentos equipamentos = mapper.readValue(equipamentosJson, Equipamentos.class);
         for (MultipartFile file : files) {
-            String caminho = "C:\\Users\\josia\\OneDrive\\Área de Trabalho\\Arquivos\\" + file.getOriginalFilename();
+            String caminho = "C:\\Users\\josia\\OneDrive\\Área de Trabalho\\Arquivos\\" + UUID.randomUUID().getLeastSignificantBits() + file.getOriginalFilename();
             byte[] bytes = file.getBytes();
             Path path = Paths.get(caminho);
             Files.write(path, bytes);
