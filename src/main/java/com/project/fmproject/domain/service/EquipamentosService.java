@@ -1,5 +1,6 @@
 package com.project.fmproject.domain.service;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.project.fmproject.domain.model.Documentos;
 import com.project.fmproject.domain.model.Equipamentos;
 import com.project.fmproject.domain.repository.DocumentosRepository;
@@ -41,12 +42,15 @@ public class EquipamentosService {
 //    }
 
 
-    public Equipamentos salvar(Equipamentos equipamentos, MultipartFile[] files) throws IOException {
+    public Equipamentos salvar(String equipamentosJson, MultipartFile[] files) throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+        Equipamentos equipamentos = mapper.readValue(equipamentosJson, Equipamentos.class);
         for (MultipartFile file : files) {
             Documentos documento = new Documentos();
             documento.setArquivo(file);
             equipamentos.getDocumentos().add(documento);
         }
+
         return equipamentosRepository.save(equipamentos);
     }
 

@@ -38,8 +38,8 @@ public class EquipamentosController {
     }
 
 
-    @PostMapping(value = "/equipamentos", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    public ResponseEntity<Equipamentos> salvar(@RequestPart("equipamento") Equipamentos equipamentos,
+    @PostMapping(value = "/salvar")
+    public ResponseEntity<Equipamentos> salvar(@RequestParam("equipamento") String equipamentos,
                                                @RequestPart("files") List<MultipartFile> files) throws IOException {
         Equipamentos novoEquipamento = service.salvar(equipamentos, files.toArray(new MultipartFile[files.size()]));
         return ResponseEntity.created(URI.create("/equipamentos/" + novoEquipamento.getId())).body(novoEquipamento);
