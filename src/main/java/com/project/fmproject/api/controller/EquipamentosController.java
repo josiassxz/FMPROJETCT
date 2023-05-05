@@ -28,7 +28,7 @@ import java.util.*;
 
 
 @RestController
-@CrossOrigin(origins = "*")
+@CrossOrigin("http://localhost:4200")
 @RequestMapping("/equipamentos")
 public class EquipamentosController {
 
