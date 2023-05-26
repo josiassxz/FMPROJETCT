@@ -3,6 +3,9 @@ package com.project.fmproject.api.controller;
 import com.project.fmproject.domain.model.Empresa;
 import com.project.fmproject.domain.repository.EmpresaRepository;
 import com.project.fmproject.domain.service.EmpresaService;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -43,8 +46,12 @@ public class EmpresaController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Empresa>> listarEmpresas() {
-        List<Empresa> empresas = empresaService.listarEmpresas();
+    public ResponseEntity<Page<Empresa>> listarEmpresas(
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int size
+    ) {
+        Pageable pageable = PageRequest.of(page, size);
+        Page<Empresa> empresas = empresaService.listarEmpresas(pageable);
         return ResponseEntity.ok(empresas);
     }
 

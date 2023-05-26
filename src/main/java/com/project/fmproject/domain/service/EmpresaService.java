@@ -6,6 +6,8 @@ import com.project.fmproject.domain.model.Empresa;
 import com.project.fmproject.domain.model.Usuario;
 import com.project.fmproject.domain.repository.EmpresaRepository;
 import com.project.fmproject.domain.repository.UsuarioRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -22,8 +24,8 @@ public class EmpresaService {
         this.usuarioRepository = usuarioRepository;
     }
 
-    public List<Empresa> listarEmpresas() {
-        return empresaRepository.findAll();
+    public Page<Empresa> listarEmpresas(Pageable pageable) {
+        return empresaRepository.findAll(pageable);
     }
 
     public Empresa buscarEmpresaPorId(Long id) {
