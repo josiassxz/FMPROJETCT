@@ -28,6 +28,14 @@ public class UsuarioService {
         return usuarioRepository.findAll(pageable);
     }
 
+    public Usuario findByEmail(String email) {
+        return usuarioRepository.findByEmailContaining(email);
+    }
+
+    public Usuario findByNome(String nome) {
+        return usuarioRepository.findByNomeContaining(nome);
+    }
+
     public Usuario buscarUsuarioPorId(Long id) {
         return usuarioRepository.findById(id)
                 .orElseThrow(() -> new EntidadeNaoEncontradaException("Usuário não encontrado"));

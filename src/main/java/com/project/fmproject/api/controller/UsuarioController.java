@@ -69,4 +69,24 @@ public class UsuarioController {
         }
     }
 
+    @GetMapping("/email/{email}")
+    public ResponseEntity<Usuario> buscarPorEmail(@PathVariable String email) {
+        Usuario usuario = usuarioService.findByEmail(email);
+        if (usuario != null) {
+            return ResponseEntity.ok(usuario);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @GetMapping("/nome/{nome}")
+    public ResponseEntity<Usuario> buscarPorNome(@PathVariable String nome) {
+        Usuario usuario = usuarioService.findByNome(nome);
+        if (usuario != null) {
+            return ResponseEntity.ok(usuario);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
 }
