@@ -9,6 +9,8 @@ import com.project.fmproject.domain.repository.EquipamentosRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -29,9 +31,10 @@ public class EquipamentosService {
     @Autowired
     private EquipamentosRepository equipamentosRepository;
 
-    public List<Equipamentos> findAll() {
-        return repository.findAll();
+    public Page<Equipamentos> findAll(Pageable pageable) {
+        return repository.findAll(pageable);
     }
+
 
     public Optional<Equipamentos> findById(Long id) {
         return repository.findById(id);

@@ -9,6 +9,9 @@ import com.project.fmproject.domain.service.EquipamentosService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -41,8 +44,13 @@ public class EquipamentosController {
     private DocumentosRepository documentosRepository;
 
     @GetMapping
-    public List<Equipamentos> findAll() {
-        return service.findAll();
+    public ResponseEntity<Page<Equipamentos>> findAll(
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int size
+    ) {
+        Pageable pageable = PageRequest.of(page, size);
+        Page<Equipamentos> equipamentosPage = service.findAll(pageable);
+        return ResponseEntity.ok(equipamentosPage);
     }
 
     @GetMapping("/{id}")
