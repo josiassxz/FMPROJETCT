@@ -56,15 +56,25 @@ public class EquipamentosService {
         return equipamentosRepository.save(equipamentos);
     }
 
-    public Equipamentos alterar(Long id, String equipamentosJson, List<MultipartFile> files) throws IOException {
-        Equipamentos equipamentos = equipamentosRepository.findById(id)
-                .orElseThrow(() -> new NoSuchElementException("Equipamento não encontrado"));
+    public Equipamentos alterar(Long equipamentoId, String equipamentoJson, List<MultipartFile> files) throws IOException {
+        Equipamentos equipamentoExistente = equipamentosRepository.findById(equipamentoId)
+                .orElseThrow(() -> new IllegalArgumentException("Equipamento não encontrado"));
 
         ObjectMapper mapper = new ObjectMapper();
-        mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-        mapper.updateValue(equipamentos, equipamentosJson);
+        Equipamentos equipamentoAtualizado = mapper.readValue(equipamentoJson, Equipamentos.class);
+        equipamentoExistente.setTag(equipamentoAtualizado.getTag());
+        equipamentoExistente.setDescricao(equipamentoAtualizado.getDescricao());
+        equipamentoExistente.setLocalizacao(equipamentoAtualizado.getLocalizacao());
+        equipamentoExistente.setCategoria(equipamentoAtualizado.getCategoria());
+        equipamentoExistente.setCondicao(equipamentoAtualizado.getCondicao());
+        equipamentoExistente.setCategoriaEquipamento(equipamentoAtualizado.getCategoriaEquipamento());
+        equipamentoExistente.setInspecaoExterna(equipamentoAtualizado.getInspecaoExterna());
+        equipamentoExistente.setInspecaoInterna(equipamentoAtualizado.getInspecaoInterna());
+        equipamentoExistente.setProximaInspecao(equipamentoAtualizado.getProximaInspecao());
+        equipamentoExistente.setTipoInspecao(equipamentoAtualizado.getTipoInspecao());
 
-        List<Documentos> documentosAntigos = new ArrayList<>(equipamentos.getDocumentos());
+        // Remove os documentos antigos antes de adicionar os novos
+        equipamentoExistente.getDocumentos().clear();
 
         for (MultipartFile file : files) {
             String caminho = "C:\\Users\\josia\\OneDrive\\Área de Trabalho\\Arquivos\\" + UUID.randomUUID().getLeastSignificantBits() + file.getOriginalFilename();
@@ -73,17 +83,12 @@ public class EquipamentosService {
             Files.write(path, bytes);
             Documentos documento = new Documentos();
             documento.setCaminho(caminho);
-            equipamentos.adicionarDocumento(documento, caminho);
+            equipamentoExistente.adicionarDocumento(documento, caminho);
         }
 
-        for (Documentos documento : documentosAntigos) {
-            if (!equipamentos.getDocumentos().contains(documento)) {
-                equipamentos.removeDocumento(documento);
-            }
-        }
-
-        return equipamentosRepository.save(equipamentos);
+        return equipamentosRepository.save(equipamentoExistente);
     }
+
 
 
     public void removerEquipamento(Long id) {

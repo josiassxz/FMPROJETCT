@@ -111,15 +111,12 @@ public class EquipamentosController {
     }
 
 
-    @PutMapping("/{id}")
-    public ResponseEntity<Equipamentos> alterar(@PathVariable Long id, @RequestParam("equipamento") String equipamentosJson, @RequestParam("files") List<MultipartFile> files) {
-        try {
-            Equipamentos equipamentos = service.alterar(id, equipamentosJson, files);
-            return ResponseEntity.ok(equipamentos);
-        } catch (IOException e) {
-            e.printStackTrace();
-            return ResponseEntity.badRequest().build();
-        }
+    @PutMapping(value = "/{equipamentoId}/alterar")
+    public ResponseEntity<Equipamentos> alterarEquipamento(@PathVariable("equipamentoId") Long equipamentoId,
+                                                           @RequestParam("equipamento") String equipamentoJson,
+                                                           @RequestPart("files") List<MultipartFile> files) throws IOException {
+        Equipamentos equipamentoAtualizado = service.alterar(equipamentoId, equipamentoJson, files);
+        return ResponseEntity.ok(equipamentoAtualizado);
     }
 
 
