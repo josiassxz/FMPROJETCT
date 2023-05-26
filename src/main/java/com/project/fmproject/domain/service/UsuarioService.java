@@ -5,6 +5,8 @@ import com.project.fmproject.domain.dto.UsuarioDTO;
 import com.project.fmproject.domain.exception.EntidadeNaoEncontradaException;
 import com.project.fmproject.domain.model.Usuario;
 import com.project.fmproject.domain.repository.UsuarioRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,8 +24,8 @@ public class UsuarioService {
         this.usuarioRepository = usuarioRepository;
     }
 
-    public List<Usuario> listarUsuarios() {
-        return usuarioRepository.findAll();
+    public Page<Usuario> listarUsuarios(Pageable pageable) {
+        return usuarioRepository.findAll(pageable);
     }
 
     public Usuario buscarUsuarioPorId(Long id) {

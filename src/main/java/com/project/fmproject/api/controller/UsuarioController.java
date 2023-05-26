@@ -4,6 +4,8 @@ import com.project.fmproject.domain.dto.UsuarioDTO;
 import com.project.fmproject.domain.model.Usuario;
 import com.project.fmproject.domain.repository.UsuarioRepository;
 import com.project.fmproject.domain.service.UsuarioService;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -26,9 +28,10 @@ public class UsuarioController {
         this.usuarioRepository = usuarioRepository;
     }
 
+
     @GetMapping
-    public ResponseEntity<List<Usuario>> listarUsuarios() {
-        List<Usuario> usuarios = usuarioService.listarUsuarios();
+    public ResponseEntity<Page<Usuario>> listarUsuarios(Pageable pageable) {
+        Page<Usuario> usuarios = usuarioService.listarUsuarios(pageable);
         return ResponseEntity.ok(usuarios);
     }
 

@@ -4,6 +4,7 @@ package com.project.fmproject.api.controller;
 import com.project.fmproject.domain.model.Documentos;
 import com.project.fmproject.domain.model.Equipamentos;
 import com.project.fmproject.domain.repository.DocumentosRepository;
+import com.project.fmproject.domain.repository.EquipamentosRepository;
 import com.project.fmproject.domain.service.EquipamentosService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
@@ -31,6 +32,7 @@ import java.util.*;
 @CrossOrigin("http://localhost:4200")
 @RequestMapping("/equipamentos")
 public class EquipamentosController {
+
 
     @Autowired
     private EquipamentosService service;
