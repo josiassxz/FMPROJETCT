@@ -69,8 +69,8 @@ public class UsuarioController {
         }
     }
 
-    @GetMapping("/email/{email}")
-    public ResponseEntity<Usuario> buscarPorEmail(@PathVariable String email) {
+    @GetMapping("/buscarEmail")
+    public ResponseEntity<Usuario> buscarPorEmail(@RequestParam("email") String email) {
         Usuario usuario = usuarioService.findByEmail(email);
         if (usuario != null) {
             return ResponseEntity.ok(usuario);
@@ -79,8 +79,8 @@ public class UsuarioController {
         }
     }
 
-    @GetMapping("/nome/{nome}")
-    public ResponseEntity<Usuario> buscarPorNome(@PathVariable String nome) {
+    @GetMapping("/buscarNome")
+    public ResponseEntity<Usuario> buscarPorNome(@RequestParam("nome") String nome) {
         Usuario usuario = usuarioService.findByNome(nome);
         if (usuario != null) {
             return ResponseEntity.ok(usuario);
