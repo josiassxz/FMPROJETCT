@@ -49,6 +49,8 @@ public class UsuarioService {
         Usuario usuarioExistente = buscarUsuarioPorId(id);
         usuarioExistente.setEmail(usuarioAtualizado.getEmail());
         usuarioExistente.setSenha(usuarioAtualizado.getSenha());
+        usuarioExistente.setNome(usuarioAtualizado.getNome());
+        usuarioExistente.setTipo(usuarioAtualizado.getTipo());
         return usuarioRepository.save(usuarioExistente);
     }
 
