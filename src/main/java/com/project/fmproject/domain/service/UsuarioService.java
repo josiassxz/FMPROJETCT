@@ -36,6 +36,8 @@ public class UsuarioService {
         return usuarioRepository.findByNomeContaining(nome);
     }
 
+
+
     public Usuario buscarUsuarioPorId(Long id) {
         return usuarioRepository.findById(id)
                 .orElseThrow(() -> new EntidadeNaoEncontradaException("Usuário não encontrado"));

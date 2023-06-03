@@ -89,4 +89,19 @@ public class UsuarioController {
         }
     }
 
+    @GetMapping("/buscar")
+    public ResponseEntity<List<Usuario>> buscarPorNomeOuEmail(@RequestParam(value = "nome", required = false) String nome,
+                                                              @RequestParam(value = "email", required = false) String email) {
+        List<Usuario> usuarios = usuarioRepository.buscarPorNomeEmail(nome, email);
+        if (!usuarios.isEmpty()) {
+            return ResponseEntity.ok(usuarios);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+
+
+
+
 }
