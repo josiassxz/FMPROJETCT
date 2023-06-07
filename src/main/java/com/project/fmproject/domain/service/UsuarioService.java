@@ -28,6 +28,10 @@ public class UsuarioService {
         return usuarioRepository.findAll(pageable);
     }
 
+    public List<Usuario> listarTodosUsuarios() {
+        return usuarioRepository.findAll();
+    }
+
     public Usuario findByEmail(String email) {
         return usuarioRepository.findByEmailContaining(email);
     }
