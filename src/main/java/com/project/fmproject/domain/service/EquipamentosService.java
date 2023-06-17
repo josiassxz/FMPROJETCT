@@ -62,22 +62,49 @@ public class EquipamentosService {
 
         ObjectMapper mapper = new ObjectMapper();
         Equipamentos equipamentoAtualizado = mapper.readValue(equipamentoJson, Equipamentos.class);
-        equipamentoExistente.setTag(equipamentoAtualizado.getTag());
+        equipamentoExistente.setTagEquipamento(equipamentoAtualizado.getTagEquipamento());
         equipamentoExistente.setDescricao(equipamentoAtualizado.getDescricao());
         equipamentoExistente.setLocalizacao(equipamentoAtualizado.getLocalizacao());
         equipamentoExistente.setCategoria(equipamentoAtualizado.getCategoria());
         equipamentoExistente.setCondicao(equipamentoAtualizado.getCondicao());
-        equipamentoExistente.setCategoriaEquipamento(equipamentoAtualizado.getCategoriaEquipamento());
+        equipamentoExistente.setTipoEquipamento(equipamentoAtualizado.getTipoEquipamento());
         equipamentoExistente.setInspecaoExterna(equipamentoAtualizado.getInspecaoExterna());
         equipamentoExistente.setInspecaoInterna(equipamentoAtualizado.getInspecaoInterna());
-        equipamentoExistente.setProximaInspecao(equipamentoAtualizado.getProximaInspecao());
-        equipamentoExistente.setTipoInspecao(equipamentoAtualizado.getTipoInspecao());
+        equipamentoExistente.setProximaInspecaoExterna(equipamentoAtualizado.getProximaInspecaoExterna());
+        equipamentoExistente.setProximaInspecaoInterna(equipamentoAtualizado.getProximaInspecaoInterna());
+        equipamentoExistente.setPlacaIndentificacao(equipamentoAtualizado.getPlacaIndentificacao());
+        equipamentoExistente.setValvulaSeguranca(equipamentoAtualizado.getValvulaSeguranca());
+        equipamentoExistente.setIndicadorPressao(equipamentoAtualizado.getIndicadorPressao());
+        equipamentoExistente.setPmta(equipamentoAtualizado.getPmta());
+        equipamentoExistente.setAnoCadastro(equipamentoAtualizado.getAnoCadastro());
+        equipamentoExistente.setObservacao(equipamentoAtualizado.getObservacao());
+        equipamentoExistente.setNumLacre(equipamentoAtualizado.getNumLacre());
+        equipamentoExistente.setDataCalibracao(equipamentoAtualizado.getDataCalibracao());
+        equipamentoExistente.setProximaCalibracao(equipamentoAtualizado.getProximaCalibracao());
+        equipamentoExistente.setRoscaConexao(equipamentoAtualizado.getRoscaConexao());
+        equipamentoExistente.setMarcaModelo(equipamentoAtualizado.getMarcaModelo());
+        equipamentoExistente.setInstrumento(equipamentoAtualizado.getInstrumento());
+        equipamentoExistente.setEscala(equipamentoAtualizado.getEscala());
+        equipamentoExistente.setUnidadeMedida(equipamentoAtualizado.getUnidadeMedida());
+        equipamentoExistente.setTamanho(equipamentoAtualizado.getTamanho());
+        equipamentoExistente.setBitola(equipamentoAtualizado.getBitola());
+        equipamentoExistente.setSetPoint(equipamentoAtualizado.getSetPoint());
+        equipamentoExistente.setUnidadeAjuste(equipamentoAtualizado.getUnidadeAjuste());
+        equipamentoExistente.setStatus(equipamentoAtualizado.getStatus());
+        equipamentoExistente.setPossuiRgi(equipamentoAtualizado.getPossuiRgi());
+        equipamentoExistente.setFluido(equipamentoAtualizado.getFluido());
+        equipamentoExistente.setNumRelatorio(equipamentoAtualizado.getNumRelatorio());
+        equipamentoExistente.setLaudoValSeguranca(equipamentoAtualizado.getLaudoValSeguranca());
+        equipamentoExistente.setNumSerie(equipamentoAtualizado.getNumSerie());
+        equipamentoExistente.setCapacidade(equipamentoAtualizado.getCapacidade());
+        equipamentoExistente.setNorma(equipamentoAtualizado.getNorma());
+
 
         // Remove os documentos antigos antes de adicionar os novos
         equipamentoExistente.getDocumentos().clear();
 
         for (MultipartFile file : files) {
-            String caminho = "C:\\Users\\josia\\OneDrive\\Área de Trabalho\\Arquivos\\" + UUID.randomUUID().getLeastSignificantBits() + file.getOriginalFilename();
+            String caminho = "C:\\Users\\sxz\\Desktop\\Arquivos" + UUID.randomUUID().getLeastSignificantBits() + file.getOriginalFilename();
             byte[] bytes = file.getBytes();
             Path path = Paths.get(caminho);
             Files.write(path, bytes);
