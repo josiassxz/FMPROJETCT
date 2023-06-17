@@ -9,7 +9,4 @@ import java.util.Optional;
 
 public interface DocumentosRepository extends JpaRepository<Documentos, Long> {
 
-
-
-
 }
