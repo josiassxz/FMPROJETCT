@@ -1,10 +1,10 @@
 package com.project.fmproject.domain.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.project.fmproject.domain.service.enums.TipoEquipamentoEnum;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,43 +15,78 @@ public class Equipamentos {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(nullable = false)
     private String tagEquipamento;
+    @Column(nullable = false)
     private String descricao;
+    @Column(nullable = false)
     private String localizacao;
+    @Column(nullable = false)
     private String categoria;
+    @Column(nullable = false)
     private String condicao;
-    private String tipoEquipamento;
+    @Column(nullable = false)
+    private TipoEquipamentoEnum tipoEquipamento;
+    @Column(nullable = false)
     private String inspecaoExterna;
+    @Column(nullable = false)
     private String inspecaoInterna;
+    @Column(nullable = false)
     private String proximaInspecaoExterna;
+    @Column(nullable = false)
     private String proximaInspecaoInterna;
+    @Column(nullable = false)
     private String placaIndentificacao;
+    @Column(nullable = false)
     private String valvulaSeguranca;
+    @Column(nullable = false)
     private String indicadorPressao;
+    @Column(nullable = false)
     private String pmta;
+    @Column(nullable = false)
     private String anoCadastro;
+    @Column(nullable = false)
     private String observacao;
+    @Column(nullable = false)
     private String numLacre;
+    @Column(nullable = false)
     private String dataCalibracao;
+    @Column(nullable = false)
     private String proximaCalibracao;
+    @Column(nullable = false)
     private String roscaConexao;
+    @Column(nullable = false)
     private String marcaModelo;
+    @Column(nullable = false)
     private String instrumento;
+    @Column(nullable = false)
     private String escala;
+    @Column(nullable = false)
     private String unidadeMedida;
+    @Column(nullable = false)
     private String tamanho;
+    @Column(nullable = false)
     private String bitola;
+    @Column(nullable = false)
     private String setPoint;
+    @Column(nullable = false)
     private String unidadeAjuste;
+    @Column(nullable = false)
     private String status;
+    @Column(nullable = false)
     private String possuiRgi;
+    @Column(nullable = false)
     private String fluido;
+    @Column(nullable = false)
     private String numRelatorio;
+    @Column(nullable = false)
     private String laudoValSeguranca;
+    @Column(nullable = false)
     private String numSerie;
+    @Column(nullable = false)
     private String capacidade;
+    @Column(nullable = false)
     private String norma;
-
 
     @ManyToOne
     @JsonIgnoreProperties("empresa")

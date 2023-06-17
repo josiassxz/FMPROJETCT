@@ -45,7 +45,7 @@ public class EquipamentosService {
         ObjectMapper mapper = new ObjectMapper();
         Equipamentos equipamentos = mapper.readValue(equipamentosJson, Equipamentos.class);
         for (MultipartFile file : files) {
-            String caminho = "C:\\Users\\josia\\OneDrive\\Área de Trabalho\\Arquivos\\" + UUID.randomUUID().getLeastSignificantBits() + file.getOriginalFilename();
+            String caminho = "C:\\Users\\sxz\\Desktop\\Arquivos\\" + UUID.randomUUID().getLeastSignificantBits() + file.getOriginalFilename();
             byte[] bytes = file.getBytes();
             Path path = Paths.get(caminho);
             Files.write(path, bytes);

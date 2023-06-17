@@ -4,30 +4,31 @@ package com.project.fmproject.api.controller;
 import com.project.fmproject.domain.model.Documentos;
 import com.project.fmproject.domain.model.Equipamentos;
 import com.project.fmproject.domain.repository.DocumentosRepository;
-import com.project.fmproject.domain.repository.EquipamentosRepository;
 import com.project.fmproject.domain.service.EquipamentosService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.Resource;
-import org.springframework.core.io.UrlResource;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
-
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
-
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URI;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.*;
+import java.util.List;
+import java.util.Optional;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipOutputStream;
+import org.springframework.http.ContentDisposition;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+import java.net.URI;
+
 
 
 
@@ -109,6 +110,42 @@ public class EquipamentosController {
             return ResponseEntity.notFound().build();
         }
     }
+
+    @GetMapping("/download/lista")
+    public ResponseEntity<byte[]> downloadListaDocumentos(@RequestParam("ids") List<Long> ids) throws IOException {
+        List<Documentos> documentos = documentosRepository.findAllById(ids);
+        if (documentos.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+        // Cria um arquivo temporário para armazenar os documentos compactados
+        File zipFile = File.createTempFile("documentos", ".zip");
+        FileOutputStream fos = new FileOutputStream(zipFile);
+        ZipOutputStream zos = new ZipOutputStream(fos);
+        for (Documentos documento : documentos) {
+            Path caminho = Paths.get(documento.getCaminho());
+            byte[] bytes = Files.readAllBytes(caminho);
+
+            // Adiciona o documento ao arquivo compactado
+            ZipEntry zipEntry = new ZipEntry(caminho.getFileName().toString());
+            zos.putNextEntry(zipEntry);
+            zos.write(bytes);
+            zos.closeEntry();
+        }
+        zos.close();
+        fos.close();
+        // Lê o arquivo compactado em bytes
+        byte[] zipBytes = Files.readAllBytes(zipFile.toPath());
+        // Define o cabeçalho de resposta para o download do arquivo compactado
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
+        headers.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + zipFile.getName() + "\"");
+        // Retorna a resposta com o arquivo compactado
+        return ResponseEntity.ok()
+                .headers(headers)
+                .body(zipBytes);
+    }
+
+
 
 
     @PutMapping(value = "/{equipamentoId}/alterar")

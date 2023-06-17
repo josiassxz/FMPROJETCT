@@ -1,6 +1,7 @@
 package com.project.fmproject.domain.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.project.fmproject.domain.service.enums.TipoDocumentoEnum;
 import lombok.Data;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -14,13 +15,9 @@ public class Documentos {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String caminho;
-
     private String nome;
-
     private String tipo;
-
     @Lob
     private byte[] arquivo;
 
