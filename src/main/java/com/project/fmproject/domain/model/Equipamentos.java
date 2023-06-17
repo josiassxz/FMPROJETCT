@@ -55,26 +55,43 @@ public class Equipamentos {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    private String tag;
-
+    private String tagEquipamento;
     private String descricao;
-
     private String localizacao;
-
     private String categoria;
-
     private String condicao;
-
-    private String categoriaEquipamento;
-
+    private String tipoEquipamento;
     private String inspecaoExterna;
-
     private String inspecaoInterna;
+    private String proximaInspecaoExterna;
+    private String proximaInspecaoInterna;
+    private String placaIndentificacao;
+    private String valvulaSeguranca;
+    private String indicadorPressao;
+    private String pmta;
+    private String anoCadastro;
+    private String observacao;
+    private String numLacre;
+    private String dataCalibracao;
+    private String proximaCalibracao;
+    private String roscaConexao;
+    private String marcaModelo;
+    private String instrumento;
+    private String escala;
+    private String unidadeMedida;
+    private String tamanho;
+    private String bitola;
+    private String setPoint;
+    private String unidadeAjuste;
+    private String status;
+    private String possuiRgi;
+    private String fluido;
+    private String numRelatorio;
+    private String laudoValSeguranca;
+    private String numSerie;
+    private String capacidade;
+    private String norma;
 
-    private String proximaInspecao;
-
-    private String tipoInspecao;
 
     @ManyToOne
     @JsonIgnoreProperties("empresa")
