@@ -12,7 +12,6 @@ import java.util.List;
 @Entity
 @Data
 public class Equipamentos {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
