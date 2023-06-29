@@ -164,7 +164,7 @@ public class EquipamentosService {
 
         for (int i = 0; i < files.size(); i++) {
             MultipartFile file = files.get(i);
-            String caminho = "C:\\Users\\josia\\OneDrive\\Área de Trabalho\\Arquivos" + UUID.randomUUID().getLeastSignificantBits() + file.getOriginalFilename();
+            String caminho = "C:\\Users\\josia\\OneDrive\\Área de Trabalho\\Arquivos\\" + UUID.randomUUID().getLeastSignificantBits() + file.getOriginalFilename();
             byte[] bytes = file.getBytes();
             Path path = Paths.get(caminho);
             Files.write(path, bytes);

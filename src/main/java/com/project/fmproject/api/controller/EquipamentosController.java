@@ -33,7 +33,7 @@ import java.net.URI;
 
 
 @RestController
-@CrossOrigin("http://localhost:4200")
+@CrossOrigin(origins = "*")
 @RequestMapping("/equipamentos")
 public class EquipamentosController {
 
