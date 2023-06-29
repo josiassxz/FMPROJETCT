@@ -64,7 +64,7 @@ public class EquipamentosService {
         Equipamentos equipamentos = mapper.readValue(equipamentosJson, Equipamentos.class);
         for (int i = 0; i < files.size(); i++) {
             MultipartFile file = files.get(i);
-            String caminho = "C:\\Users\\sxz\\Desktop\\Arquivos\\" + UUID.randomUUID().getLeastSignificantBits() + file.getOriginalFilename();
+            String caminho = "C:\\Users\\josia\\OneDrive\\Área de Trabalho\\Arquivos" + UUID.randomUUID().getLeastSignificantBits() + file.getOriginalFilename();
             byte[] bytes = file.getBytes();
             Path path = Paths.get(caminho);
             Files.write(path, bytes);
@@ -120,11 +120,8 @@ public class EquipamentosService {
         equipamentoExistente.setNumSerie(equipamentoAtualizado.getNumSerie());
         equipamentoExistente.setCapacidade(equipamentoAtualizado.getCapacidade());
         equipamentoExistente.setNorma(equipamentoAtualizado.getNorma());
-
-
         // Remove os documentos antigos antes de adicionar os novos
         equipamentoExistente.getDocumentos().clear();
-
 //        for (MultipartFile file : files) {
 //            String caminho = "C:\\Users\\sxz\\Desktop\\Arquivos" + UUID.randomUUID().getLeastSignificantBits() + file.getOriginalFilename();
 //            byte[] bytes = file.getBytes();
@@ -137,7 +134,7 @@ public class EquipamentosService {
 
         for (int i = 0; i < files.size(); i++) {
             MultipartFile file = files.get(i);
-            String caminho = "C:\\Users\\sxz\\Desktop\\Arquivos\\" + UUID.randomUUID().getLeastSignificantBits() + file.getOriginalFilename();
+            String caminho = "C:\\Users\\josia\\OneDrive\\Área de Trabalho\\Arquivos" + UUID.randomUUID().getLeastSignificantBits() + file.getOriginalFilename();
             byte[] bytes = file.getBytes();
             Path path = Paths.get(caminho);
             Files.write(path, bytes);
