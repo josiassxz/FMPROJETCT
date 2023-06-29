@@ -61,9 +61,17 @@ public class EquipamentosController {
     }
 
 
+//    @PostMapping(value = "/salvar")
+//    public ResponseEntity<Equipamentos> salvar(@RequestParam("equipamento") String equipamentosJson,
+//                                               @RequestPart("files") List<MultipartFile> files) throws IOException {
+//        Equipamentos novoEquipamento = service.salvar(equipamentosJson, files);
+//        return ResponseEntity.created(URI.create("/equipamentos/" + novoEquipamento.getId())).body(novoEquipamento);
+//    }
+
+
     @PostMapping(value = "/salvar")
     public ResponseEntity<Equipamentos> salvar(@RequestParam("equipamento") String equipamentosJson,
-                                               @RequestPart("files") List<MultipartFile> files) throws IOException {
+                                               @RequestParam("files") List<MultipartFile> files) throws IOException {
         Equipamentos novoEquipamento = service.salvar(equipamentosJson, files);
         return ResponseEntity.created(URI.create("/equipamentos/" + novoEquipamento.getId())).body(novoEquipamento);
     }
@@ -71,7 +79,8 @@ public class EquipamentosController {
 
 
 
-/* RETORNA UM BASE64 NAO RECOMENDADO*/
+
+    /* RETORNA UM BASE64 NAO RECOMENDADO*/
 //    @CrossOrigin(origins = "*")
 //    @GetMapping("/download/{idDocumento}")
 //    public ResponseEntity<String> downloadDocumento(@PathVariable Long idDocumento) {
