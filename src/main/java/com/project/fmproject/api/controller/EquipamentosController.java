@@ -18,6 +18,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.zip.ZipEntry;
@@ -70,7 +71,7 @@ public class EquipamentosController {
 
 
     @PostMapping(value = "/salvar")
-    public ResponseEntity<Equipamentos> salvar(@RequestParam("equipamento") String equipamentosJson,
+    public ResponseEntity<Equipamentos> salvar(String equipamentosJson,
                                                @RequestParam("files") List<MultipartFile> files) throws IOException {
         Equipamentos novoEquipamento = service.salvar(equipamentosJson, files);
         return ResponseEntity.created(URI.create("/equipamentos/" + novoEquipamento.getId())).body(novoEquipamento);

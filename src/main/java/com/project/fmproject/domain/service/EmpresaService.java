@@ -28,6 +28,10 @@ public class EmpresaService {
         return empresaRepository.findAll(pageable);
     }
 
+    public List<Empresa> listEmpresas() {
+        return empresaRepository.findAll();
+    }
+
     public Empresa buscarEmpresaPorId(Long id) {
         return empresaRepository.findById(id)
                 .orElseThrow(() -> new EntidadeNaoEncontradaException("Empresa não encontrada"));
@@ -35,9 +39,9 @@ public class EmpresaService {
 
     public Empresa salvarEmpresa(Empresa empresa) {
         List<Usuario> usuarios = new ArrayList<>();
-        if (empresa.getIdsUsuarios() != null) {
-            for (Long id : empresa.getIdsUsuarios()) {
-                usuarios.add(usuarioRepository.findById(id).orElseThrow(() -> new EntidadeNaoEncontradaException("Usuário não encontrado com o ID informado: " + id)));
+        if (empresa.getUsuarios() != null) {
+            for (Usuario usuario : empresa.getUsuarios()) {
+                usuarios.add(usuarioRepository.findById(usuario.getId()).orElseThrow(() -> new EntidadeNaoEncontradaException("Usuário não encontrado com o ID informado: " + usuario.getId())));
             }
         }
         empresa.setUsuarios(usuarios);

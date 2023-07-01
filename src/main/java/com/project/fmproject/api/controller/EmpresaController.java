@@ -55,6 +55,12 @@ public class EmpresaController {
         return ResponseEntity.ok(empresas);
     }
 
+    @GetMapping("/lista-empresas")
+    public ResponseEntity<List<Empresa>> listarEmpresas() {
+        List<Empresa> empresas = empresaService.listEmpresas();
+        return ResponseEntity.ok(empresas);
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<Empresa> buscarEmpresaPorId(@PathVariable Long id) {
         Empresa empresa = empresaService.buscarEmpresaPorId(id);
