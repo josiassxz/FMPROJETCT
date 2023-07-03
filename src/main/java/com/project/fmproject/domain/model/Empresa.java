@@ -37,6 +37,12 @@ public class Empresa {
     @NotBlank(message = "O telefone é obrigatório")
     private String telefone;
 
+    private String cidade;
+
+    private String cep;
+
+    private String endereco;
+
     @JsonIgnoreProperties("empresas")
     @ManyToMany
     @JoinTable(name = "empresa_usuario",
