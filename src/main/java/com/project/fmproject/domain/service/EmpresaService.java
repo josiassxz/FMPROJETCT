@@ -37,16 +37,21 @@ public class EmpresaService {
                 .orElseThrow(() -> new EntidadeNaoEncontradaException("Empresa não encontrada"));
     }
 
+
     public Empresa salvarEmpresa(Empresa empresa) {
         List<Usuario> usuarios = new ArrayList<>();
         if (empresa.getUsuarios() != null) {
             for (Usuario usuario : empresa.getUsuarios()) {
-                usuarios.add(usuarioRepository.findById(usuario.getId()).orElseThrow(() -> new EntidadeNaoEncontradaException("Usuário não encontrado com o ID informado: " + usuario.getId())));
+                Usuario usuarioExistente = usuarioRepository.findById(usuario.getId())
+                        .orElseThrow(() -> new EntidadeNaoEncontradaException("Usuário não encontrado com o ID informado: " + usuario.getId()));
+                usuarios.add(usuarioExistente);
             }
         }
         empresa.setUsuarios(usuarios);
         return empresaRepository.save(empresa);
     }
+
+
 
     public Empresa atualizarEmpresa(Long id, Empresa empresaAtualizada) {
         Empresa empresaExistente = buscarEmpresaPorId(id);
