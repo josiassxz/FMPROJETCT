@@ -4,11 +4,14 @@ package com.project.fmproject.api.controller;
 import com.project.fmproject.domain.model.Documentos;
 import com.project.fmproject.domain.model.Equipamentos;
 import com.project.fmproject.domain.repository.DocumentosRepository;
+import com.project.fmproject.domain.repository.EquipamentosRepository;
 import com.project.fmproject.domain.service.EquipamentosService;
+import com.project.fmproject.domain.specification.EquipamentosSpecification;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -44,6 +47,13 @@ public class EquipamentosController {
 
     @Autowired
     private DocumentosRepository documentosRepository;
+
+    private final EquipamentosRepository equipamentosRepository;
+
+    @Autowired
+    public EquipamentosController(EquipamentosRepository equipamentosRepository) {
+        this.equipamentosRepository = equipamentosRepository;
+    }
 
     @GetMapping
     public ResponseEntity<Page<Equipamentos>> findAll(
@@ -171,6 +181,32 @@ public class EquipamentosController {
     public void removerEquipamento(@PathVariable Long id) {
         service.removerEquipamento(id);
     }
+
+    @GetMapping("/equipamentos")
+    public Page<Equipamentos> filtrarEquipamentos(@RequestParam(required = false) String anoCadastro,
+                                                  @RequestParam(required = false) String tagEquipamento,
+                                                  @RequestParam(required = false) String norma,
+                                                  @RequestParam(required = false) String inspecaoExterna,
+                                                  @RequestParam(required = false) String inspecaoInterna,
+                                                  @RequestParam(required = false) String proximaInspecaoExterna,
+                                                  @RequestParam(required = false) String proximaInspecaoInterna,
+                                                  @RequestParam(required = false) String dataCalibracao,
+                                                  @RequestParam(required = false) String proximaCalibracao,
+                                                  @RequestParam(required = false) Long idEmpresa,
+                                                  Pageable pageable) {
+        Specification<Equipamentos> specification = EquipamentosSpecification.filtrarEquipamentos(anoCadastro, tagEquipamento,
+                norma, inspecaoExterna,
+                inspecaoInterna,
+                proximaInspecaoExterna,
+                proximaInspecaoInterna,
+                dataCalibracao,
+                proximaCalibracao,
+                idEmpresa);
+        return equipamentosRepository.findAll(specification, pageable);
+    }
+
+
+
 
 }
 
