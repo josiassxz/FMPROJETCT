@@ -74,12 +74,12 @@ public class EquipamentosService {
 
 
 
-    public Equipamentos alterar(Long equipamentoId, String equipamentoJson, List<MultipartFile> files) throws IOException {
+    public Equipamentos alterar(Long equipamentoId, String equipamentosJson, List<MultipartFile> files) throws IOException {
         Equipamentos equipamentoExistente = equipamentosRepository.findById(equipamentoId)
                 .orElseThrow(() -> new IllegalArgumentException("Equipamento não encontrado"));
 
         ObjectMapper mapper = new ObjectMapper();
-        Equipamentos equipamentoAtualizado = mapper.readValue(equipamentoJson, Equipamentos.class);
+        Equipamentos equipamentoAtualizado = mapper.readValue(equipamentosJson, Equipamentos.class);
         equipamentoExistente.setTagEquipamento(equipamentoAtualizado.getTagEquipamento());
         equipamentoExistente.setDescricao(equipamentoAtualizado.getDescricao());
         equipamentoExistente.setLocalizacao(equipamentoAtualizado.getLocalizacao());
@@ -116,17 +116,10 @@ public class EquipamentosService {
         equipamentoExistente.setNumSerie(equipamentoAtualizado.getNumSerie());
         equipamentoExistente.setCapacidade(equipamentoAtualizado.getCapacidade());
         equipamentoExistente.setNorma(equipamentoAtualizado.getNorma());
+        equipamentoExistente.setInspecao(equipamentoAtualizado.getInspecao());
+        equipamentoExistente.setProximaInspecao(equipamentoAtualizado.getProximaInspecao());
         // Remove os documentos antigos antes de adicionar os novos
         equipamentoExistente.getDocumentos().clear();
-//        for (MultipartFile file : files) {
-//            String caminho = "C:\\Users\\sxz\\Desktop\\Arquivos" + UUID.randomUUID().getLeastSignificantBits() + file.getOriginalFilename();
-//            byte[] bytes = file.getBytes();
-//            Path path = Paths.get(caminho);
-//            Files.write(path, bytes);
-//            Documentos documento = new Documentos();
-//            documento.setCaminho(caminho);
-//            equipamentoExistente.adicionarDocumento(documento, caminho);
-//        }
 
         for (int i = 0; i < files.size(); i++) {
             MultipartFile file = files.get(i);

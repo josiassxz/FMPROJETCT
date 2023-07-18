@@ -94,30 +94,6 @@ public class EquipamentosController {
 
 
 
-    /* RETORNA UM BASE64 NAO RECOMENDADO*/
-//    @CrossOrigin(origins = "*")
-//    @GetMapping("/download/{idDocumento}")
-//    public ResponseEntity<String> downloadDocumento(@PathVariable Long idDocumento) {
-//        Optional<Documentos> optionalDocumento = documentosRepository.findById(idDocumento);
-//        if (optionalDocumento.isPresent()) {
-//            Documentos documento = optionalDocumento.get();
-//            Path caminho = Paths.get(documento.getCaminho());
-//            try {
-//                byte[] bytes = Files.readAllBytes(caminho);
-//                String base64 = Base64.getEncoder().encodeToString(bytes);
-//                HttpHeaders headers = new HttpHeaders();
-//                headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
-//                headers.setContentDispositionFormData("attachment", caminho.getFileName().toString());
-//                return new ResponseEntity<>(base64, headers, HttpStatus.OK);
-//            } catch (IOException e) {
-//                throw new RuntimeException("Erro ao fazer o download do arquivo");
-//            }
-//        } else {
-//            return ResponseEntity.notFound().build();
-//        }
-//    }
-
-
     /*RETORNAR UM BINARIO !! RECOMENDADO*/
     @GetMapping("/download/{idDocumento}")
     public ResponseEntity<byte[]> downloadDocumento(@PathVariable Long idDocumento) throws IOException {
@@ -173,12 +149,10 @@ public class EquipamentosController {
 
     @PutMapping(value = "/{equipamentoId}/alterar")
     public ResponseEntity<Equipamentos> alterarEquipamento(@PathVariable("equipamentoId") Long equipamentoId,
-                                                           @RequestParam("equipamento") String equipamentoJson,
-                                                           @RequestPart("files") List<MultipartFile> files) throws IOException {
-        Equipamentos equipamentoAtualizado = service.alterar(equipamentoId, equipamentoJson, files);
-        return ResponseEntity.ok(equipamentoAtualizado);
-    }
-
+                                                           @RequestParam("equipamentosJson") String equipamentosJson,
+                                                           @RequestParam("files") List<MultipartFile> files) throws IOException {
+        Equipamentos equipamentoAtualizado = service.alterar(equipamentoId, equipamentosJson, files);
+        return ResponseEntity.ok(equipamentoAtualizado);}
 
     @DeleteMapping("/{id}")
     public void removerEquipamento(@PathVariable Long id) {

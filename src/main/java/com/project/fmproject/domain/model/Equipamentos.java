@@ -87,6 +87,10 @@ public class Equipamentos {
     private String capacidade;
     @Column(nullable = false)
     private String norma;
+    @Column(nullable = false)
+    private String inspecao;
+    @Column(nullable = false)
+    private String proximaInspecao;
 
     @ManyToOne
     @JsonIgnoreProperties("empresa")
