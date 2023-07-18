@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="fastRequestHistoryConfig">
+    <option name="historyList">
+      <list>
+        <ResponseHistory>
+          <option name="className" value="com.project.fmproject.api.controller.EquipamentosController" />
+          <option name="code" value="200" />
+          <option name="enableEnv" value="local" />
+          <option name="enableProject" value="Clientes" />
+          <option name="method" value="findById" />
+          <option name="methodType" value="GET" />
+          <option name="paramGroup">
+            <ParamGroupCollection>
+              <option name="className" value="com.project.fmproject.api.controller.EquipamentosController" />
+              <option name="method" value="findById" />
+              <option name="methodDescription" value="New Request" />
+              <option name="multipartKeyValueListJson" value="[]" />
+              <option name="originUrl" value="/equipamentos/{id}" />
+              <option name="pathParamsKeyValueListJson" value="[{&quot;comment&quot;:&quot;&quot;,&quot;customFlag&quot;:2,&quot;enabled&quot;:true,&quot;key&quot;:&quot;id&quot;,&quot;type&quot;:&quot;Number&quot;,&quot;value&quot;:&quot;1&quot;}]" />
+              <option name="returnDocument" value="{&quot;status&quot;:{},&quot;body&quot;:{}}" />
+              <option name="url" value="/equipamentos/7" />
+              <option name="urlEncodedKeyValueListJson" value="[]" />
+              <option name="urlParamsKeyValueListJson" value="[]" />
+            </ParamGroupCollection>
+          </option>
+          <option name="requestInfo" value="Request Url: http://localhost:8080/equipamentos/7&#13;&#10;Request Headers: &#13;&#10;    Accept: application/json,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8&#13;&#10;    User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36 Hutool&#13;&#10;    Accept-Encoding: gzip, deflate&#13;&#10;    Accept-Language: zh-CN,zh;q=0.8&#13;&#10;Request Body: &#13;&#10;    null&#13;&#10;" />
+          <option name="response" value="{&quot;id&quot;:7,&quot;tagEquipamento&quot;:&quot;asdfsa&quot;,&quot;descricao&quot;:&quot;adsfasd&quot;,&quot;localizacao&quot;:&quot;asdfasdf&quot;,&quot;categoria&quot;:&quot;&quot;,&quot;condicao&quot;:&quot;Aprovado&quot;,&quot;tipoEquipamento&quot;:&quot;INDICADOR&quot;,&quot;inspecaoExterna&quot;:&quot;&quot;,&quot;inspecaoInterna&quot;:&quot;&quot;,&quot;proximaInspecaoExterna&quot;:&quot;&quot;,&quot;proximaInspecaoInterna&quot;:&quot;&quot;,&quot;placaIndentificacao&quot;:&quot;&quot;,&quot;valvulaSeguranca&quot;:&quot;&quot;,&quot;indicadorPressao&quot;:&quot;&quot;,&quot;pmta&quot;:&quot;&quot;,&quot;anoCadastro&quot;:&quot;12312&quot;,&quot;observacao&quot;:&quot;asdfsad&quot;,&quot;numLacre&quot;:&quot;asdf&quot;,&quot;dataCalibracao&quot;:&quot;2023-07-05T03:00:00.000Z&quot;,&quot;proximaCalibracao&quot;:&quot;2023-07-06T03:00:00.000Z&quot;,&quot;roscaConexao&quot;:&quot;&quot;,&quot;marcaModelo&quot;:&quot;asdf&quot;,&quot;instrumento&quot;:&quot;&quot;,&quot;escala&quot;:&quot;&quot;,&quot;unidadeMedida&quot;:&quot;&quot;,&quot;tamanho&quot;:&quot;&quot;,&quot;bitola&quot;:&quot;asdf&quot;,&quot;setPoint&quot;:&quot;asdfdsa&quot;,&quot;unidadeAjuste&quot;:&quot;adsf&quot;,&quot;status&quot;:&quot;&quot;,&quot;possuiRgi&quot;:&quot;&quot;,&quot;fluido&quot;:&quot;&quot;,&quot;numRelatorio&quot;:&quot;&quot;,&quot;laudoValSeguranca&quot;:&quot;&quot;,&quot;numSerie&quot;:&quot;&quot;,&quot;capacidade&quot;:&quot;&quot;,&quot;norma&quot;:&quot;RN-11&quot;,&quot;inspecao&quot;:&quot;&quot;,&quot;proximaInspecao&quot;:&quot;&quot;,&quot;empresa&quot;:{&quot;id&quot;:1,&quot;nome&quot;:&quot;XURUPITA&quot;,&quot;razaoSocial&quot;:&quot;XURUPITA TESTE&quot;,&quot;cnpj&quot;:&quot;1231312312312312&quot;,&quot;email&quot;:&quot;naotem@gmail.com&quot;,&quot;telefone&quot;:&quot;132131232&quot;,&quot;cidade&quot;:null,&quot;cep&quot;:null,&quot;endereco&quot;:null,&quot;usuarios&quot;:[{&quot;id&quot;:1,&quot;email&quot;:&quot;felipe&quot;,&quot;nome&quot;:&quot;pedro&quot;,&quot;tipo&quot;:&quot;admin&quot;,&quot;senha&quot;:&quot;32588903&quot;}],&quot;idsUsuarios&quot;:null},&quot;documentos&quot;:[{&quot;id&quot;:4,&quot;caminho&quot;:&quot;C:\\Users\\sxz\\Desktop\\arquivos-8725405385197671167notafiscal.pdf&quot;,&quot;nome&quot;:&quot;notafiscal.pdf&quot;,&quot;tipo&quot;:&quot;Manual de Operação&quot;,&quot;arquivo&quot;:null}],&quot;caminhosDocumentos&quot;:[]}" />
+          <option name="url" value="/equipamentos/7" />
+        </ResponseHistory>
+        <ResponseHistory>
+          <option name="className" value="com.project.fmproject.api.controller.EquipamentosController" />
+          <option name="code" value="200" />
+          <option name="enableEnv" value="local" />
+          <option name="enableProject" value="Clientes" />
+          <option name="method" value="findById" />
+          <option name="methodType" value="GET" />
+          <option name="paramGroup">
+            <ParamGroupCollection>
+              <option name="className" value="com.project.fmproject.api.controller.EquipamentosController" />
+              <option name="method" value="findById" />
+              <option name="methodDescription" value="New Request" />
+              <option name="multipartKeyValueListJson" value="[]" />
+              <option name="originUrl" value="/equipamentos/{id}" />
+              <option name="pathParamsKeyValueListJson" value="[{&quot;comment&quot;:&quot;&quot;,&quot;customFlag&quot;:2,&quot;enabled&quot;:true,&quot;key&quot;:&quot;id&quot;,&quot;type&quot;:&quot;Number&quot;,&quot;value&quot;:&quot;1&quot;}]" />
+              <option name="returnDocument" value="{&quot;status&quot;:{},&quot;body&quot;:{}}" />
+              <option name="url" value="/equipamentos/1" />
+              <option name="urlEncodedKeyValueListJson" value="[]" />
+              <option name="urlParamsKeyValueListJson" value="[]" />
+            </ParamGroupCollection>
+          </option>
+          <option name="requestInfo" value="Request Url: http://localhost:8080/equipamentos/1&#13;&#10;Request Headers: &#13;&#10;    Accept: application/json,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8&#13;&#10;    User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36 Hutool&#13;&#10;    Accept-Encoding: gzip, deflate&#13;&#10;    Accept-Language: zh-CN,zh;q=0.8&#13;&#10;Request Body: &#13;&#10;    null&#13;&#10;" />
+          <option name="response" value="{&quot;id&quot;:1,&quot;tagEquipamento&quot;:&quot;asdfasd&quot;,&quot;descricao&quot;:&quot;asdfasdf&quot;,&quot;localizacao&quot;:&quot;asdfads&quot;,&quot;categoria&quot;:&quot;&quot;,&quot;condicao&quot;:&quot;Aprovado&quot;,&quot;tipoEquipamento&quot;:&quot;INDICADOR&quot;,&quot;inspecaoExterna&quot;:&quot;&quot;,&quot;inspecaoInterna&quot;:&quot;&quot;,&quot;proximaInspecaoExterna&quot;:&quot;&quot;,&quot;proximaInspecaoInterna&quot;:&quot;&quot;,&quot;placaIndentificacao&quot;:&quot;&quot;,&quot;valvulaSeguranca&quot;:&quot;&quot;,&quot;indicadorPressao&quot;:&quot;&quot;,&quot;pmta&quot;:&quot;&quot;,&quot;anoCadastro&quot;:&quot;9041996&quot;,&quot;observacao&quot;:&quot;asdfadsf&quot;,&quot;numLacre&quot;:&quot;123123&quot;,&quot;dataCalibracao&quot;:&quot;2023-07-17T03:00:00.000Z&quot;,&quot;proximaCalibracao&quot;:&quot;2023-07-17T03:00:00.000Z&quot;,&quot;roscaConexao&quot;:&quot;&quot;,&quot;marcaModelo&quot;:&quot;123123&quot;,&quot;instrumento&quot;:&quot;&quot;,&quot;escala&quot;:&quot;&quot;,&quot;unidadeMedida&quot;:&quot;&quot;,&quot;tamanho&quot;:&quot;&quot;,&quot;bitola&quot;:&quot;1231&quot;,&quot;setPoint&quot;:&quot;123123&quot;,&quot;unidadeAjuste&quot;:&quot;123123&quot;,&quot;status&quot;:&quot;&quot;,&quot;possuiRgi&quot;:&quot;&quot;,&quot;fluido&quot;:&quot;&quot;,&quot;numRelatorio&quot;:&quot;&quot;,&quot;laudoValSeguranca&quot;:&quot;&quot;,&quot;numSerie&quot;:&quot;&quot;,&quot;capacidade&quot;:&quot;&quot;,&quot;norma&quot;:&quot;RN-12&quot;,&quot;empresa&quot;:{&quot;id&quot;:1,&quot;nome&quot;:&quot;XURUPITA&quot;,&quot;razaoSocial&quot;:&quot;XURUPITA TESTE&quot;,&quot;cnpj&quot;:&quot;1231312312312312&quot;,&quot;email&quot;:&quot;naotem@gmail.com&quot;,&quot;telefone&quot;:&quot;132131232&quot;,&quot;cidade&quot;:null,&quot;cep&quot;:null,&quot;endereco&quot;:null,&quot;usuarios&quot;:[{&quot;id&quot;:1,&quot;email&quot;:&quot;felipe&quot;,&quot;nome&quot;:&quot;pedro&quot;,&quot;tipo&quot;:&quot;admin&quot;,&quot;senha&quot;:&quot;32588903&quot;}],&quot;idsUsuarios&quot;:null},&quot;documentos&quot;:[],&quot;caminhosDocumentos&quot;:[]}" />
+          <option name="url" value="/equipamentos/1" />
+        </ResponseHistory>
+        <ResponseHistory>
+          <option name="className" value="com.project.fmproject.api.controller.EquipamentosController" />
+          <option name="code" value="200" />
+          <option name="enableEnv" value="local" />
+          <option name="enableProject" value="Clientes" />
+          <option name="method" value="findById" />
+          <option name="methodType" value="GET" />
+          <option name="paramGroup">
+            <ParamGroupCollection>
+              <option name="className" value="com.project.fmproject.api.controller.EquipamentosController" />
+              <option name="method" value="findById" />
+              <option name="methodDescription" value="New Request" />
+              <option name="multipartKeyValueListJson" value="[]" />
+              <option name="originUrl" value="/equipamentos/{id}" />
+              <option name="pathParamsKeyValueListJson" value="[{&quot;comment&quot;:&quot;&quot;,&quot;customFlag&quot;:2,&quot;enabled&quot;:true,&quot;key&quot;:&quot;id&quot;,&quot;type&quot;:&quot;Number&quot;,&quot;value&quot;:&quot;1&quot;}]" />
+              <option name="returnDocument" value="{&quot;status&quot;:{},&quot;body&quot;:{}}" />
+              <option name="url" value="/equipamentos/1" />
+              <option name="urlEncodedKeyValueListJson" value="[]" />
+              <option name="urlParamsKeyValueListJson" value="[]" />
+            </ParamGroupCollection>
+          </option>
+          <option name="requestInfo" value="Request Url: http://localhost:8080/equipamentos/1&#13;&#10;Request Headers: &#13;&#10;    Accept: application/json,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8&#13;&#10;    User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36 Hutool&#13;&#10;    Accept-Encoding: gzip, deflate&#13;&#10;    Accept-Language: zh-CN,zh;q=0.8&#13;&#10;Request Body: &#13;&#10;    null&#13;&#10;" />
+          <option name="response" value="{&quot;id&quot;:1,&quot;tagEquipamento&quot;:&quot;asdfasd&quot;,&quot;descricao&quot;:&quot;asdfasdf&quot;,&quot;localizacao&quot;:&quot;asdfads&quot;,&quot;categoria&quot;:&quot;&quot;,&quot;condicao&quot;:&quot;Aprovado&quot;,&quot;tipoEquipamento&quot;:&quot;INDICADOR&quot;,&quot;inspecaoExterna&quot;:&quot;&quot;,&quot;inspecaoInterna&quot;:&quot;&quot;,&quot;proximaInspecaoExterna&quot;:&quot;&quot;,&quot;proximaInspecaoInterna&quot;:&quot;&quot;,&quot;placaIndentificacao&quot;:&quot;&quot;,&quot;valvulaSeguranca&quot;:&quot;&quot;,&quot;indicadorPressao&quot;:&quot;&quot;,&quot;pmta&quot;:&quot;&quot;,&quot;anoCadastro&quot;:&quot;9041996&quot;,&quot;observacao&quot;:&quot;asdfadsf&quot;,&quot;numLacre&quot;:&quot;123123&quot;,&quot;dataCalibracao&quot;:&quot;2023-07-17T03:00:00.000Z&quot;,&quot;proximaCalibracao&quot;:&quot;2023-07-17T03:00:00.000Z&quot;,&quot;roscaConexao&quot;:&quot;&quot;,&quot;marcaModelo&quot;:&quot;123123&quot;,&quot;instrumento&quot;:&quot;&quot;,&quot;escala&quot;:&quot;&quot;,&quot;unidadeMedida&quot;:&quot;&quot;,&quot;tamanho&quot;:&quot;&quot;,&quot;bitola&quot;:&quot;1231&quot;,&quot;setPoint&quot;:&quot;123123&quot;,&quot;unidadeAjuste&quot;:&quot;123123&quot;,&quot;status&quot;:&quot;&quot;,&quot;possuiRgi&quot;:&quot;&quot;,&quot;fluido&quot;:&quot;&quot;,&quot;numRelatorio&quot;:&quot;&quot;,&quot;laudoValSeguranca&quot;:&quot;&quot;,&quot;numSerie&quot;:&quot;&quot;,&quot;capacidade&quot;:&quot;&quot;,&quot;norma&quot;:&quot;RN-12&quot;,&quot;empresa&quot;:{&quot;id&quot;:1,&quot;nome&quot;:&quot;XURUPITA&quot;,&quot;razaoSocial&quot;:&quot;XURUPITA TESTE&quot;,&quot;cnpj&quot;:&quot;1231312312312312&quot;,&quot;email&quot;:&quot;naotem@gmail.com&quot;,&quot;telefone&quot;:&quot;132131232&quot;,&quot;cidade&quot;:null,&quot;cep&quot;:null,&quot;endereco&quot;:null,&quot;usuarios&quot;:[{&quot;id&quot;:1,&quot;email&quot;:&quot;felipe&quot;,&quot;nome&quot;:&quot;pedro&quot;,&quot;tipo&quot;:&quot;admin&quot;,&quot;senha&quot;:&quot;32588903&quot;}],&quot;idsUsuarios&quot;:null},&quot;documentos&quot;:[],&quot;caminhosDocumentos&quot;:[]}" />
+          <option name="url" value="/equipamentos/1" />
+        </ResponseHistory>
+        <ResponseHistory>
+          <option name="className" value="com.project.fmproject.api.controller.EquipamentosController" />
+          <option name="code" value="200" />
+          <option name="enableEnv" value="local" />
+          <option name="enableProject" value="Clientes" />
+          <option name="method" value="findById" />
+          <option name="methodType" value="GET" />
+          <option name="paramGroup">
+            <ParamGroupCollection>
+              <option name="className" value="com.project.fmproject.api.controller.EquipamentosController" />
+              <option name="method" value="findById" />
+              <option name="methodDescription" value="New Request" />
+              <option name="multipartKeyValueListJson" value="[]" />
+              <option name="originUrl" value="/equipamentos/{id}" />
+              <option name="pathParamsKeyValueListJson" value="[{&quot;comment&quot;:&quot;&quot;,&quot;customFlag&quot;:2,&quot;enabled&quot;:true,&quot;key&quot;:&quot;id&quot;,&quot;type&quot;:&quot;Number&quot;,&quot;value&quot;:&quot;1&quot;}]" />
+              <option name="returnDocument" value="{&quot;status&quot;:{},&quot;body&quot;:{}}" />
+              <option name="url" value="/equipamentos/1" />
+              <option name="urlEncodedKeyValueListJson" value="[]" />
+              <option name="urlParamsKeyValueListJson" value="[]" />
+            </ParamGroupCollection>
+          </option>
+          <option name="requestInfo" value="Request Url: http://localhost:8080/equipamentos/1&#13;&#10;Request Headers: &#13;&#10;    Accept: application/json,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8&#13;&#10;    User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36 Hutool&#13;&#10;    Accept-Encoding: gzip, deflate&#13;&#10;    Accept-Language: zh-CN,zh;q=0.8&#13;&#10;Request Body: &#13;&#10;    null&#13;&#10;" />
+          <option name="response" value="{&quot;id&quot;:1,&quot;tagEquipamento&quot;:&quot;asdfasd&quot;,&quot;descricao&quot;:&quot;asdfasdf&quot;,&quot;localizacao&quot;:&quot;asdfads&quot;,&quot;categoria&quot;:&quot;&quot;,&quot;condicao&quot;:&quot;Aprovado&quot;,&quot;tipoEquipamento&quot;:&quot;INDICADOR&quot;,&quot;inspecaoExterna&quot;:&quot;&quot;,&quot;inspecaoInterna&quot;:&quot;&quot;,&quot;proximaInspecaoExterna&quot;:&quot;&quot;,&quot;proximaInspecaoInterna&quot;:&quot;&quot;,&quot;placaIndentificacao&quot;:&quot;&quot;,&quot;valvulaSeguranca&quot;:&quot;&quot;,&quot;indicadorPressao&quot;:&quot;&quot;,&quot;pmta&quot;:&quot;&quot;,&quot;anoCadastro&quot;:&quot;9041996&quot;,&quot;observacao&quot;:&quot;asdfadsf&quot;,&quot;numLacre&quot;:&quot;123123&quot;,&quot;dataCalibracao&quot;:&quot;2023-07-17T03:00:00.000Z&quot;,&quot;proximaCalibracao&quot;:&quot;2023-07-17T03:00:00.000Z&quot;,&quot;roscaConexao&quot;:&quot;&quot;,&quot;marcaModelo&quot;:&quot;123123&quot;,&quot;instrumento&quot;:&quot;&quot;,&quot;escala&quot;:&quot;&quot;,&quot;unidadeMedida&quot;:&quot;&quot;,&quot;tamanho&quot;:&quot;&quot;,&quot;bitola&quot;:&quot;1231&quot;,&quot;setPoint&quot;:&quot;123123&quot;,&quot;unidadeAjuste&quot;:&quot;123123&quot;,&quot;status&quot;:&quot;&quot;,&quot;possuiRgi&quot;:&quot;&quot;,&quot;fluido&quot;:&quot;&quot;,&quot;numRelatorio&quot;:&quot;&quot;,&quot;laudoValSeguranca&quot;:&quot;&quot;,&quot;numSerie&quot;:&quot;&quot;,&quot;capacidade&quot;:&quot;&quot;,&quot;norma&quot;:&quot;RN-12&quot;,&quot;empresa&quot;:{&quot;id&quot;:1,&quot;nome&quot;:&quot;XURUPITA&quot;,&quot;razaoSocial&quot;:&quot;XURUPITA TESTE&quot;,&quot;cnpj&quot;:&quot;1231312312312312&quot;,&quot;email&quot;:&quot;naotem@gmail.com&quot;,&quot;telefone&quot;:&quot;132131232&quot;,&quot;cidade&quot;:null,&quot;cep&quot;:null,&quot;endereco&quot;:null,&quot;usuarios&quot;:[{&quot;id&quot;:1,&quot;email&quot;:&quot;felipe&quot;,&quot;nome&quot;:&quot;pedro&quot;,&quot;tipo&quot;:&quot;admin&quot;,&quot;senha&quot;:&quot;32588903&quot;}],&quot;idsUsuarios&quot;:null},&quot;documentos&quot;:[],&quot;caminhosDocumentos&quot;:[]}" />
+          <option name="url" value="/equipamentos/1" />
+        </ResponseHistory>
+        <ResponseHistory>
+          <option name="className" value="com.project.fmproject.api.controller.EquipamentosController" />
+          <option name="code" value="200" />
+          <option name="enableEnv" value="local" />
+          <option name="enableProject" value="Clientes" />
+          <option name="method" value="findById" />
+          <option name="methodType" value="GET" />
+          <option name="paramGroup">
+            <ParamGroupCollection>
+              <option name="className" value="com.project.fmproject.api.controller.EquipamentosController" />
+              <option name="method" value="findById" />
+              <option name="methodDescription" value="New Request" />
+              <option name="multipartKeyValueListJson" value="[]" />
+              <option name="originUrl" value="/equipamentos/{id}" />
+              <option name="pathParamsKeyValueListJson" value="[{&quot;comment&quot;:&quot;&quot;,&quot;customFlag&quot;:2,&quot;enabled&quot;:true,&quot;key&quot;:&quot;id&quot;,&quot;type&quot;:&quot;Number&quot;,&quot;value&quot;:&quot;1&quot;}]" />
+              <option name="returnDocument" value="{&quot;status&quot;:{},&quot;body&quot;:{}}" />
+              <option name="url" value="/equipamentos/1" />
+              <option name="urlEncodedKeyValueListJson" value="[]" />
+              <option name="urlParamsKeyValueListJson" value="[]" />
+            </ParamGroupCollection>
+          </option>
+          <option name="requestInfo" value="Request Url: http://localhost:8080/equipamentos/1&#13;&#10;Request Headers: &#13;&#10;    Accept: application/json,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8&#13;&#10;    User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36 Hutool&#13;&#10;    Accept-Encoding: gzip, deflate&#13;&#10;    Accept-Language: zh-CN,zh;q=0.8&#13;&#10;Request Body: &#13;&#10;    null&#13;&#10;" />
+          <option name="response" value="{&quot;id&quot;:1,&quot;tagEquipamento&quot;:&quot;asdfasd&quot;,&quot;descricao&quot;:&quot;asdfasdf&quot;,&quot;localizacao&quot;:&quot;asdfads&quot;,&quot;categoria&quot;:&quot;&quot;,&quot;condicao&quot;:&quot;Aprovado&quot;,&quot;tipoEquipamento&quot;:&quot;INDICADOR&quot;,&quot;inspecaoExterna&quot;:&quot;&quot;,&quot;inspecaoInterna&quot;:&quot;&quot;,&quot;proximaInspecaoExterna&quot;:&quot;&quot;,&quot;proximaInspecaoInterna&quot;:&quot;&quot;,&quot;placaIndentificacao&quot;:&quot;&quot;,&quot;valvulaSeguranca&quot;:&quot;&quot;,&quot;indicadorPressao&quot;:&quot;&quot;,&quot;pmta&quot;:&quot;&quot;,&quot;anoCadastro&quot;:&quot;9041996&quot;,&quot;observacao&quot;:&quot;asdfadsf&quot;,&quot;numLacre&quot;:&quot;123123&quot;,&quot;dataCalibracao&quot;:&quot;2023-07-17T03:00:00.000Z&quot;,&quot;proximaCalibracao&quot;:&quot;2023-07-17T03:00:00.000Z&quot;,&quot;roscaConexao&quot;:&quot;&quot;,&quot;marcaModelo&quot;:&quot;123123&quot;,&quot;instrumento&quot;:&quot;&quot;,&quot;escala&quot;:&quot;&quot;,&quot;unidadeMedida&quot;:&quot;&quot;,&quot;tamanho&quot;:&quot;&quot;,&quot;bitola&quot;:&quot;1231&quot;,&quot;setPoint&quot;:&quot;123123&quot;,&quot;unidadeAjuste&quot;:&quot;123123&quot;,&quot;status&quot;:&quot;&quot;,&quot;possuiRgi&quot;:&quot;&quot;,&quot;fluido&quot;:&quot;&quot;,&quot;numRelatorio&quot;:&quot;&quot;,&quot;laudoValSeguranca&quot;:&quot;&quot;,&quot;numSerie&quot;:&quot;&quot;,&quot;capacidade&quot;:&quot;&quot;,&quot;norma&quot;:&quot;RN-12&quot;,&quot;empresa&quot;:{&quot;id&quot;:1,&quot;nome&quot;:&quot;XURUPITA&quot;,&quot;razaoSocial&quot;:&quot;XURUPITA TESTE&quot;,&quot;cnpj&quot;:&quot;1231312312312312&quot;,&quot;email&quot;:&quot;naotem@gmail.com&quot;,&quot;telefone&quot;:&quot;132131232&quot;,&quot;cidade&quot;:null,&quot;cep&quot;:null,&quot;endereco&quot;:null,&quot;usuarios&quot;:[{&quot;id&quot;:1,&quot;email&quot;:&quot;felipe&quot;,&quot;nome&quot;:&quot;pedro&quot;,&quot;tipo&quot;:&quot;admin&quot;,&quot;senha&quot;:&quot;32588903&quot;}],&quot;idsUsuarios&quot;:null},&quot;documentos&quot;:[],&quot;caminhosDocumentos&quot;:[]}" />
+          <option name="url" value="/equipamentos/1" />
+        </ResponseHistory>
+        <ResponseHistory>
+          <option name="className" value="com.project.fmproject.api.controller.EquipamentosController" />
+          <option name="code" value="200" />
+          <option name="enableEnv" value="local" />
+          <option name="enableProject" value="Clientes" />
+          <option name="method" value="filtrarEquipamentos" />
+          <option name="methodType" value="GET" />
+          <option name="paramGroup">
+            <ParamGroupCollection>
+              <option name="className" value="com.project.fmproject.api.controller.EquipamentosController" />
+              <option name="method" value="filtrarEquipamentos" />
+              <option name="methodDescription" value="New Request" />
+              <option name="multipartKeyValueListJson" value="[]" />
+              <option name="originUrl" value="/equipamentos/pesquisar" />
+              <option name="pathParamsKeyValueListJson" value="[]" />
+              <option name="returnDocument" value="null" />
+              <option name="url" value="/equipamentos/pesquisar" />
+              <option name="urlEncodedKeyValueListJson" value="[]" />
+              <option name="urlParamsKeyValueListJson" value="[{&quot;comment&quot;:&quot;&quot;,&quot;customFlag&quot;:2,&quot;enabled&quot;:true,&quot;key&quot;:&quot;anoCadastro&quot;,&quot;type&quot;:&quot;String&quot;,&quot;value&quot;:&quot;&quot;},{&quot;comment&quot;:&quot;&quot;,&quot;customFlag&quot;:2,&quot;enabled&quot;:true,&quot;key&quot;:&quot;tagEquipamento&quot;,&quot;type&quot;:&quot;String&quot;,&quot;value&quot;:&quot;&quot;},{&quot;comment&quot;:&quot;&quot;,&quot;customFlag&quot;:2,&quot;enabled&quot;:true,&quot;key&quot;:&quot;norma&quot;,&quot;type&quot;:&quot;String&quot;,&quot;value&quot;:&quot;&quot;},{&quot;comment&quot;:&quot;&quot;,&quot;customFlag&quot;:2,&quot;enabled&quot;:true,&quot;key&quot;:&quot;inspecaoExterna&quot;,&quot;type&quot;:&quot;String&quot;,&quot;value&quot;:&quot;&quot;},{&quot;comment&quot;:&quot;&quot;,&quot;customFlag&quot;:2,&quot;enabled&quot;:true,&quot;key&quot;:&quot;inspecaoInterna&quot;,&quot;type&quot;:&quot;String&quot;,&quot;value&quot;:&quot;&quot;},{&quot;comment&quot;:&quot;&quot;,&quot;customFlag&quot;:2,&quot;enabled&quot;:true,&quot;key&quot;:&quot;proximaInspecaoExterna&quot;,&quot;type&quot;:&quot;String&quot;,&quot;value&quot;:&quot;&quot;},{&quot;comment&quot;:&quot;&quot;,&quot;customFlag&quot;:2,&quot;enabled&quot;:true,&quot;key&quot;:&quot;proximaInspecaoInterna&quot;,&quot;type&quot;:&quot;String&quot;,&quot;value&quot;:&quot;&quot;},{&quot;comment&quot;:&quot;&quot;,&quot;customFlag&quot;:2,&quot;enabled&quot;:true,&quot;key&quot;:&quot;dataCalibracao&quot;,&quot;type&quot;:&quot;String&quot;,&quot;value&quot;:&quot;&quot;},{&quot;comment&quot;:&quot;&quot;,&quot;customFlag&quot;:2,&quot;enabled&quot;:true,&quot;key&quot;:&quot;proximaCalibracao&quot;,&quot;type&quot;:&quot;String&quot;,&quot;value&quot;:&quot;&quot;},{&quot;comment&quot;:&quot;&quot;,&quot;customFlag&quot;:2,&quot;enabled&quot;:true,&quot;key&quot;:&quot;idEmpresa&quot;,&quot;type&quot;:&quot;Number&quot;,&quot;value&quot;:&quot;&quot;}]" />
+              <option name="urlParamsKeyValueListText" value="anoCadastro=&#10;&amp;tagEquipamento=&#10;&amp;norma=&#10;&amp;inspecaoExterna=&#10;&amp;inspecaoInterna=&#10;&amp;proximaInspecaoExterna=&#10;&amp;proximaInspecaoInterna=&#10;&amp;dataCalibracao=&#10;&amp;proximaCalibracao=&#10;&amp;idEmpresa=" />
+            </ParamGroupCollection>
+          </option>
+          <option name="requestInfo" value="Request Url: http://localhost:8080/equipamentos/pesquisar?proximaInspecaoExterna=&amp;dataCalibracao=&amp;inspecaoExterna=&amp;anoCadastro=&amp;proximaCalibracao=&amp;proximaInspecaoInterna=&amp;norma=&amp;tagEquipamento=&amp;idEmpresa=&amp;inspecaoInterna=&#13;&#10;Request Headers: &#13;&#10;    Accept: application/json,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8&#13;&#10;    User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36 Hutool&#13;&#10;    Accept-Encoding: gzip, deflate&#13;&#10;    Accept-Language: zh-CN,zh;q=0.8&#13;&#10;Request Body: &#13;&#10;    null&#13;&#10;" />
+          <option name="response" value="{&quot;content&quot;:[{&quot;id&quot;:1,&quot;tagEquipamento&quot;:&quot;asdfasd&quot;,&quot;descricao&quot;:&quot;asdfasdf&quot;,&quot;localizacao&quot;:&quot;asdfads&quot;,&quot;categoria&quot;:&quot;&quot;,&quot;condicao&quot;:&quot;Aprovado&quot;,&quot;tipoEquipamento&quot;:&quot;INDICADOR&quot;,&quot;inspecaoExterna&quot;:&quot;&quot;,&quot;inspecaoInterna&quot;:&quot;&quot;,&quot;proximaInspecaoExterna&quot;:&quot;&quot;,&quot;proximaInspecaoInterna&quot;:&quot;&quot;,&quot;placaIndentificacao&quot;:&quot;&quot;,&quot;valvulaSeguranca&quot;:&quot;&quot;,&quot;indicadorPressao&quot;:&quot;&quot;,&quot;pmta&quot;:&quot;&quot;,&quot;anoCadastro&quot;:&quot;9041996&quot;,&quot;observacao&quot;:&quot;asdfadsf&quot;,&quot;numLacre&quot;:&quot;123123&quot;,&quot;dataCalibracao&quot;:&quot;2023-07-17T03:00:00.000Z&quot;,&quot;proximaCalibracao&quot;:&quot;2023-07-17T03:00:00.000Z&quot;,&quot;roscaConexao&quot;:&quot;&quot;,&quot;marcaModelo&quot;:&quot;123123&quot;,&quot;instrumento&quot;:&quot;&quot;,&quot;escala&quot;:&quot;&quot;,&quot;unidadeMedida&quot;:&quot;&quot;,&quot;tamanho&quot;:&quot;&quot;,&quot;bitola&quot;:&quot;1231&quot;,&quot;setPoint&quot;:&quot;123123&quot;,&quot;unidadeAjuste&quot;:&quot;123123&quot;,&quot;status&quot;:&quot;&quot;,&quot;possuiRgi&quot;:&quot;&quot;,&quot;fluido&quot;:&quot;&quot;,&quot;numRelatorio&quot;:&quot;&quot;,&quot;laudoValSeguranca&quot;:&quot;&quot;,&quot;numSerie&quot;:&quot;&quot;,&quot;capacidade&quot;:&quot;&quot;,&quot;norma&quot;:&quot;RN-12&quot;,&quot;empresa&quot;:{&quot;id&quot;:1,&quot;nome&quot;:&quot;XURUPITA&quot;,&quot;razaoSocial&quot;:&quot;XURUPITA TESTE&quot;,&quot;cnpj&quot;:&quot;1231312312312312&quot;,&quot;email&quot;:&quot;naotem@gmail.com&quot;,&quot;telefone&quot;:&quot;132131232&quot;,&quot;cidade&quot;:null,&quot;cep&quot;:null,&quot;endereco&quot;:null,&quot;usuarios&quot;:[{&quot;id&quot;:1,&quot;email&quot;:&quot;felipe&quot;,&quot;nome&quot;:&quot;pedro&quot;,&quot;tipo&quot;:&quot;admin&quot;,&quot;senha&quot;:&quot;32588903&quot;}],&quot;idsUsuarios&quot;:null},&quot;documentos&quot;:[],&quot;caminhosDocumentos&quot;:[]}],&quot;pageable&quot;:{&quot;sort&quot;:{&quot;sorted&quot;:false,&quot;unsorted&quot;:true,&quot;empty&quot;:true},&quot;offset&quot;:0,&quot;pageNumber&quot;:0,&quot;pageSize&quot;:20,&quot;unpaged&quot;:false,&quot;paged&quot;:true},&quot;last&quot;:true,&quot;totalPages&quot;:1,&quot;totalElements&quot;:1,&quot;size&quot;:20,&quot;number&quot;:0,&quot;sort&quot;:{&quot;sorted&quot;:false,&quot;unsorted&quot;:true,&quot;empty&quot;:true},&quot;numberOfElements&quot;:1,&quot;first&quot;:true,&quot;empty&quot;:false}" />
+          <option name="url" value="/equipamentos/pesquisar" />
+        </ResponseHistory>
+        <ResponseHistory>
+          <option name="className" value="com.project.fmproject.api.controller.EquipamentosController" />
+          <option name="code" value="200" />
+          <option name="enableEnv" value="local" />
+          <option name="enableProject" value="Clientes" />
+          <option name="method" value="filtrarEquipamentos" />
+          <option name="methodType" value="GET" />
+          <option name="paramGroup">
+            <ParamGroupCollection>
+              <option name="className" value="com.project.fmproject.api.controller.EquipamentosController" />
+              <option name="method" value="filtrarEquipamentos" />
+              <option name="methodDescription" value="New Request" />
+              <option name="multipartKeyValueListJson" value="[]" />
+              <option name="originUrl" value="/equipamentos/pesquisar" />
+              <option name="pathParamsKeyValueListJson" value="[]" />
+              <option name="returnDocument" value="null" />
+              <option name="url" value="/equipamentos/pesquisar" />
+              <option name="urlEncodedKeyValueListJson" value="[]" />
+              <option name="urlParamsKeyValueListJson" value="[{&quot;comment&quot;:&quot;&quot;,&quot;customFlag&quot;:2,&quot;enabled&quot;:true,&quot;key&quot;:&quot;anoCadastro&quot;,&quot;type&quot;:&quot;String&quot;,&quot;value&quot;:&quot;&quot;},{&quot;comment&quot;:&quot;&quot;,&quot;customFlag&quot;:2,&quot;enabled&quot;:true,&quot;key&quot;:&quot;tagEquipamento&quot;,&quot;type&quot;:&quot;String&quot;,&quot;value&quot;:&quot;&quot;},{&quot;comment&quot;:&quot;&quot;,&quot;customFlag&quot;:2,&quot;enabled&quot;:true,&quot;key&quot;:&quot;norma&quot;,&quot;type&quot;:&quot;String&quot;,&quot;value&quot;:&quot;&quot;},{&quot;comment&quot;:&quot;&quot;,&quot;customFlag&quot;:2,&quot;enabled&quot;:true,&quot;key&quot;:&quot;inspecaoExterna&quot;,&quot;type&quot;:&quot;String&quot;,&quot;value&quot;:&quot;&quot;},{&quot;comment&quot;:&quot;&quot;,&quot;customFlag&quot;:2,&quot;enabled&quot;:true,&quot;key&quot;:&quot;inspecaoInterna&quot;,&quot;type&quot;:&quot;String&quot;,&quot;value&quot;:&quot;&quot;},{&quot;comment&quot;:&quot;&quot;,&quot;customFlag&quot;:2,&quot;enabled&quot;:true,&quot;key&quot;:&quot;proximaInspecaoExterna&quot;,&quot;type&quot;:&quot;String&quot;,&quot;value&quot;:&quot;&quot;},{&quot;comment&quot;:&quot;&quot;,&quot;customFlag&quot;:2,&quot;enabled&quot;:true,&quot;key&quot;:&quot;proximaInspecaoInterna&quot;,&quot;type&quot;:&quot;String&quot;,&quot;value&quot;:&quot;&quot;},{&quot;comment&quot;:&quot;&quot;,&quot;customFlag&quot;:2,&quot;enabled&quot;:true,&quot;key&quot;:&quot;dataCalibracao&quot;,&quot;type&quot;:&quot;String&quot;,&quot;value&quot;:&quot;&quot;},{&quot;comment&quot;:&quot;&quot;,&quot;customFlag&quot;:2,&quot;enabled&quot;:true,&quot;key&quot;:&quot;proximaCalibracao&quot;,&quot;type&quot;:&quot;String&quot;,&quot;value&quot;:&quot;&quot;},{&quot;comment&quot;:&quot;&quot;,&quot;customFlag&quot;:2,&quot;enabled&quot;:true,&quot;key&quot;:&quot;idEmpresa&quot;,&quot;type&quot;:&quot;Number&quot;,&quot;value&quot;:&quot;1&quot;}]" />
+              <option name="urlParamsKeyValueListText" value="anoCadastro=&#10;&amp;tagEquipamento=&#10;&amp;norma=&#10;&amp;inspecaoExterna=&#10;&amp;inspecaoInterna=&#10;&amp;proximaInspecaoExterna=&#10;&amp;proximaInspecaoInterna=&#10;&amp;dataCalibracao=&#10;&amp;proximaCalibracao=&#10;&amp;idEmpresa=1" />
+            </ParamGroupCollection>
+          </option>
+          <option name="requestInfo" value="Request Url: http://localhost:8080/equipamentos/pesquisar?proximaInspecaoExterna=&amp;dataCalibracao=&amp;inspecaoExterna=&amp;anoCadastro=&amp;proximaCalibracao=&amp;proximaInspecaoInterna=&amp;norma=&amp;tagEquipamento=&amp;idEmpresa=%31&amp;inspecaoInterna=&#13;&#10;Request Headers: &#13;&#10;    Accept: application/json,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8&#13;&#10;    User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36 Hutool&#13;&#10;    Accept-Encoding: gzip, deflate&#13;&#10;    Accept-Language: zh-CN,zh;q=0.8&#13;&#10;Request Body: &#13;&#10;    null&#13;&#10;" />
+          <option name="response" value="{&quot;content&quot;:[],&quot;pageable&quot;:{&quot;sort&quot;:{&quot;sorted&quot;:false,&quot;unsorted&quot;:true,&quot;empty&quot;:true},&quot;offset&quot;:0,&quot;pageSize&quot;:20,&quot;pageNumber&quot;:0,&quot;unpaged&quot;:false,&quot;paged&quot;:true},&quot;last&quot;:true,&quot;totalElements&quot;:0,&quot;totalPages&quot;:0,&quot;size&quot;:20,&quot;number&quot;:0,&quot;sort&quot;:{&quot;sorted&quot;:false,&quot;unsorted&quot;:true,&quot;empty&quot;:true},&quot;first&quot;:true,&quot;numberOfElements&quot;:0,&quot;empty&quot;:true}" />
+          <option name="url" value="/equipamentos/pesquisar" />
+        </ResponseHistory>
+        <ResponseHistory>
+          <option name="className" value="com.project.fmproject.api.controller.EquipamentosController" />
+          <option name="code" value="200" />
+          <option name="enableEnv" value="local" />
+          <option name="enableProject" value="Clientes" />
+          <option name="method" value="filtrarEquipamentos" />
+          <option name="methodType" value="GET" />
+          <option name="paramGroup">
+            <ParamGroupCollection>
+              <option name="className" value="com.project.fmproject.api.controller.EquipamentosController" />
+              <option name="method" value="filtrarEquipamentos" />
+              <option name="methodDescription" value="New Request" />
+              <option name="multipartKeyValueListJson" value="[]" />
+              <option name="originUrl" value="/equipamentos/pesquisar" />
+              <option name="pathParamsKeyValueListJson" value="[]" />
+              <option name="returnDocument" value="null" />
+              <option name="url" value="/equipamentos/pesquisar" />
+              <option name="urlEncodedKeyValueListJson" value="[]" />
+              <option name="urlParamsKeyValueListJson" value="[{&quot;comment&quot;:&quot;&quot;,&quot;customFlag&quot;:2,&quot;enabled&quot;:true,&quot;key&quot;:&quot;anoCadastro&quot;,&quot;type&quot;:&quot;String&quot;,&quot;value&quot;:&quot;anoCadastro_u4ecx&quot;},{&quot;comment&quot;:&quot;&quot;,&quot;customFlag&quot;:2,&quot;enabled&quot;:true,&quot;key&quot;:&quot;tagEquipamento&quot;,&quot;type&quot;:&quot;String&quot;,&quot;value&quot;:&quot;tagEquipamento_uxk7e&quot;},{&quot;comment&quot;:&quot;&quot;,&quot;customFlag&quot;:2,&quot;enabled&quot;:true,&quot;key&quot;:&quot;norma&quot;,&quot;type&quot;:&quot;String&quot;,&quot;value&quot;:&quot;norma_mcct7&quot;},{&quot;comment&quot;:&quot;&quot;,&quot;customFlag&quot;:2,&quot;enabled&quot;:true,&quot;key&quot;:&quot;inspecaoExterna&quot;,&quot;type&quot;:&quot;String&quot;,&quot;value&quot;:&quot;inspecaoExterna_t03rw&quot;},{&quot;comment&quot;:&quot;&quot;,&quot;customFlag&quot;:2,&quot;enabled&quot;:true,&quot;key&quot;:&quot;inspecaoInterna&quot;,&quot;type&quot;:&quot;String&quot;,&quot;value&quot;:&quot;inspecaoInterna_mm3od&quot;},{&quot;comment&quot;:&quot;&quot;,&quot;customFlag&quot;:2,&quot;enabled&quot;:true,&quot;key&quot;:&quot;proximaInspecaoExterna&quot;,&quot;type&quot;:&quot;String&quot;,&quot;value&quot;:&quot;proximaInspecaoExterna_3jzke&quot;},{&quot;comment&quot;:&quot;&quot;,&quot;customFlag&quot;:2,&quot;enabled&quot;:true,&quot;key&quot;:&quot;proximaInspecaoInterna&quot;,&quot;type&quot;:&quot;String&quot;,&quot;value&quot;:&quot;proximaInspecaoInterna_jtjwa&quot;},{&quot;comment&quot;:&quot;&quot;,&quot;customFlag&quot;:2,&quot;enabled&quot;:true,&quot;key&quot;:&quot;dataCalibracao&quot;,&quot;type&quot;:&quot;String&quot;,&quot;value&quot;:&quot;dataCalibracao_nq0p1&quot;},{&quot;comment&quot;:&quot;&quot;,&quot;customFlag&quot;:2,&quot;enabled&quot;:true,&quot;key&quot;:&quot;proximaCalibracao&quot;,&quot;type&quot;:&quot;String&quot;,&quot;value&quot;:&quot;proximaCalibracao_6tu8q&quot;},{&quot;comment&quot;:&quot;&quot;,&quot;customFlag&quot;:2,&quot;enabled&quot;:true,&quot;key&quot;:&quot;idEmpresa&quot;,&quot;type&quot;:&quot;Number&quot;,&quot;value&quot;:&quot;1&quot;}]" />
+              <option name="urlParamsKeyValueListText" value="anoCadastro=anoCadastro_u4ecx&#10;&amp;tagEquipamento=tagEquipamento_uxk7e&#10;&amp;norma=norma_mcct7&#10;&amp;inspecaoExterna=inspecaoExterna_t03rw&#10;&amp;inspecaoInterna=inspecaoInterna_mm3od&#10;&amp;proximaInspecaoExterna=proximaInspecaoExterna_3jzke&#10;&amp;proximaInspecaoInterna=proximaInspecaoInterna_jtjwa&#10;&amp;dataCalibracao=dataCalibracao_nq0p1&#10;&amp;proximaCalibracao=proximaCalibracao_6tu8q&#10;&amp;idEmpresa=1" />
+            </ParamGroupCollection>
+          </option>
+          <option name="requestInfo" value="Request Url: http://localhost:8080/equipamentos/pesquisar?proximaInspecaoExterna=%70%72%6F%78%69%6D%61%49%6E%73%70%65%63%61%6F%45%78%74%65%72%6E%61%5F%33%6A%7A%6B%65&amp;dataCalibracao=%64%61%74%61%43%61%6C%69%62%72%61%63%61%6F%5F%6E%71%30%70%31&amp;inspecaoExterna=%69%6E%73%70%65%63%61%6F%45%78%74%65%72%6E%61%5F%74%30%33%72%77&amp;anoCadastro=%61%6E%6F%43%61%64%61%73%74%72%6F%5F%75%34%65%63%78&amp;proximaCalibracao=%70%72%6F%78%69%6D%61%43%61%6C%69%62%72%61%63%61%6F%5F%36%74%75%38%71&amp;proximaInspecaoInterna=%70%72%6F%78%69%6D%61%49%6E%73%70%65%63%61%6F%49%6E%74%65%72%6E%61%5F%6A%74%6A%77%61&amp;norma=%6E%6F%72%6D%61%5F%6D%63%63%74%37&amp;tagEquipamento=%74%61%67%45%71%75%69%70%61%6D%65%6E%74%6F%5F%75%78%6B%37%65&amp;idEmpresa=%31&amp;inspecaoInterna=%69%6E%73%70%65%63%61%6F%49%6E%74%65%72%6E%61%5F%6D%6D%33%6F%64&#13;&#10;Request Headers: &#13;&#10;    Accept: application/json,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8&#13;&#10;    User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36 Hutool&#13;&#10;    Accept-Encoding: gzip, deflate&#13;&#10;    Accept-Language: zh-CN,zh;q=0.8&#13;&#10;Request Body: &#13;&#10;    null&#13;&#10;" />
+          <option name="response" value="{&quot;content&quot;:[],&quot;pageable&quot;:{&quot;sort&quot;:{&quot;sorted&quot;:false,&quot;unsorted&quot;:true,&quot;empty&quot;:true},&quot;offset&quot;:0,&quot;pageSize&quot;:20,&quot;pageNumber&quot;:0,&quot;unpaged&quot;:false,&quot;paged&quot;:true},&quot;last&quot;:true,&quot;totalElements&quot;:0,&quot;totalPages&quot;:0,&quot;size&quot;:20,&quot;number&quot;:0,&quot;sort&quot;:{&quot;sorted&quot;:false,&quot;unsorted&quot;:true,&quot;empty&quot;:true},&quot;first&quot;:true,&quot;numberOfElements&quot;:0,&quot;empty&quot;:true}" />
+          <option name="url" value="/equipamentos/pesquisar" />
+        </ResponseHistory>
+        <ResponseHistory>
+          <option name="className" value="com.project.fmproject.api.controller.EquipamentosController" />
+          <option name="code" value="200" />
+          <option name="enableEnv" value="local" />
+          <option name="enableProject" value="Clientes" />
+          <option name="method" value="filtrarEquipamentos" />
+          <option name="methodType" value="GET" />
+          <option name="paramGroup">
+            <ParamGroupCollection>
+              <option name="className" value="com.project.fmproject.api.controller.EquipamentosController" />
+              <option name="method" value="filtrarEquipamentos" />
+              <option name="methodDescription" value="New Request" />
+              <option name="multipartKeyValueListJson" value="[]" />
+              <option name="originUrl" value="/equipamentos/equipamentos" />
+              <option name="pathParamsKeyValueListJson" value="[]" />
+              <option name="returnDocument" value="null" />
+              <option name="url" value="/equipamentos/equipamentos" />
+              <option name="urlEncodedKeyValueListJson" value="[]" />
+              <option name="urlParamsKeyValueListJson" value="[{&quot;comment&quot;:&quot;&quot;,&quot;customFlag&quot;:2,&quot;enabled&quot;:true,&quot;key&quot;:&quot;anoCadastro&quot;,&quot;type&quot;:&quot;String&quot;,&quot;value&quot;:&quot;anoCadastro_yyp18&quot;},{&quot;comment&quot;:&quot;&quot;,&quot;customFlag&quot;:2,&quot;enabled&quot;:true,&quot;key&quot;:&quot;tagEquipamento&quot;,&quot;type&quot;:&quot;String&quot;,&quot;value&quot;:&quot;tagEquipamento_610ym&quot;},{&quot;comment&quot;:&quot;&quot;,&quot;customFlag&quot;:2,&quot;enabled&quot;:true,&quot;key&quot;:&quot;norma&quot;,&quot;type&quot;:&quot;String&quot;,&quot;value&quot;:&quot;norma_lq7uf&quot;},{&quot;comment&quot;:&quot;&quot;,&quot;customFlag&quot;:2,&quot;enabled&quot;:true,&quot;key&quot;:&quot;inspecaoExterna&quot;,&quot;type&quot;:&quot;String&quot;,&quot;value&quot;:&quot;inspecaoExterna_ov6xt&quot;},{&quot;comment&quot;:&quot;&quot;,&quot;customFlag&quot;:2,&quot;enabled&quot;:true,&quot;key&quot;:&quot;inspecaoInterna&quot;,&quot;type&quot;:&quot;String&quot;,&quot;value&quot;:&quot;inspecaoInterna_0yjgm&quot;},{&quot;comment&quot;:&quot;&quot;,&quot;customFlag&quot;:2,&quot;enabled&quot;:true,&quot;key&quot;:&quot;proximaInspecaoExterna&quot;,&quot;type&quot;:&quot;String&quot;,&quot;value&quot;:&quot;proximaInspecaoExterna_b4lsn&quot;},{&quot;comment&quot;:&quot;&quot;,&quot;customFlag&quot;:2,&quot;enabled&quot;:true,&quot;key&quot;:&quot;proximaInspecaoInterna&quot;,&quot;type&quot;:&quot;String&quot;,&quot;value&quot;:&quot;proximaInspecaoInterna_nqqp9&quot;},{&quot;comment&quot;:&quot;&quot;,&quot;customFlag&quot;:2,&quot;enabled&quot;:true,&quot;key&quot;:&quot;dataCalibracao&quot;,&quot;type&quot;:&quot;String&quot;,&quot;value&quot;:&quot;dataCalibracao_j2znj&quot;},{&quot;comment&quot;:&quot;&quot;,&quot;customFlag&quot;:2,&quot;enabled&quot;:true,&quot;key&quot;:&quot;proximaCalibracao&quot;,&quot;type&quot;:&quot;String&quot;,&quot;value&quot;:&quot;proximaCalibracao_kv9e4&quot;},{&quot;comment&quot;:&quot;&quot;,&quot;customFlag&quot;:2,&quot;enabled&quot;:true,&quot;key&quot;:&quot;idEmpresa&quot;,&quot;type&quot;:&quot;Number&quot;,&quot;value&quot;:&quot;1&quot;}]" />
+              <option name="urlParamsKeyValueListText" value="anoCadastro=anoCadastro_yyp18&#10;&amp;tagEquipamento=tagEquipamento_610ym&#10;&amp;norma=norma_lq7uf&#10;&amp;inspecaoExterna=inspecaoExterna_ov6xt&#10;&amp;inspecaoInterna=inspecaoInterna_0yjgm&#10;&amp;proximaInspecaoExterna=proximaInspecaoExterna_b4lsn&#10;&amp;proximaInspecaoInterna=proximaInspecaoInterna_nqqp9&#10;&amp;dataCalibracao=dataCalibracao_j2znj&#10;&amp;proximaCalibracao=proximaCalibracao_kv9e4&#10;&amp;idEmpresa=1" />
+            </ParamGroupCollection>
+          </option>
+          <option name="requestInfo" value="Request Url: http://localhost:8080/equipamentos/equipamentos?proximaInspecaoExterna=%70%72%6F%78%69%6D%61%49%6E%73%70%65%63%61%6F%45%78%74%65%72%6E%61%5F%62%34%6C%73%6E&amp;dataCalibracao=%64%61%74%61%43%61%6C%69%62%72%61%63%61%6F%5F%6A%32%7A%6E%6A&amp;inspecaoExterna=%69%6E%73%70%65%63%61%6F%45%78%74%65%72%6E%61%5F%6F%76%36%78%74&amp;anoCadastro=%61%6E%6F%43%61%64%61%73%74%72%6F%5F%79%79%70%31%38&amp;proximaCalibracao=%70%72%6F%78%69%6D%61%43%61%6C%69%62%72%61%63%61%6F%5F%6B%76%39%65%34&amp;proximaInspecaoInterna=%70%72%6F%78%69%6D%61%49%6E%73%70%65%63%61%6F%49%6E%74%65%72%6E%61%5F%6E%71%71%70%39&amp;norma=%6E%6F%72%6D%61%5F%6C%71%37%75%66&amp;tagEquipamento=%74%61%67%45%71%75%69%70%61%6D%65%6E%74%6F%5F%36%31%30%79%6D&amp;idEmpresa=%31&amp;inspecaoInterna=%69%6E%73%70%65%63%61%6F%49%6E%74%65%72%6E%61%5F%30%79%6A%67%6D&#13;&#10;Request Headers: &#13;&#10;    Accept: application/json,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8&#13;&#10;    User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36 Hutool&#13;&#10;    Accept-Encoding: gzip, deflate&#13;&#10;    Accept-Language: zh-CN,zh;q=0.8&#13;&#10;Request Body: &#13;&#10;    null&#13;&#10;" />
+          <option name="response" value="{&quot;content&quot;:[],&quot;pageable&quot;:{&quot;sort&quot;:{&quot;sorted&quot;:false,&quot;unsorted&quot;:true,&quot;empty&quot;:true},&quot;offset&quot;:0,&quot;pageNumber&quot;:0,&quot;pageSize&quot;:20,&quot;unpaged&quot;:false,&quot;paged&quot;:true},&quot;last&quot;:true,&quot;totalPages&quot;:0,&quot;totalElements&quot;:0,&quot;size&quot;:20,&quot;number&quot;:0,&quot;sort&quot;:{&quot;sorted&quot;:false,&quot;unsorted&quot;:true,&quot;empty&quot;:true},&quot;first&quot;:true,&quot;numberOfElements&quot;:0,&quot;empty&quot;:true}" />
+          <option name="url" value="/equipamentos/equipamentos" />
+        </ResponseHistory>
+        <ResponseHistory>
+          <option name="className" value="com.project.fmproject.api.controller.EquipamentosController" />
+          <option name="code" value="200" />
+          <option name="enableEnv" value="local" />
+          <option name="enableProject" value="Clientes" />
+          <option name="method" value="filtrarEquipamentos" />
+          <option name="methodType" value="GET" />
+          <option name="paramGroup">
+            <ParamGroupCollection>
+              <option name="className" value="com.project.fmproject.api.controller.EquipamentosController" />
+              <option name="method" value="filtrarEquipamentos" />
+              <option name="methodDescription" value="New Request" />
+              <option name="multipartKeyValueListJson" value="[]" />
+              <option name="originUrl" value="/equipamentos/equipamentos" />
+              <option name="pathParamsKeyValueListJson" value="[]" />
+              <option name="returnDocument" value="null" />
+              <option name="url" value="/equipamentos/equipamentos" />
+              <option name="urlEncodedKeyValueListJson" value="[]" />
+              <option name="urlParamsKeyValueListJson" value="[{&quot;comment&quot;:&quot;&quot;,&quot;customFlag&quot;:2,&quot;enabled&quot;:true,&quot;key&quot;:&quot;anoCadastro&quot;,&quot;type&quot;:&quot;String&quot;,&quot;value&quot;:&quot;anoCadastro_yyp18&quot;},{&quot;comment&quot;:&quot;&quot;,&quot;customFlag&quot;:2,&quot;enabled&quot;:true,&quot;key&quot;:&quot;tagEquipamento&quot;,&quot;type&quot;:&quot;String&quot;,&quot;value&quot;:&quot;tagEquipamento_610ym&quot;},{&quot;comment&quot;:&quot;&quot;,&quot;customFlag&quot;:2,&quot;enabled&quot;:true,&quot;key&quot;:&quot;norma&quot;,&quot;type&quot;:&quot;String&quot;,&quot;value&quot;:&quot;norma_lq7uf&quot;},{&quot;comment&quot;:&quot;&quot;,&quot;customFlag&quot;:2,&quot;enabled&quot;:true,&quot;key&quot;:&quot;inspecaoExterna&quot;,&quot;type&quot;:&quot;String&quot;,&quot;value&quot;:&quot;inspecaoExterna_ov6xt&quot;},{&quot;comment&quot;:&quot;&quot;,&quot;customFlag&quot;:2,&quot;enabled&quot;:true,&quot;key&quot;:&quot;inspecaoInterna&quot;,&quot;type&quot;:&quot;String&quot;,&quot;value&quot;:&quot;inspecaoInterna_0yjgm&quot;},{&quot;comment&quot;:&quot;&quot;,&quot;customFlag&quot;:2,&quot;enabled&quot;:true,&quot;key&quot;:&quot;proximaInspecaoExterna&quot;,&quot;type&quot;:&quot;String&quot;,&quot;value&quot;:&quot;proximaInspecaoExterna_b4lsn&quot;},{&quot;comment&quot;:&quot;&quot;,&quot;customFlag&quot;:2,&quot;enabled&quot;:true,&quot;key&quot;:&quot;proximaInspecaoInterna&quot;,&quot;type&quot;:&quot;String&quot;,&quot;value&quot;:&quot;proximaInspecaoInterna_nqqp9&quot;},{&quot;comment&quot;:&quot;&quot;,&quot;customFlag&quot;:2,&quot;enabled&quot;:true,&quot;key&quot;:&quot;dataCalibracao&quot;,&quot;type&quot;:&quot;String&quot;,&quot;value&quot;:&quot;dataCalibracao_j2znj&quot;},{&quot;comment&quot;:&quot;&quot;,&quot;customFlag&quot;:2,&quot;enabled&quot;:true,&quot;key&quot;:&quot;proximaCalibracao&quot;,&quot;type&quot;:&quot;String&quot;,&quot;value&quot;:&quot;proximaCalibracao_kv9e4&quot;},{&quot;comment&quot;:&quot;&quot;,&quot;customFlag&quot;:2,&quot;enabled&quot;:true,&quot;key&quot;:&quot;idEmpresa&quot;,&quot;type&quot;:&quot;Number&quot;,&quot;value&quot;:&quot;1&quot;}]" />
+              <option name="urlParamsKeyValueListText" value="anoCadastro=anoCadastro_yyp18&#10;&amp;tagEquipamento=tagEquipamento_610ym&#10;&amp;norma=norma_lq7uf&#10;&amp;inspecaoExterna=inspecaoExterna_ov6xt&#10;&amp;inspecaoInterna=inspecaoInterna_0yjgm&#10;&amp;proximaInspecaoExterna=proximaInspecaoExterna_b4lsn&#10;&amp;proximaInspecaoInterna=proximaInspecaoInterna_nqqp9&#10;&amp;dataCalibracao=dataCalibracao_j2znj&#10;&amp;proximaCalibracao=proximaCalibracao_kv9e4&#10;&amp;idEmpresa=1" />
+            </ParamGroupCollection>
+          </option>
+          <option name="requestInfo" value="Request Url: http://localhost:8080/equipamentos/equipamentos?proximaInspecaoExterna=%70%72%6F%78%69%6D%61%49%6E%73%70%65%63%61%6F%45%78%74%65%72%6E%61%5F%62%34%6C%73%6E&amp;dataCalibracao=%64%61%74%61%43%61%6C%69%62%72%61%63%61%6F%5F%6A%32%7A%6E%6A&amp;inspecaoExterna=%69%6E%73%70%65%63%61%6F%45%78%74%65%72%6E%61%5F%6F%76%36%78%74&amp;anoCadastro=%61%6E%6F%43%61%64%61%73%74%72%6F%5F%79%79%70%31%38&amp;proximaCalibracao=%70%72%6F%78%69%6D%61%43%61%6C%69%62%72%61%63%61%6F%5F%6B%76%39%65%34&amp;proximaInspecaoInterna=%70%72%6F%78%69%6D%61%49%6E%73%70%65%63%61%6F%49%6E%74%65%72%6E%61%5F%6E%71%71%70%39&amp;norma=%6E%6F%72%6D%61%5F%6C%71%37%75%66&amp;tagEquipamento=%74%61%67%45%71%75%69%70%61%6D%65%6E%74%6F%5F%36%31%30%79%6D&amp;idEmpresa=%31&amp;inspecaoInterna=%69%6E%73%70%65%63%61%6F%49%6E%74%65%72%6E%61%5F%30%79%6A%67%6D&#13;&#10;Request Headers: &#13;&#10;    Accept: application/json,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8&#13;&#10;    User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36 Hutool&#13;&#10;    Accept-Encoding: gzip, deflate&#13;&#10;    Accept-Language: zh-CN,zh;q=0.8&#13;&#10;Request Body: &#13;&#10;    null&#13;&#10;" />
+          <option name="response" value="{&quot;content&quot;:[],&quot;pageable&quot;:{&quot;sort&quot;:{&quot;sorted&quot;:false,&quot;unsorted&quot;:true,&quot;empty&quot;:true},&quot;offset&quot;:0,&quot;pageNumber&quot;:0,&quot;pageSize&quot;:20,&quot;unpaged&quot;:false,&quot;paged&quot;:true},&quot;last&quot;:true,&quot;totalPages&quot;:0,&quot;totalElements&quot;:0,&quot;size&quot;:20,&quot;number&quot;:0,&quot;sort&quot;:{&quot;sorted&quot;:false,&quot;unsorted&quot;:true,&quot;empty&quot;:true},&quot;first&quot;:true,&quot;numberOfElements&quot;:0,&quot;empty&quot;:true}" />
+          <option name="url" value="/equipamentos/equipamentos" />
+        </ResponseHistory>
+        <ResponseHistory>
+          <option name="className" value="com.project.fmproject.api.controller.EquipamentosController" />
+          <option name="code" value="200" />
+          <option name="enableEnv" value="local" />
+          <option name="enableProject" value="Clientes" />
+          <option name="method" value="filtrarEquipamentos" />
+          <option name="methodType" value="GET" />
+          <option name="paramGroup">
+            <ParamGroupCollection>
+              <option name="className" value="com.project.fmproject.api.controller.EquipamentosController" />
+              <option name="method" value="filtrarEquipamentos" />
+              <option name="methodDescription" value="New Request" />
+              <option name="multipartKeyValueListJson" value="[]" />
+              <option name="originUrl" value="/equipamentos/equipamentos" />
+              <option name="pathParamsKeyValueListJson" value="[]" />
+              <option name="returnDocument" value="null" />
+              <option name="url" value="/equipamentos/equipamentos" />
+              <option name="urlEncodedKeyValueListJson" value="[]" />
+              <option name="urlParamsKeyValueListJson" value="[{&quot;comment&quot;:&quot;&quot;,&quot;customFlag&quot;:2,&quot;enabled&quot;:true,&quot;key&quot;:&quot;anoCadastro&quot;,&quot;type&quot;:&quot;String&quot;,&quot;value&quot;:&quot;anoCadastro_yyp18&quot;},{&quot;comment&quot;:&quot;&quot;,&quot;customFlag&quot;:2,&quot;enabled&quot;:true,&quot;key&quot;:&quot;tagEquipamento&quot;,&quot;type&quot;:&quot;String&quot;,&quot;value&quot;:&quot;tagEquipamento_610ym&quot;},{&quot;comment&quot;:&quot;&quot;,&quot;customFlag&quot;:2,&quot;enabled&quot;:true,&quot;key&quot;:&quot;norma&quot;,&quot;type&quot;:&quot;String&quot;,&quot;value&quot;:&quot;norma_lq7uf&quot;},{&quot;comment&quot;:&quot;&quot;,&quot;customFlag&quot;:2,&quot;enabled&quot;:true,&quot;key&quot;:&quot;inspecaoExterna&quot;,&quot;type&quot;:&quot;String&quot;,&quot;value&quot;:&quot;inspecaoExterna_ov6xt&quot;},{&quot;comment&quot;:&quot;&quot;,&quot;customFlag&quot;:2,&quot;enabled&quot;:true,&quot;key&quot;:&quot;inspecaoInterna&quot;,&quot;type&quot;:&quot;String&quot;,&quot;value&quot;:&quot;inspecaoInterna_0yjgm&quot;},{&quot;comment&quot;:&quot;&quot;,&quot;customFlag&quot;:2,&quot;enabled&quot;:true,&quot;key&quot;:&quot;proximaInspecaoExterna&quot;,&quot;type&quot;:&quot;String&quot;,&quot;value&quot;:&quot;proximaInspecaoExterna_b4lsn&quot;},{&quot;comment&quot;:&quot;&quot;,&quot;customFlag&quot;:2,&quot;enabled&quot;:true,&quot;key&quot;:&quot;proximaInspecaoInterna&quot;,&quot;type&quot;:&quot;String&quot;,&quot;value&quot;:&quot;proximaInspecaoInterna_nqqp9&quot;},{&quot;comment&quot;:&quot;&quot;,&quot;customFlag&quot;:2,&quot;enabled&quot;:true,&quot;key&quot;:&quot;dataCalibracao&quot;,&quot;type&quot;:&quot;String&quot;,&quot;value&quot;:&quot;dataCalibracao_j2znj&quot;},{&quot;comment&quot;:&quot;&quot;,&quot;customFlag&quot;:2,&quot;enabled&quot;:true,&quot;key&quot;:&quot;proximaCalibracao&quot;,&quot;type&quot;:&quot;String&quot;,&quot;value&quot;:&quot;proximaCalibracao_kv9e4&quot;},{&quot;comment&quot;:&quot;&quot;,&quot;customFlag&quot;:2,&quot;enabled&quot;:true,&quot;key&quot;:&quot;idEmpresa&quot;,&quot;type&quot;:&quot;Number&quot;,&quot;value&quot;:&quot;1&quot;}]" />
+              <option name="urlParamsKeyValueListText" value="anoCadastro=anoCadastro_yyp18&#10;&amp;tagEquipamento=tagEquipamento_610ym&#10;&amp;norma=norma_lq7uf&#10;&amp;inspecaoExterna=inspecaoExterna_ov6xt&#10;&amp;inspecaoInterna=inspecaoInterna_0yjgm&#10;&amp;proximaInspecaoExterna=proximaInspecaoExterna_b4lsn&#10;&amp;proximaInspecaoInterna=proximaInspecaoInterna_nqqp9&#10;&amp;dataCalibracao=dataCalibracao_j2znj&#10;&amp;proximaCalibracao=proximaCalibracao_kv9e4&#10;&amp;idEmpresa=1" />
+            </ParamGroupCollection>
+          </option>
+          <option name="requestInfo" value="Request Url: http://localhost:8080/equipamentos/equipamentos?proximaInspecaoExterna=%70%72%6F%78%69%6D%61%49%6E%73%70%65%63%61%6F%45%78%74%65%72%6E%61%5F%62%34%6C%73%6E&amp;dataCalibracao=%64%61%74%61%43%61%6C%69%62%72%61%63%61%6F%5F%6A%32%7A%6E%6A&amp;inspecaoExterna=%69%6E%73%70%65%63%61%6F%45%78%74%65%72%6E%61%5F%6F%76%36%78%74&amp;anoCadastro=%61%6E%6F%43%61%64%61%73%74%72%6F%5F%79%79%70%31%38&amp;proximaCalibracao=%70%72%6F%78%69%6D%61%43%61%6C%69%62%72%61%63%61%6F%5F%6B%76%39%65%34&amp;proximaInspecaoInterna=%70%72%6F%78%69%6D%61%49%6E%73%70%65%63%61%6F%49%6E%74%65%72%6E%61%5F%6E%71%71%70%39&amp;norma=%6E%6F%72%6D%61%5F%6C%71%37%75%66&amp;tagEquipamento=%74%61%67%45%71%75%69%70%61%6D%65%6E%74%6F%5F%36%31%30%79%6D&amp;idEmpresa=%31&amp;inspecaoInterna=%69%6E%73%70%65%63%61%6F%49%6E%74%65%72%6E%61%5F%30%79%6A%67%6D&#13;&#10;Request Headers: &#13;&#10;    Accept: application/json,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8&#13;&#10;    User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36 Hutool&#13;&#10;    Accept-Encoding: gzip, deflate&#13;&#10;    Accept-Language: zh-CN,zh;q=0.8&#13;&#10;Request Body: &#13;&#10;    null&#13;&#10;" />
+          <option name="response" value="{&quot;content&quot;:[],&quot;pageable&quot;:{&quot;sort&quot;:{&quot;sorted&quot;:false,&quot;unsorted&quot;:true,&quot;empty&quot;:true},&quot;offset&quot;:0,&quot;pageNumber&quot;:0,&quot;pageSize&quot;:20,&quot;unpaged&quot;:false,&quot;paged&quot;:true},&quot;last&quot;:true,&quot;totalPages&quot;:0,&quot;totalElements&quot;:0,&quot;size&quot;:20,&quot;number&quot;:0,&quot;sort&quot;:{&quot;sorted&quot;:false,&quot;unsorted&quot;:true,&quot;empty&quot;:true},&quot;first&quot;:true,&quot;numberOfElements&quot;:0,&quot;empty&quot;:true}" />
+          <option name="url" value="/equipamentos/equipamentos" />
+        </ResponseHistory>
+      </list>
+    </option>
+  </component>
+</project>
