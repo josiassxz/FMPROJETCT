@@ -80,10 +80,37 @@ public class EquipamentosService {
 //    }
 
 
+//    public Equipamentos salvar(String equipamentosJson, List<MultipartFile> files) throws IOException {
+//        ObjectMapper mapper = new ObjectMapper();
+//        Equipamentos equipamentos = mapper.readValue(equipamentosJson, Equipamentos.class);
+//
+//        List<Documentos> documentos = new ArrayList<>();
+//
+//        for (int i = 0; i < files.size(); i++) {
+//            MultipartFile file = files.get(i);
+//            String caminho = "C:\\Users\\sxz\\Desktop\\arquivos" + UUID.randomUUID().getLeastSignificantBits() + file.getOriginalFilename();
+//            byte[] bytes = file.getBytes();
+//            Path path = Paths.get(caminho);
+//            Files.write(path, bytes);
+//            Documentos documento = new Documentos();
+//            documento.setCaminho(caminho);
+//            documento.setNome(equipamentos.getDocumentos().get(i).getNome());
+//            documento.setTipo(equipamentos.getDocumentos().get(i).getTipo());
+//
+//            documentos.add(documento);
+//        }
+//
+//        equipamentos.setDocumentos(documentos);
+//
+//        return equipamentosRepository.save(equipamentos);
+//    }
+
+
     public Equipamentos salvar(String equipamentosJson, List<MultipartFile> files) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
-        Equipamentos equipamentos = mapper.readValue(equipamentosJson, Equipamentos.class);
+        Equipamentos equipamento = mapper.readValue(equipamentosJson, Equipamentos.class);
 
+        // Configurar a relação bidirecional entre Equipamento e Documento
         List<Documentos> documentos = new ArrayList<>();
 
         for (int i = 0; i < files.size(); i++) {
@@ -94,16 +121,18 @@ public class EquipamentosService {
             Files.write(path, bytes);
             Documentos documento = new Documentos();
             documento.setCaminho(caminho);
-            documento.setNome(equipamentos.getDocumentos().get(i).getNome());
-            documento.setTipo(equipamentos.getDocumentos().get(i).getTipo());
+            documento.setNome(equipamento.getDocumentos().get(i).getNome());
+            documento.setTipo(equipamento.getDocumentos().get(i).getTipo());
+            documento.setEquipamento(equipamento); // Estabelecer a relação com o equipamento
 
             documentos.add(documento);
         }
 
-        equipamentos.setDocumentos(documentos);
+        equipamento.setDocumentos(documentos);
 
-        return equipamentosRepository.save(equipamentos);
+        return equipamentosRepository.save(equipamento);
     }
+
 
 
 

@@ -72,6 +72,9 @@ public class EquipamentosController {
     }
 
 
+
+
+
 //    @PostMapping(value = "/salvar")
 //    public ResponseEntity<Equipamentos> salvar(@RequestParam("equipamento") String equipamentosJson,
 //                                               @RequestPart("files") List<MultipartFile> files) throws IOException {
