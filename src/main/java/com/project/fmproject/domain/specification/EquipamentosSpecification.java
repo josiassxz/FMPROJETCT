@@ -21,47 +21,47 @@ public class EquipamentosSpecification {
             List<Predicate> predicates = new ArrayList<>();
 
             if (anoCadastro != null) {
-                predicates.add(criteriaBuilder.equal(root.get("anoCadastro"), anoCadastro));
+                predicates.add(criteriaBuilder.like(root.get("anoCadastro"), "%" + anoCadastro + "%"));
             }
 
             if (tagEquipamento != null) {
-                predicates.add(criteriaBuilder.equal(root.get("tagEquipamento"), tagEquipamento));
+                predicates.add(criteriaBuilder.like(root.get("tagEquipamento"), "%" + tagEquipamento + "%"));
             }
 
             if (norma != null) {
-                predicates.add(criteriaBuilder.equal(root.get("norma"), norma));
+                predicates.add(criteriaBuilder.like(root.get("norma"), "%" + norma + "%"));
             }
 
             if (inspecaoExterna != null) {
-                predicates.add(criteriaBuilder.equal(root.get("inspecaoExterna"), inspecaoExterna));
+                predicates.add(criteriaBuilder.like(root.get("inspecaoExterna"), "%" + inspecaoExterna + "%"));
             }
 
             if (inspecaoInterna != null) {
-                predicates.add(criteriaBuilder.equal(root.get("inspecaoInterna"), inspecaoInterna));
+                predicates.add(criteriaBuilder.like(root.get("inspecaoInterna"), "%" + inspecaoInterna + "%"));
             }
 
             if (proximaInspecaoExterna != null) {
-                predicates.add(criteriaBuilder.equal(root.get("proximaInspecaoExterna"), proximaInspecaoExterna));
+                predicates.add(criteriaBuilder.like(root.get("proximaInspecaoExterna"), "%" + proximaInspecaoExterna + "%"));
             }
 
             if (proximaInspecaoInterna != null) {
-                predicates.add(criteriaBuilder.equal(root.get("proximaInspecaoInterna"), proximaInspecaoInterna));
+                predicates.add(criteriaBuilder.like(root.get("proximaInspecaoInterna"), "%" + proximaInspecaoInterna + "%"));
             }
 
             if (dataCalibracao != null) {
-                predicates.add(criteriaBuilder.equal(root.get("dataCalibracao"), dataCalibracao));
+                predicates.add(criteriaBuilder.like(root.get("dataCalibracao"), "%" + dataCalibracao + "%"));
             }
 
             if (proximaCalibracao != null) {
-                predicates.add(criteriaBuilder.equal(root.get("proximaCalibracao"), proximaCalibracao));
+                predicates.add(criteriaBuilder.like(root.get("proximaCalibracao"), "%" + proximaCalibracao + "%"));
             }
 
             if (idEmpresa != null) {
-                predicates.add(criteriaBuilder.equal(root.get("empresa").get("id"), idEmpresa));
+                predicates.add(criteriaBuilder.like(root.get("empresa").get("id"), "%" + idEmpresa + "%"));
             }
 
             return criteriaBuilder.and(predicates.toArray(new Predicate[0]));
         };
     }
-}
+    }
 

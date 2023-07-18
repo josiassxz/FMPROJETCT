@@ -182,7 +182,7 @@ public class EquipamentosController {
         service.removerEquipamento(id);
     }
 
-    @GetMapping("/equipamentos")
+    @GetMapping("/pesquisar")
     public Page<Equipamentos> filtrarEquipamentos(@RequestParam(required = false) String anoCadastro,
                                                   @RequestParam(required = false) String tagEquipamento,
                                                   @RequestParam(required = false) String norma,
