@@ -2,23 +2,23 @@ package com.project.fmproject.domain.service.enums;
 
 public enum TipoEquipamentoEnum {
 
-    VASO(1, "Vaso de pressão"),
-    VALVULA(2, "Válvula de segurança"),
-    INDICADOR(3, "Indicador de pressão"),
-    CALDEIRA(4, "Caldeira"),
-    LINHA(5, "Linha de vida"),
-    ELEVADOR(6, "Elevador"),
-    EQUIPAMENTO(7, "Equipamento");
+    VASO( "VASO", "Vaso de pressão"),
+    VALVULA( "VALVULA", "Válvula de segurança"),
+    INDICADOR( "INDICADOR", "Indicador de pressão"),
+    CALDEIRA( "CALDEIRA", "Caldeira"),
+    LINHA( "LINHA", "Linha de vida"),
+    ELEVADOR( "ELEVADOR", "Elevador"),
+    EQUIPAMENTO( "EQUIPAMENTO", "Equipamento");
 
-     TipoEquipamentoEnum(int codigo, String descricao) {
+    TipoEquipamentoEnum(String codigo, String descricao) {
         this.codigo = codigo;
         this.descricao = descricao;
     }
 
-    private final int codigo;
+    private final String codigo;
     private final String descricao;
 
-    public int getCodigo() {
+    public String getCodigo() {
         return codigo;
     }
 
