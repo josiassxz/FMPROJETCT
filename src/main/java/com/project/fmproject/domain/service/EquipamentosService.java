@@ -42,69 +42,6 @@ public class EquipamentosService {
 
 
 
-//    public Equipamentos salvar(String equipamentosJson, List<MultipartFile> files) throws IOException {
-//        ObjectMapper mapper = new ObjectMapper();
-//        Equipamentos equipamentos = mapper.readValue(equipamentosJson, Equipamentos.class);
-//        for (int i = 0; i < files.size(); i++) {
-//            MultipartFile file = files.get(i);
-//            String caminho = "C:\\Users\\josia\\OneDrive\\Área de Trabalho\\Arquivos" + UUID.randomUUID().getLeastSignificantBits() + file.getOriginalFilename();
-//            byte[] bytes = file.getBytes();
-//            Path path = Paths.get(caminho);
-//            Files.write(path, bytes);
-//            Documentos documento = new Documentos();
-//            documento.setCaminho(caminho);
-//            documento.setNome(equipamentos.getDocumentos().get(i).getNome());
-//            documento.setTipo(equipamentos.getDocumentos().get(i).getTipo());
-//            equipamentos.adicionarDocumento(documento, caminho);
-//        }
-//        return equipamentosRepository.save(equipamentos);
-//    }
-
-//    public Equipamentos salvar(String equipamentosJson, List<MultipartFile> files) throws IOException {
-//        ObjectMapper mapper = new ObjectMapper();
-//        Equipamentos equipamentos = mapper.readValue(equipamentosJson, Equipamentos.class);
-//        for (int i = 0; i < files.size(); i++) {
-//            MultipartFile file = files.get(i);
-//            String caminho = "C:\\Users\\josia\\OneDrive\\Área de Trabalho\\Arquivos" + UUID.randomUUID().getLeastSignificantBits() + file.getOriginalFilename();
-//            byte[] bytes = file.getBytes();
-//            Path path = Paths.get(caminho);
-//            Files.write(path, bytes);
-//            Documentos documento = new Documentos();
-//            documento.setCaminho(caminho);
-//            documento.setNome(equipamentos.getDocumentos().get(i).getNome());
-//            documento.setTipo(equipamentos.getDocumentos().get(i).getTipo());
-//            equipamentos.adicionarDocumento(documento, caminho);
-//        }
-//
-//        return equipamentosRepository.save(equipamentos);
-//    }
-
-
-//    public Equipamentos salvar(String equipamentosJson, List<MultipartFile> files) throws IOException {
-//        ObjectMapper mapper = new ObjectMapper();
-//        Equipamentos equipamentos = mapper.readValue(equipamentosJson, Equipamentos.class);
-//
-//        List<Documentos> documentos = new ArrayList<>();
-//
-//        for (int i = 0; i < files.size(); i++) {
-//            MultipartFile file = files.get(i);
-//            String caminho = "C:\\Users\\sxz\\Desktop\\arquivos" + UUID.randomUUID().getLeastSignificantBits() + file.getOriginalFilename();
-//            byte[] bytes = file.getBytes();
-//            Path path = Paths.get(caminho);
-//            Files.write(path, bytes);
-//            Documentos documento = new Documentos();
-//            documento.setCaminho(caminho);
-//            documento.setNome(equipamentos.getDocumentos().get(i).getNome());
-//            documento.setTipo(equipamentos.getDocumentos().get(i).getTipo());
-//
-//            documentos.add(documento);
-//        }
-//
-//        equipamentos.setDocumentos(documentos);
-//
-//        return equipamentosRepository.save(equipamentos);
-//    }
-
 
     public Equipamentos salvar(String equipamentosJson, List<MultipartFile> files) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
