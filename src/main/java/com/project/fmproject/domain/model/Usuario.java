@@ -27,7 +27,6 @@ public class Usuario implements Serializable {
     private String senha;
 
 
-    @JsonIgnoreProperties("usuarios")
     @ManyToMany(mappedBy = "usuarios")
     private List<Empresa> empresas;
 }

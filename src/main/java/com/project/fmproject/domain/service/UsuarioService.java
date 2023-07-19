@@ -72,6 +72,7 @@ public class UsuarioService {
             usuarioDTO.setEmail(usuario.getEmail());
             usuarioDTO.setNome(usuario.getNome());
             usuarioDTO.setTipo(usuario.getTipo());
+            usuarioDTO.setEmpresas(usuario.getEmpresas());
             return usuarioDTO;
         } else {
             return null;

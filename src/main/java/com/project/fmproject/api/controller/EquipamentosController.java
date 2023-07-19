@@ -65,6 +65,11 @@ public class EquipamentosController {
         return ResponseEntity.ok(equipamentosPage);
     }
 
+    @GetMapping("/lista/{id}")
+    public ResponseEntity<List<Equipamentos>> findAll(@RequestParam Long id) {
+        return ResponseEntity.ok(equipamentosRepository.findAllByEmpresa_Id(id));
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<Equipamentos> findById(@PathVariable Long id) {
         Optional<Equipamentos> equipamentos = service.findById(id);
