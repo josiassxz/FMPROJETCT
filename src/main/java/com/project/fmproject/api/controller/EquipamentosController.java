@@ -175,6 +175,8 @@ public class EquipamentosController {
                                                   @RequestParam(required = false) String proximaInspecaoInterna,
                                                   @RequestParam(required = false) String dataCalibracao,
                                                   @RequestParam(required = false) String proximaCalibracao,
+                                                  @RequestParam(required = false) String inspecao,
+                                                  @RequestParam(required = false) String proximaInspecao,
                                                   @RequestParam(required = false) Long idEmpresa,
                                                   @RequestParam(required = false) TipoEquipamentoEnum tipoEquipamento,
                                                   Pageable pageable) {
@@ -185,6 +187,8 @@ public class EquipamentosController {
                 proximaInspecaoInterna,
                 dataCalibracao,
                 proximaCalibracao,
+                inspecao,
+                proximaInspecao,
                 idEmpresa,
                 tipoEquipamento);
         return equipamentosRepository.findAll(specification, pageable);
