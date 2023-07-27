@@ -1,6 +1,7 @@
 package com.project.fmproject.domain.specification;
 
 import com.project.fmproject.domain.model.Equipamentos;
+import com.project.fmproject.domain.service.enums.TipoEquipamentoEnum;
 import org.springframework.data.jpa.domain.Specification;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -16,7 +17,7 @@ public class EquipamentosSpecification {
                                                                   String proximaInspecaoExterna,
                                                                   String proximaInspecaoInterna,
                                                                   String dataCalibracao, String proximaCalibracao,
-                                                                  Long idEmpresa) {
+                                                                  Long idEmpresa, TipoEquipamentoEnum tipoEquipamento) {
         return (Root<Equipamentos> root, CriteriaQuery<?> query, CriteriaBuilder criteriaBuilder) -> {
             List<Predicate> predicates = new ArrayList<>();
 
@@ -57,7 +58,11 @@ public class EquipamentosSpecification {
             }
 
             if (idEmpresa != null) {
-                predicates.add(criteriaBuilder.like(root.get("empresa").get("id"), "%" + idEmpresa + "%"));
+                predicates.add(criteriaBuilder.equal(root.get("empresa").get("id"), idEmpresa));
+            }
+
+            if (tipoEquipamento != null) {
+                predicates.add(criteriaBuilder.equal(root.get("tipoEquipamento"), tipoEquipamento));
             }
 
             return criteriaBuilder.and(predicates.toArray(new Predicate[0]));

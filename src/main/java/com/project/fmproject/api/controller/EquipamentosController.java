@@ -6,6 +6,7 @@ import com.project.fmproject.domain.model.Equipamentos;
 import com.project.fmproject.domain.repository.DocumentosRepository;
 import com.project.fmproject.domain.repository.EquipamentosRepository;
 import com.project.fmproject.domain.service.EquipamentosService;
+import com.project.fmproject.domain.service.enums.TipoEquipamentoEnum;
 import com.project.fmproject.domain.specification.EquipamentosSpecification;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -175,6 +176,7 @@ public class EquipamentosController {
                                                   @RequestParam(required = false) String dataCalibracao,
                                                   @RequestParam(required = false) String proximaCalibracao,
                                                   @RequestParam(required = false) Long idEmpresa,
+                                                  @RequestParam(required = false) TipoEquipamentoEnum tipoEquipamento,
                                                   Pageable pageable) {
         Specification<Equipamentos> specification = EquipamentosSpecification.filtrarEquipamentos(anoCadastro, tagEquipamento,
                 norma, inspecaoExterna,
@@ -183,7 +185,8 @@ public class EquipamentosController {
                 proximaInspecaoInterna,
                 dataCalibracao,
                 proximaCalibracao,
-                idEmpresa);
+                idEmpresa,
+                tipoEquipamento);
         return equipamentosRepository.findAll(specification, pageable);
     }
 
