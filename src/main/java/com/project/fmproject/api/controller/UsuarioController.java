@@ -4,11 +4,19 @@ import com.project.fmproject.domain.dto.UsuarioDTO;
 import com.project.fmproject.domain.model.Usuario;
 import com.project.fmproject.domain.repository.UsuarioRepository;
 import com.project.fmproject.domain.service.UsuarioService;
+import com.project.fmproject.domain.specification.UsuariosSpecification;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+import org.springframework.stereotype.Repository;
+import org.springframework.data.jpa.domain.Specification;
+
 
 import java.util.List;
 import java.util.Map;
@@ -95,15 +103,25 @@ public class UsuarioController {
         }
     }
 
-    @GetMapping("/buscar")
-    public ResponseEntity<List<Usuario>> buscarPorNomeOuEmail(@RequestParam(value = "nome", required = false) String nome,
-                                                              @RequestParam(value = "email", required = false) String email) {
-        List<Usuario> usuarios = usuarioRepository.buscarPorNomeEmail(nome, email);
-        if (!usuarios.isEmpty()) {
-            return ResponseEntity.ok(usuarios);
-        } else {
-            return ResponseEntity.notFound().build();
-        }
+    // @GetMapping("/buscar")
+    // public ResponseEntity<Page<Usuario>> buscarPorNomeOuEmail(@RequestParam(value = "nome", required = false) String nome,
+    //                                                           @RequestParam(value = "email", required = false) String email,
+    //                                                           Pageable pageable) {
+    //     Page<Usuario> usuarios = usuarioRepository.buscarPorNomeEmail(nome, email, pageable);
+    //     if (!usuarios.isEmpty()) {
+    //         return ResponseEntity.ok(usuarios);
+    //     } else {
+    //         return ResponseEntity.notFound().build();
+    //     }
+    // }
+
+    @GetMapping("/pesquisar")
+    public Page<Usuario> filtrarUsuarios(@RequestParam(value = "nome", required = false) String nome,
+                                         @RequestParam(value = "email", required = false) String email,
+                                         @RequestParam(value = "tipo", required = false) String tipo,
+                                         Pageable pageable ) {
+        Specification<Usuario> specification = UsuariosSpecification.filtrarUsuarios(nome, email, tipo);                     
+        return usuarioRepository.findAll(specification, pageable);                             
     }
 
 

@@ -18,7 +18,7 @@ public class EquipamentosSpecification {
                                                                   String proximaInspecaoInterna,
                                                                   String dataCalibracao, String proximaCalibracao,
                                                                   String inspecao, String proximaInspecao,
-                                                                  Long idEmpresa, TipoEquipamentoEnum tipoEquipamento) {
+                                                                  Long idEmpresa, TipoEquipamentoEnum tipoEquipamento, String empresa) {
         return (Root<Equipamentos> root, CriteriaQuery<?> query, CriteriaBuilder criteriaBuilder) -> {
             List<Predicate> predicates = new ArrayList<>();
 
@@ -72,6 +72,10 @@ public class EquipamentosSpecification {
 
             if (tipoEquipamento != null) {
                 predicates.add(criteriaBuilder.equal(root.get("tipoEquipamento"), tipoEquipamento));
+            }
+           
+            if (empresa != null) {
+                predicates.add(criteriaBuilder.like(root.get("empresa").get("nome"), "%" + empresa + "%"));
             }
 
             return criteriaBuilder.and(predicates.toArray(new Predicate[0]));

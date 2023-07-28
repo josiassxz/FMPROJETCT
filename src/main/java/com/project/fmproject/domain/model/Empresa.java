@@ -30,11 +30,11 @@ public class Empresa {
     @NotBlank(message = "O CNPJ é obrigatório")
     private String cnpj;
 
-    @NotBlank(message = "O email é obrigatório")
+    //@NotBlank(message = "O email é obrigatório")
     @Email(message = "O email informado é inválido")
     private String email;
 
-    @NotBlank(message = "O telefone é obrigatório")
+    //@NotBlank(message = "O telefone é obrigatório")
     private String telefone;
 
     private String cidade;

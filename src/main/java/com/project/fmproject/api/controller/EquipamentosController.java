@@ -179,6 +179,7 @@ public class EquipamentosController {
                                                   @RequestParam(required = false) String proximaInspecao,
                                                   @RequestParam(required = false) Long idEmpresa,
                                                   @RequestParam(required = false) TipoEquipamentoEnum tipoEquipamento,
+                                                  @RequestParam(required = false) String empresa,
                                                   Pageable pageable) {
         Specification<Equipamentos> specification = EquipamentosSpecification.filtrarEquipamentos(anoCadastro, tagEquipamento,
                 norma, inspecaoExterna,
@@ -190,7 +191,7 @@ public class EquipamentosController {
                 inspecao,
                 proximaInspecao,
                 idEmpresa,
-                tipoEquipamento);
+                tipoEquipamento, empresa);
         return equipamentosRepository.findAll(specification, pageable);
     }
 

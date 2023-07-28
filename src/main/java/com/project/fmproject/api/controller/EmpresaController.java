@@ -1,11 +1,16 @@
 package com.project.fmproject.api.controller;
 
 import com.project.fmproject.domain.model.Empresa;
+import com.project.fmproject.domain.model.Usuario;
 import com.project.fmproject.domain.repository.EmpresaRepository;
 import com.project.fmproject.domain.service.EmpresaService;
+import com.project.fmproject.domain.specification.EmpresaSpecification;
+import com.project.fmproject.domain.specification.UsuariosSpecification;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -83,5 +88,14 @@ public class EmpresaController {
     public ResponseEntity<Void> deletarEmpresa(@PathVariable Long id) {
         empresaService.deletarEmpresa(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping("/pesquisar")
+    public Page<Empresa> filtrarEmpresas(@RequestParam(value = "nome", required = false) String nome,
+                                         @RequestParam(value = "cnpj", required = false) String cnpj,
+                                         @RequestParam(value = "razaoSocial", required = false) String razaoSocial,
+                                         Pageable pageable ) {
+        Specification<Empresa> specification = EmpresaSpecification.filtrarEmpresas(nome, cnpj, razaoSocial);                     
+        return empresaRepository.findAll(specification, pageable);                           
     }
 }
