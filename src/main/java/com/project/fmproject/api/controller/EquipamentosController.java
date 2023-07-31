@@ -32,6 +32,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+
+import javax.activation.MimetypesFileTypeMap;
 import java.net.URI;
 
 
@@ -108,8 +110,12 @@ public class EquipamentosController {
             Documentos documento = optionalDocumento.get();
             Path caminho = Paths.get(documento.getCaminho());
             byte[] bytes = Files.readAllBytes(caminho);
+            String fileName = caminho.getFileName().toString();
             return ResponseEntity.ok()
-                    .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + caminho.getFileName().toString() + "\"")
+                    .contentType(MediaType.parseMediaType(new MimetypesFileTypeMap().getContentType(fileName)))
+                    .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + fileName + "\"")
+                    .header(HttpHeaders.ACCESS_CONTROL_EXPOSE_HEADERS, "filename")
+                    .header("filename", fileName)
                     .body(bytes);
         } else {
             return ResponseEntity.notFound().build();
