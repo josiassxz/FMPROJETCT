@@ -61,6 +61,10 @@ public class EmpresaService {
         empresaExistente.setEmail(empresaAtualizada.getEmail());
         empresaExistente.setTelefone(empresaAtualizada.getTelefone());
         empresaExistente.setUsuarios(empresaAtualizada.getUsuarios());
+        empresaExistente.setCep(empresaAtualizada.getCep());
+        empresaExistente.setCidade(empresaAtualizada.getCidade());
+        empresaExistente.setEndereco(empresaAtualizada.getEndereco());
+        empresaExistente.setEstado(empresaAtualizada.getEstado());
         return empresaRepository.save(empresaExistente);
     }
 

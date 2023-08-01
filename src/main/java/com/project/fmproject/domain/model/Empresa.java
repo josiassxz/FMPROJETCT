@@ -42,6 +42,8 @@ public class Empresa {
     private String cep;
 
     private String endereco;
+    
+    private String estado;
 
     @JsonIgnoreProperties("empresas")
     @ManyToMany
