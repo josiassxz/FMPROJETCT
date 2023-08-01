@@ -1,5 +1,6 @@
 package com.project.fmproject.domain.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.project.fmproject.domain.service.enums.TipoEquipamentoEnum;
 import lombok.Data;
@@ -101,6 +102,7 @@ public class Equipamentos {
     @OneToMany(mappedBy = "equipamento", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Documentos> documentos = new ArrayList<>();
 
+    @JsonIgnore
     @ElementCollection
     private List<String> caminhosDocumentos = new ArrayList<>();
 

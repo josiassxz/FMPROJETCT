@@ -150,6 +150,8 @@ public class EquipamentosController {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
         headers.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + zipFile.getName() + "\"");
+        headers.add(HttpHeaders.ACCESS_CONTROL_EXPOSE_HEADERS, "filename");
+        headers.add("filename", zipFile.getName());
         // Retorna a resposta com o arquivo compactado
         return ResponseEntity.ok()
                 .headers(headers)
