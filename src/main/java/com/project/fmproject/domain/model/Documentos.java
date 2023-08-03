@@ -27,10 +27,6 @@ public class Documentos {
     @JoinColumn(name = "equipamento_id")
     private Equipamentos equipamento;
 
-//    public void setArquivo(MultipartFile file) throws IOException {
-//        this.nome = file.getOriginalFilename();
-//        this.tipo = file.getContentType();
-//        this.arquivo = file.getBytes();
-//    }
+
 }
 

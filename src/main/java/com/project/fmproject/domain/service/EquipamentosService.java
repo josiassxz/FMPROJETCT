@@ -52,7 +52,7 @@ public class EquipamentosService {
 
         for (int i = 0; i < files.size(); i++) {
             MultipartFile file = files.get(i);
-            String caminho = "C:\\Users\\Defensoria\\Documents\\Projetos\\Arquivos\\" + UUID.randomUUID().getLeastSignificantBits() + file.getOriginalFilename();
+            String caminho = "C:\\Users\\josia\\OneDrive\\Documents\\Arquivos\\" + UUID.randomUUID().getLeastSignificantBits() + file.getOriginalFilename();
             byte[] bytes = file.getBytes();
             Path path = Paths.get(caminho);
             Files.write(path, bytes);
@@ -80,6 +80,10 @@ public class EquipamentosService {
 
         ObjectMapper mapper = new ObjectMapper();
         Equipamentos equipamentoAtualizado = mapper.readValue(equipamentosJson, Equipamentos.class);
+        equipamentoExistente.setTagEquipamento(equipamentoAtualizado.getTagEquipamento());
+        equipamentoExistente.setDescricao(equipamentoAtualizado.getDescricao());
+        equipamentoExistente.setTagEquipamento(equipamentoAtualizado.getTagEquipamento());
+        equipamentoExistente.setDescricao(equipamentoAtualizado.getDescricao());
         equipamentoExistente.setTagEquipamento(equipamentoAtualizado.getTagEquipamento());
         equipamentoExistente.setDescricao(equipamentoAtualizado.getDescricao());
         equipamentoExistente.setLocalizacao(equipamentoAtualizado.getLocalizacao());
@@ -118,25 +122,61 @@ public class EquipamentosService {
         equipamentoExistente.setNorma(equipamentoAtualizado.getNorma());
         equipamentoExistente.setInspecao(equipamentoAtualizado.getInspecao());
         equipamentoExistente.setProximaInspecao(equipamentoAtualizado.getProximaInspecao());
-        // Remove os documentos antigos antes de adicionar os novos
-        equipamentoExistente.getDocumentos().clear();
 
-        for (int i = 0; i < files.size(); i++) {
-            MultipartFile file = files.get(i);
-            String caminho = "C:\\Users\\Defensoria\\Documents\\Projetos\\Arquivos\\" + UUID.randomUUID().getLeastSignificantBits() + file.getOriginalFilename();
-            byte[] bytes = file.getBytes();
-            Path path = Paths.get(caminho);
-            Files.write(path, bytes);
-            Documentos documento = new Documentos();
-            documento.setCaminho(caminho);
-            documento.setNome(equipamentoAtualizado.getDocumentos().get(i).getNome());
-            documento.setTipo(equipamentoAtualizado.getDocumentos().get(i).getTipo());
-            equipamentoExistente.adicionarDocumento(documento, caminho);
+        if (equipamentoAtualizado.getDocumentos() != null && !equipamentoAtualizado.getDocumentos().isEmpty()) {
+            int numDocumentos = Math.min(equipamentoAtualizado.getDocumentos().size(), files.size());
+
+            Iterator<Documentos> documentoIterator = equipamentoExistente.getDocumentos().iterator();
+            while (documentoIterator.hasNext()) {
+                Documentos documentoExistente = documentoIterator.next();
+
+                boolean documentoEncontrado = false;
+                for (int i = 0; i < numDocumentos; i++) {
+                    Documentos documentoAtualizado = equipamentoAtualizado.getDocumentos().get(i);
+                    if (documentoExistente.getId() != null && documentoExistente.getId().equals(documentoAtualizado.getId())) {
+                        documentoEncontrado = true;
+
+                        if (!documentoExistente.getTipo().equals(documentoAtualizado.getTipo())) {
+                            documentoExistente.setTipo(documentoAtualizado.getTipo());
+                        }
+
+                        equipamentoAtualizado.getDocumentos().remove(i);
+                        numDocumentos--;
+                        break;
+                    }
+                }
+
+                if (!documentoEncontrado) {
+                    documentoIterator.remove();
+                }
+            }
+
+            for (int i = 0; i < numDocumentos; i++) {
+                MultipartFile file = files.get(i);
+                Documentos documentoAtualizado = equipamentoAtualizado.getDocumentos().get(i);
+
+                if (!file.isEmpty()) {
+                    String caminho = "C:\\Users\\josia\\OneDrive\\Documents\\Arquivos\\" + UUID.randomUUID().getLeastSignificantBits() + file.getOriginalFilename();
+                    byte[] bytes = file.getBytes();
+                    Path path = Paths.get(caminho);
+                    Files.write(path, bytes);
+
+                    Documentos documento = new Documentos();
+                    documento.setCaminho(caminho);
+                    documento.setNome(documentoAtualizado.getNome());
+                    documento.setTipo(documentoAtualizado.getTipo());
+                    equipamentoExistente.adicionarDocumento(documento, caminho);
+                } else {
+                    equipamentoExistente.adicionarDocumento(documentoAtualizado, documentoAtualizado.getCaminho());
+                }
+            }
+        } else {
+            equipamentoExistente.getDocumentos().clear();
         }
 
         return equipamentosRepository.save(equipamentoExistente);
-    }
 
+    }
 
 
     public void removerEquipamento(Long id) {
