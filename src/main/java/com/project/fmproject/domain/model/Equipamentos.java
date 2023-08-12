@@ -92,6 +92,9 @@ public class Equipamentos {
     private String inspecao;
     @Column(nullable = false)
     private String proximaInspecao;
+    @Column(nullable = false)
+    private String observacaoRgi;
+    
 
     @ManyToOne
     @JsonIgnoreProperties("empresa")

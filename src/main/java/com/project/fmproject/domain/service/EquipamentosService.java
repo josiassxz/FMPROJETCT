@@ -122,6 +122,7 @@ public class EquipamentosService {
         equipamentoExistente.setNorma(equipamentoAtualizado.getNorma());
         equipamentoExistente.setInspecao(equipamentoAtualizado.getInspecao());
         equipamentoExistente.setProximaInspecao(equipamentoAtualizado.getProximaInspecao());
+        equipamentoExistente.setObservacaoRgi(equipamentoAtualizado.getObservacaoRgi());
 
         if (equipamentoAtualizado.getDocumentos() != null && !equipamentoAtualizado.getDocumentos().isEmpty()) {
             int numDocumentos = Math.min(equipamentoAtualizado.getDocumentos().size(), files.size());
