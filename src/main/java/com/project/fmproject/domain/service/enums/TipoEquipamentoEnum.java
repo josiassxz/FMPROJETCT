@@ -8,7 +8,9 @@ public enum TipoEquipamentoEnum {
     CALDEIRA( "CALDEIRA", "Caldeira"),
     LINHA( "LINHA", "Linha de vida"),
     ELEVADOR( "ELEVADOR", "Elevador"),
+    INDICADOR_TEMPERATURA("INDICADOR_TEMPERATURA", "Indicador de temperatura"),
     EQUIPAMENTO( "EQUIPAMENTO", "Equipamento");
+
 
     TipoEquipamentoEnum(String codigo, String descricao) {
         this.codigo = codigo;
