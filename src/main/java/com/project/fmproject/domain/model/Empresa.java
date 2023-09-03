@@ -7,8 +7,6 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,17 +19,16 @@ public class Empresa {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank(message = "O nome da empresa é obrigatório")
+//    @NotBlank(message = "O nome da empresa é obrigatório")
     private String nome;
 
-    @NotBlank(message = "A razão social é obrigatória")
+//    @NotBlank(message = "A razão social é obrigatória")
     private String razaoSocial;
 
-    @NotBlank(message = "O CNPJ é obrigatório")
+
     private String cnpj;
 
     //@NotBlank(message = "O email é obrigatório")
-    @Email(message = "O email informado é inválido")
     private String email;
 
     //@NotBlank(message = "O telefone é obrigatório")

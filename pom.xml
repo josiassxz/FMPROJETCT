@@ -12,9 +12,11 @@
     <artifactId>Clientes</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>fmproject</name>
+    <packaging>jar</packaging>
     <description>fmproject</description>
     <properties>
         <java.version>1.8</java.version>
+        <dockerfile-maven-version>1.4.13</dockerfile-maven-version>
     </properties>
 
 
@@ -23,6 +25,12 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.xml.bind</groupId>
+            <artifactId>jaxb-api</artifactId>
+            <version>2.3.0</version>
         </dependency>
 
         <dependency>
@@ -51,7 +59,10 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.33</version>
         </dependency>
+
+
 
     </dependencies>
     <build>
@@ -70,5 +81,37 @@
             </plugin>
         </plugins>
     </build>
+
+        <!--criando profile para gerar imagem docker pelo maven-->
+
+    <profiles>
+        <profile>
+            <id>docker</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>com.spotify</groupId>
+                        <artifactId>dockerfile-maven-plugin</artifactId>
+                        <version>${dockerfile-maven-version}</version>
+                        <executions>
+                            <execution>
+                                <id>default</id>
+                                <goals>
+                                    <goal>build</goal>
+                                    <goal>push</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <repository>josiassxz/fm-project</repository>
+                            <buildArgs>
+                                <JAR_FILE>${project.build.finalName}.jar</JAR_FILE>
+                            </buildArgs>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 
 </project>
