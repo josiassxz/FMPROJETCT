@@ -4,21 +4,23 @@ networks:
   fm-project-network:
     driver: bridge
 services:
-      fm-project-mysql:
-        image: mysql:8.0
-        environment:
-          MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
-        ports:
-          - "3306:3306"
-        networks:
-          - fm-project-network
-      fm-project-api:
-        image: josiassxz/fm-project
-        environment:
-          DB_HOST: "fm-project-mysql"
-        ports:
-          - "8080:8080"
-        networks:
-         - fm-project-network
-        depends_on:
-         - fm-project-mysql
+  fm-project-mysql:
+    image: mysql:8.0
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+    ports:
+      - "3306:3306"
+    networks:
+      - fm-project-network
+  fm-project-api:
+    image: josiassxz/fm-project
+#    command: ["/wait-for-it.sh", "fm-project-mysql:3306", "-t", "300", "--", "java", "-jar", "fmproject.jar"]
+#    command: ["sh", "-c", "dockerize -wait tcp://fm-project-mysql:3306 -timeout 300s -- java -jar fmproject.jar"]
+    environment:
+      DB_HOST: "fm-project-mysql"
+    ports:
+      - "8080:8080"
+    networks:
+      - fm-project-network
+    depends_on:
+      - fm-project-mysql

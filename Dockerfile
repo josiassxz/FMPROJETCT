@@ -1,25 +1,24 @@
-#FROM adoptopenjdk/openjdk8:ubi
-#
-#ADD target/Clientes-0.0.1-SNAPSHOT.jar app.jar
-#
-#ENTRYPOINT ["java", "-jar", "/app.jar"]
-#
-#EXPOSE 8080
 
-# Use uma imagem do OpenJDK 11 como base
-FROM openjdk:11.0.11-9-jdk
+#FROM openjdk:11.0.11-9-jdk
 
-# Defina um diretório de trabalho
+FROM openjdk:17-jdk-slim
+
+
 WORKDIR /app
 
 ARG JAR_FILE
 
-# Copie o arquivo JAR para o diretório de trabalho no container
+# Copia o arquivo JAR para o diretório workdir no container
 COPY target/${JAR_FILE} /app/fmproject.jar
+# script da documentação do docker compose para garantir que o banco
+# ou alguma porta especifica esteja up antes de subir a aplicação
+COPY wait-for-it.sh /wait-for-it.sh
+# rodando o wait for it
+RUN chmod +x /wait-for-it.sh
 
-# Defina o comando de entrada (entrypoint)
+
 ENTRYPOINT ["java", "-jar", "fmproject.jar"]
 
-# Exponha a porta 8080 (se necessário)
+
 EXPOSE 8080
 
