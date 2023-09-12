@@ -23,7 +23,7 @@ services:
     environment:
       DB_HOST: "fm-project-mysql"
     ports:
-      - "8080:8080"
+      - "80:8080"
     networks:
       - fm-project-network
     depends_on:
