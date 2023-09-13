@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.EntityNotFoundException;
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -49,10 +50,11 @@ public class EquipamentosService {
 
         // Configurar a relação bidirecional entre Equipamento e Documento
         List<Documentos> documentos = new ArrayList<>();
+        new File("C:\\arquivos").mkdirs();
 
         for (int i = 0; i < files.size(); i++) {
             MultipartFile file = files.get(i);
-            String caminho = "C:\\Users\\josia\\OneDrive\\Documents\\Arquivos\\" + UUID.randomUUID().getLeastSignificantBits() + " - " + file.getOriginalFilename();
+            String caminho = "C:\\arquivos\\" + UUID.randomUUID().getLeastSignificantBits() + " - " + file.getOriginalFilename();
             byte[] bytes = file.getBytes();
             Path path = Paths.get(caminho);
             Files.write(path, bytes);
@@ -157,11 +159,10 @@ public class EquipamentosService {
                 Documentos documentoAtualizado = equipamentoAtualizado.getDocumentos().get(i);
 
                 if (!file.isEmpty()) {
-                    String caminho = "C:\\Users\\josia\\OneDrive\\Documents\\Arquivos\\" + UUID.randomUUID().getLeastSignificantBits() + " - " + file.getOriginalFilename();
+                    String caminho = "C:\\arquivos\\" + UUID.randomUUID().getLeastSignificantBits() + " - " + file.getOriginalFilename();
                     byte[] bytes = file.getBytes();
                     Path path = Paths.get(caminho);
                     Files.write(path, bytes);
-
                     Documentos documento = new Documentos();
                     documento.setCaminho(caminho);
                     documento.setNome(documentoAtualizado.getNome());
