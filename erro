@@ -22,4 +22,6 @@ http://localhost:8080/empresas
     "endereco": "",
     "estado": "",
     "usuarios": [],
+    "idsUsuarios": null
+}
   
