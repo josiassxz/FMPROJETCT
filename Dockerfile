@@ -1,8 +1,4 @@
-
-#FROM openjdk:11.0.11-9-jdk
-
-FROM openjdk:17-jdk-slim
-
+FROM adoptopenjdk/openjdk8:ubi
 
 WORKDIR /app
 
