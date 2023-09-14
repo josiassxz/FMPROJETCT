@@ -24,4 +24,73 @@ http://localhost:8080/empresas
     "usuarios": [],
     "idsUsuarios": null
 }
-  
+
+
+http://localhost:8080/equipamentos/salvar
+
+{
+   "id":null,
+   "tagEquipamento":"131231",
+   "descricao":"12312",
+   "localizacao":"123123",
+   "categoria":"",
+   "condicao":"",
+   "tipoEquipamento":"EQUIPAMENTO",
+   "inspecaoExterna":"",
+   "inspecaoInterna":"",
+   "proximaInspecaoExterna":"",
+   "proximaInspecaoInterna":"",
+   "placaIndentificacao":"1",
+   "valvulaSeguranca":"",
+   "indicadorPressao":"",
+   "pmta":"",
+   "anoCadastro":"1312",
+   "observacao":"12312",
+   "numLacre":"",
+   "dataCalibracao":"",
+   "proximaCalibracao":"",
+   "roscaConexao":"",
+   "marcaModelo":"",
+   "instrumento":"",
+   "escala":"",
+   "unidadeMedida":"",
+   "tamanho":"",
+   "bitola":"",
+   "setPoint":"",
+   "unidadeAjuste":"",
+   "status":"1",
+   "possuiRgi":"",
+   "fluido":"",
+   "numRelatorio":"123123",
+   "laudoValSeguranca":"123123",
+   "numSerie":"12312",
+   "capacidade":"",
+   "norma":"1",
+   "inspecao":"2023-09-14T03:00:00.000Z",
+   "proximaInspecao":"2023-09-14T03:00:00.000Z",
+   "empresa":{
+      "id":1,
+      "nome":"Renan e Olivia Joalheria Ltda",
+      "razaoSocial":"ti@renaneoliviajolherialtda.com.br",
+      "cnpj":"77737461000176",
+      "email":"ti@renaneoliviajoalherialtda.com.br",
+      "telefone":"1321231232131",
+      "cidade":"",
+      "cep":"",
+      "endereco":"",
+      "estado":"",
+      "usuarios":[
+         
+      ],
+      "idsUsuarios":null
+   },
+   "documentos":[
+      {
+         "id":null,
+         "caminho":"",
+         "nome":"fatura.pdf",
+         "tipo":"1"
+      }
+   ],
+   "observacaoRgi":""
+}
