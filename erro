@@ -1,1 +1,8 @@
-test: ["CMD-SHELL", "export MYSQL_ROOT_PASSWORD=12345678 && mysqladmin ping -h 127.0.0.1 -u root -p$MYSQL_ROOT_PASSWORD"]
+localhost:8080/usuarios
+
+{
+  "email": "josiassxz",
+  "senha": "32588903",
+  "tipo": 1,
+  "nome": "pedro"
+}
