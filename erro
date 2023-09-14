@@ -6,3 +6,20 @@ localhost:8080/usuarios
   "tipo": 1,
   "nome": "pedro"
 }
+
+
+
+http://localhost:8080/empresas
+
+{
+    "nome": "Renan e Olivia Joalheria Ltda",
+    "razaoSocial": "ti@renaneoliviajolherialtda.com.br",
+    "cnpj": "77737461000176",
+    "email": "ti@renaneoliviajoalherialtda.com.br",
+    "telefone": "1321231232131",
+    "cidade": "",
+    "cep": "",
+    "endereco": "",
+    "estado": "",
+    "usuarios": [],
+  
