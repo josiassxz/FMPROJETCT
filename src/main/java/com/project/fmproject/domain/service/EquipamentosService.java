@@ -44,17 +44,47 @@ public class EquipamentosService {
 
 
 
+//    public Equipamentos salvar(String equipamentosJson, List<MultipartFile> files) throws IOException {
+//        ObjectMapper mapper = new ObjectMapper();
+//        Equipamentos equipamento = mapper.readValue(equipamentosJson, Equipamentos.class);
+//
+//        // Configurar a relação bidirecional entre Equipamento e Documento
+//        List<Documentos> documentos = new ArrayList<>();
+//        new File("C:\\arquivos").mkdirs();
+//
+//        for (int i = 0; i < files.size(); i++) {
+//            MultipartFile file = files.get(i);
+//            String caminho = "C:\\arquivos\\" + UUID.randomUUID().getLeastSignificantBits() + " - " + file.getOriginalFilename();
+//            byte[] bytes = file.getBytes();
+//            Path path = Paths.get(caminho);
+//            Files.write(path, bytes);
+//            Documentos documento = new Documentos();
+//            documento.setCaminho(caminho);
+//            documento.setNome(equipamento.getDocumentos().get(i).getNome());
+//            documento.setTipo(equipamento.getDocumentos().get(i).getTipo());
+//            documento.setEquipamento(equipamento); // Estabelecer a relação com o equipamento
+//
+//            documentos.add(documento);
+//        }
+//
+//        equipamento.setDocumentos(documentos);
+//
+//        return equipamentosRepository.save(equipamento);
+//    }
+
     public Equipamentos salvar(String equipamentosJson, List<MultipartFile> files) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
         Equipamentos equipamento = mapper.readValue(equipamentosJson, Equipamentos.class);
 
+        // Obter o diretório atual do projeto
+        String diretorioAtual = System.getProperty("user.dir");
+
         // Configurar a relação bidirecional entre Equipamento e Documento
         List<Documentos> documentos = new ArrayList<>();
-        new File("C:\\arquivos").mkdirs();
 
         for (int i = 0; i < files.size(); i++) {
             MultipartFile file = files.get(i);
-            String caminho = "C:\\arquivos\\" + UUID.randomUUID().getLeastSignificantBits() + " - " + file.getOriginalFilename();
+            String caminho = diretorioAtual + File.separator + UUID.randomUUID().getLeastSignificantBits() + " - " + file.getOriginalFilename();
             byte[] bytes = file.getBytes();
             Path path = Paths.get(caminho);
             Files.write(path, bytes);
@@ -76,7 +106,9 @@ public class EquipamentosService {
 
 
 
+
     public Equipamentos alterar(Long equipamentoId, String equipamentosJson, List<MultipartFile> files) throws IOException {
+        String diretorioAtual = System.getProperty("user.dir");
         Equipamentos equipamentoExistente = equipamentosRepository.findById(equipamentoId)
                 .orElseThrow(() -> new IllegalArgumentException("Equipamento não encontrado"));
 
@@ -159,7 +191,7 @@ public class EquipamentosService {
                 Documentos documentoAtualizado = equipamentoAtualizado.getDocumentos().get(i);
 
                 if (!file.isEmpty()) {
-                    String caminho = "C:\\arquivos\\" + UUID.randomUUID().getLeastSignificantBits() + " - " + file.getOriginalFilename();
+                    String caminho = diretorioAtual + File.separator + UUID.randomUUID().getLeastSignificantBits() + " - " + file.getOriginalFilename();
                     byte[] bytes = file.getBytes();
                     Path path = Paths.get(caminho);
                     Files.write(path, bytes);
