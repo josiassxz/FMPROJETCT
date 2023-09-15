@@ -20,7 +20,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@CrossOrigin("http://localhost:4200")
+@CrossOrigin(origins = {"http://localhost:4200", "https://josiassxz.github.io/fmfront/"})
 @RequestMapping("/empresas")
 public class EmpresaController {
 
