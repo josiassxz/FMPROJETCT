@@ -13,7 +13,6 @@ services:
       - "3306:3306"
     networks:
       - fm-project-network
-
   fm-project-api:
     image: josiassxz/fm-projectfinalversion
     command: ["java", "-jar", "fmproject.jar"]
@@ -25,6 +24,8 @@ services:
       - fm-project-network
     depends_on:
       - fm-project-mysql
+    volumes:
+      - /app:/home/ubuntu/arquivos
 
 volumes:
   storage-local:
