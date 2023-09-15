@@ -134,3 +134,12 @@ volumes:
       type: none
       device: /caminho/para/o/diretorio
       o: bind
+
+
+
+
+
+
+
+
+#    command: ["/wait-for-it.sh", "fm-project-mysql:3306", "-t", "300", "--", "java", "-jar", "fmproject.jar"]
