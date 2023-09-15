@@ -115,9 +115,6 @@ public class EquipamentosService {
         Equipamentos equipamentoExistente = equipamentosRepository.findById(equipamentoId)
                 .orElseThrow(() -> new IllegalArgumentException("Equipamento não encontrado"));
 
-        files.forEach(elem -> {
-            System.out.println( "nome original" +  elem.getOriginalFilename() + " --- name " + elem.getName());
-        });
 
         ObjectMapper mapper = new ObjectMapper();
         Equipamentos equipamentoAtualizado = mapper.readValue(equipamentosJson, Equipamentos.class);
