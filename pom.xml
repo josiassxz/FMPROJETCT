@@ -108,7 +108,7 @@
                             </execution>
                         </executions>
                         <configuration>
-                            <repository>josiassxz/fm-project1234</repository>
+                            <repository>josiassxz/fm-projectfinalversion</repository>
                             <buildArgs>
                                 <JAR_FILE>${project.build.finalName}.jar</JAR_FILE>
                             </buildArgs>
