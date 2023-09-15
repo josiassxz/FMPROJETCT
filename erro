@@ -98,22 +98,82 @@ http://localhost:8080/equipamentos/salvar
 
 
 
-curl 'http://localhost:8080/equipamentos/salvar' \
-  -H 'Accept: application/json, text/plain, */*' \
-  -H 'Accept-Language: pt-BR,pt;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6' \
-  -H 'Cache-Control: no-cache' \
-  -H 'Connection: keep-alive' \
-  -H 'Content-Type: multipart/form-data; boundary=----WebKitFormBoundary6uQq1lodrRLZT1Oi' \
-  -H 'DNT: 1' \
-  -H 'Origin: http://localhost:4200' \
-  -H 'Pragma: no-cache' \
-  -H 'Referer: http://localhost:4200/' \
-  -H 'Sec-Fetch-Dest: empty' \
-  -H 'Sec-Fetch-Mode: cors' \
-  -H 'Sec-Fetch-Site: same-site' \
-  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.81' \
-  -H 'sec-ch-ua: "Chromium";v="116", "Not)A;Brand";v="24", "Microsoft Edge";v="116"' \
-  -H 'sec-ch-ua-mobile: ?0' \
-  -H 'sec-ch-ua-platform: "Windows"' \
-  --data-raw $'------WebKitFormBoundary6uQq1lodrRLZT1Oi\r\nContent-Disposition: form-data; name="equipamentosJson"\r\n\r\n{"id":null,"tagEquipamento":"131231","descricao":"12312","localizacao":"123123","categoria":"","condicao":"","tipoEquipamento":"EQUIPAMENTO","inspecaoExterna":"","inspecaoInterna":"","proximaInspecaoExterna":"","proximaInspecaoInterna":"","placaIndentificacao":"1","valvulaSeguranca":"","indicadorPressao":"","pmta":"","anoCadastro":"1312","observacao":"12312","numLacre":"","dataCalibracao":"","proximaCalibracao":"","roscaConexao":"","marcaModelo":"","instrumento":"","escala":"","unidadeMedida":"","tamanho":"","bitola":"","setPoint":"","unidadeAjuste":"","status":"1","possuiRgi":"","fluido":"","numRelatorio":"123123","laudoValSeguranca":"123123","numSerie":"12312","capacidade":"","norma":"1","inspecao":"2023-09-14T03:00:00.000Z","proximaInspecao":"2023-09-14T03:00:00.000Z","empresa":{"id":1,"nome":"Renan e Olivia Joalheria Ltda","razaoSocial":"ti@renaneoliviajolherialtda.com.br","cnpj":"77737461000176","email":"ti@renaneoliviajoalherialtda.com.br","telefone":"1321231232131","cidade":"","cep":"","endereco":"","estado":"","usuarios":[],"idsUsuarios":null},"documentos":[{"id":null,"caminho":"","nome":"fatura.pdf","tipo":"1"}],"observacaoRgi":""}\r\n------WebKitFormBoundary6uQq1lodrRLZT1Oi\r\nContent-Disposition: form-data; name="files"; filename="fatura.pdf"\r\nContent-Type: application/pdf\r\n\r\n\r\n------WebKitFormBoundary6uQq1lodrRLZT1Oi--\r\n' \
-  --compressed
+version: "3.9"
+
+networks:
+  fm-project-network:
+    driver: bridge
+
+services:
+  fm-project-mysql:
+    image: mysql:8.0
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+    ports:
+      - "3306:3306"
+    networks:
+      - fm-project-network
+
+  fm-project-api:
+    image: josiassxz/fm-projectfinalversion
+    volumes:
+      - storage-local:/app
+    environment:
+      DB_HOST: "fm-project-mysql"
+    ports:
+      - "8080:8080"
+    networks:
+      - fm-project-network
+    depends_on:
+      - fm-project-mysql
+
+volumes:
+  storage-local:
+    driver: local
+    driver_opts:
+      type: none
+      device: /caminho/para/o/diretorio
+      o: bind
+
+
+
+
+
+
+
+
+#    command: ["/wait-for-it.sh", "fm-project-mysql:3306", "-t", "300", "--", "java", "-jar", "fmproject.jar"]
+
+
+
+
+version: "3.9"
+
+networks:
+  fm-project-network:
+    driver: bridge
+
+services:
+  fm-project-mysql:
+    image: mysql:8.0
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+    ports:
+      - "3306:3306"
+    networks:
+      - fm-project-network
+
+  fm-project-api:
+    image: josiassxz/fm-projectfinalversion
+    command: ["java", "-jar", "fmproject.jar"]
+    environment:
+      DB_HOST: "fm-project-mysql"
+    ports:
+      - "8080:8080"
+    networks:
+      - fm-project-network
+    depends_on:
+      - fm-project-mysql
+
+volumes:
+  storage-local:
