@@ -22,7 +22,6 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@CrossOrigin(origins = {"http://localhost:4200", "https://josiassxz.github.io/fmfront/"})
 @RequestMapping("/usuarios")
 public class UsuarioController {
 
@@ -120,8 +119,8 @@ public class UsuarioController {
                                          @RequestParam(value = "email", required = false) String email,
                                          @RequestParam(value = "tipo", required = false) String tipo,
                                          Pageable pageable ) {
-        Specification<Usuario> specification = UsuariosSpecification.filtrarUsuarios(nome, email, tipo);                     
-        return usuarioRepository.findAll(specification, pageable);                             
+        Specification<Usuario> specification = UsuariosSpecification.filtrarUsuarios(nome, email, tipo);
+        return usuarioRepository.findAll(specification, pageable);
     }
 
 

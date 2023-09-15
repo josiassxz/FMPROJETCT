@@ -41,7 +41,6 @@ import java.net.URI;
 
 
 @RestController
-@CrossOrigin(origins = {"http://localhost:4200", "https://josiassxz.github.io/fmfront/"})
 @RequestMapping("/equipamentos")
 public class EquipamentosController {
 
