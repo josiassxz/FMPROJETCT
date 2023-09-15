@@ -20,7 +20,7 @@ services:
       retries: 3
 
   fm-project-api:
-    image: josiassxz/fm-project1234
+    image: josiassxz/fm-projectfinalversion
     volumes:
       - storage-local:/app
     environment:
