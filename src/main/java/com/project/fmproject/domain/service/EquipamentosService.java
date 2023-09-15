@@ -28,6 +28,9 @@ public class EquipamentosService {
     @Autowired
     private EquipamentosRepository repository;
 
+    @Autowired
+    private DocumentosRepository documentosRepository;
+
 
     @Autowired
     private EquipamentosRepository equipamentosRepository;
@@ -112,6 +115,10 @@ public class EquipamentosService {
         Equipamentos equipamentoExistente = equipamentosRepository.findById(equipamentoId)
                 .orElseThrow(() -> new IllegalArgumentException("Equipamento não encontrado"));
 
+        files.forEach(elem -> {
+            System.out.println( "nome original" +  elem.getOriginalFilename() + " --- name " + elem.getName());
+        });
+
         ObjectMapper mapper = new ObjectMapper();
         Equipamentos equipamentoAtualizado = mapper.readValue(equipamentosJson, Equipamentos.class);
         equipamentoExistente.setTagEquipamento(equipamentoAtualizado.getTagEquipamento());
@@ -158,8 +165,10 @@ public class EquipamentosService {
         equipamentoExistente.setProximaInspecao(equipamentoAtualizado.getProximaInspecao());
         equipamentoExistente.setObservacaoRgi(equipamentoAtualizado.getObservacaoRgi());
 
+
         if (equipamentoAtualizado.getDocumentos() != null && !equipamentoAtualizado.getDocumentos().isEmpty()) {
             int numDocumentos = Math.min(equipamentoAtualizado.getDocumentos().size(), files.size());
+
 
             Iterator<Documentos> documentoIterator = equipamentoExistente.getDocumentos().iterator();
             while (documentoIterator.hasNext()) {
@@ -186,24 +195,38 @@ public class EquipamentosService {
                 }
             }
 
-            for (int i = 0; i < numDocumentos; i++) {
-                MultipartFile file = files.get(i);
-                Documentos documentoAtualizado = equipamentoAtualizado.getDocumentos().get(i);
+            equipamentoAtualizado.getDocumentos().forEach(doc -> {
+                if (doc.getId() == null){
+                    files.forEach(file -> {
+                        if (file.getOriginalFilename().trim().equalsIgnoreCase(doc.getNome())){
 
-                if (!file.isEmpty()) {
-                    String caminho = diretorioAtual + File.separator + UUID.randomUUID().getLeastSignificantBits() + " - " + file.getOriginalFilename();
-                    byte[] bytes = file.getBytes();
-                    Path path = Paths.get(caminho);
-                    Files.write(path, bytes);
-                    Documentos documento = new Documentos();
-                    documento.setCaminho(caminho);
-                    documento.setNome(documentoAtualizado.getNome());
-                    documento.setTipo(documentoAtualizado.getTipo());
-                    equipamentoExistente.adicionarDocumento(documento, caminho);
-                } else {
-                    equipamentoExistente.adicionarDocumento(documentoAtualizado, documentoAtualizado.getCaminho());
+
+                            if (!file.isEmpty()) {
+                                String caminho = null;
+                                caminho = diretorioAtual + File.separator + UUID.randomUUID().getLeastSignificantBits() + " - " + file.getOriginalFilename() ;
+                                byte[] bytes = new byte[0];
+                                try {
+                                    bytes = file.getBytes();
+                                    Path path = Paths.get(caminho);
+                                    Files.write(path, bytes);
+                                    Documentos documento = new Documentos();
+                                    documento.setCaminho(caminho);
+                                    documento.setNome(doc.getNome());
+                                    documento.setTipo(doc.getTipo());
+                                    equipamentoExistente.adicionarDocumento(documento, caminho);
+                                } catch (IOException e) {
+                                    throw new RuntimeException(e);
+                                }
+
+                            }
+                        }
+                    });
+                }else {
+                    documentosRepository.save(doc);
                 }
-            }
+            });
+
+
         } else {
             equipamentoExistente.getDocumentos().clear();
         }

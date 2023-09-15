@@ -115,6 +115,8 @@ public class Equipamentos {
         documento.setEquipamento(this);
     }
 
+
+
     public void removeDocumento(Documentos documento) {
         this.documentos.remove(documento);
         this.caminhosDocumentos.remove(documento.getCaminho());
