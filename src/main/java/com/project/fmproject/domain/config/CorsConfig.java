@@ -14,19 +14,19 @@ public class CorsConfig implements WebMvcConfigurer {
     public void addCorsMappings(CorsRegistry registry) {
         // Configuração CORS para "/empresas"
         registry.addMapping("/empresas/**")
-                .allowedOrigins("http://localhost:4200", "https://josiassxz.github.io/fmfront/")
+                .allowedOrigins("http://localhost:4200", "http://ec2-13-48-104-78.eu-north-1.compute.amazonaws.com:8081")
                 .allowedMethods("GET", "POST", "PUT", "DELETE")
                 .allowCredentials(true);
 
         // Configuração CORS para "/equipamentos"
         registry.addMapping("/equipamentos/**")
-                .allowedOrigins("http://localhost:4200", "https://josiassxz.github.io/fmfront/")
+                .allowedOrigins("http://localhost:4200", "http://ec2-13-48-104-78.eu-north-1.compute.amazonaws.com:8081")
                 .allowedMethods("GET", "POST", "PUT", "DELETE")
                 .allowCredentials(true);
 
         // Configuração CORS para "/usuarios"
         registry.addMapping("/usuarios/**")
-                .allowedOrigins("http://localhost:4200", "https://josiassxz.github.io/fmfront/")
+                .allowedOrigins("http://localhost:4200", "http://ec2-13-48-104-78.eu-north-1.compute.amazonaws.com:8081")
                 .allowedMethods("GET", "POST", "PUT", "DELETE")
                 .allowCredentials(true);
     }
