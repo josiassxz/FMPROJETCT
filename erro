@@ -1,152 +1,3 @@
-localhost:8080/usuarios
-
-{
-  "email": "josiassxz",
-  "senha": "32588903",
-  "tipo": 1,
-  "nome": "pedro"
-}
-
-
-
-http://localhost:8080/empresas
-
-{
-    "nome": "Renan e Olivia Joalheria Ltda",
-    "razaoSocial": "ti@renaneoliviajolherialtda.com.br",
-    "cnpj": "77737461000176",
-    "email": "ti@renaneoliviajoalherialtda.com.br",
-    "telefone": "1321231232131",
-    "cidade": "",
-    "cep": "",
-    "endereco": "",
-    "estado": "",
-    "usuarios": [],
-    "idsUsuarios": null
-}
-
-
-http://localhost:8080/equipamentos/salvar
-
-{
-   "id":null,
-   "tagEquipamento":"131231",
-   "descricao":"12312",
-   "localizacao":"123123",
-   "categoria":"",
-   "condicao":"",
-   "tipoEquipamento":"EQUIPAMENTO",
-   "inspecaoExterna":"",
-   "inspecaoInterna":"",
-   "proximaInspecaoExterna":"",
-   "proximaInspecaoInterna":"",
-   "placaIndentificacao":"1",
-   "valvulaSeguranca":"",
-   "indicadorPressao":"",
-   "pmta":"",
-   "anoCadastro":"1312",
-   "observacao":"12312",
-   "numLacre":"",
-   "dataCalibracao":"",
-   "proximaCalibracao":"",
-   "roscaConexao":"",
-   "marcaModelo":"",
-   "instrumento":"",
-   "escala":"",
-   "unidadeMedida":"",
-   "tamanho":"",
-   "bitola":"",
-   "setPoint":"",
-   "unidadeAjuste":"",
-   "status":"1",
-   "possuiRgi":"",
-   "fluido":"",
-   "numRelatorio":"123123",
-   "laudoValSeguranca":"123123",
-   "numSerie":"12312",
-   "capacidade":"",
-   "norma":"1",
-   "inspecao":"2023-09-14T03:00:00.000Z",
-   "proximaInspecao":"2023-09-14T03:00:00.000Z",
-   "empresa":{
-      "id":1,
-      "nome":"Renan e Olivia Joalheria Ltda",
-      "razaoSocial":"ti@renaneoliviajolherialtda.com.br",
-      "cnpj":"77737461000176",
-      "email":"ti@renaneoliviajoalherialtda.com.br",
-      "telefone":"1321231232131",
-      "cidade":"",
-      "cep":"",
-      "endereco":"",
-      "estado":"",
-      "usuarios":[
-         
-      ],
-      "idsUsuarios":null
-   },
-   "documentos":[
-      {
-         "id":null,
-         "caminho":"",
-         "nome":"fatura.pdf",
-         "tipo":"1"
-      }
-   ],
-   "observacaoRgi":""
-}
-
-
-
-
-version: "3.9"
-
-networks:
-  fm-project-network:
-    driver: bridge
-
-services:
-  fm-project-mysql:
-    image: mysql:8.0
-    environment:
-      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
-    ports:
-      - "3306:3306"
-    networks:
-      - fm-project-network
-
-  fm-project-api:
-    image: josiassxz/fm-projectfinalversion
-    volumes:
-      - storage-local:/app
-    environment:
-      DB_HOST: "fm-project-mysql"
-    ports:
-      - "8080:8080"
-    networks:
-      - fm-project-network
-    depends_on:
-      - fm-project-mysql
-
-volumes:
-  storage-local:
-    driver: local
-    driver_opts:
-      type: none
-      device: /caminho/para/o/diretorio
-      o: bind
-
-
-
-
-
-
-
-
-#    command: ["/wait-for-it.sh", "fm-project-mysql:3306", "-t", "300", "--", "java", "-jar", "fmproject.jar"]
-
-
-
-
 version: "3.9"
 
 networks:
@@ -174,6 +25,18 @@ services:
       - fm-project-network
     depends_on:
       - fm-project-mysql
+    volumes:
+      - /home/ubuntu/arquivos:/home/ubuntu/arquivos
+      # Adicionamos o volume acima para compartilhar o diretório com o host
+
+  fminspecao:
+    image: josiassxz/fminspect-front
+    build: .
+    ports:
+      - "8081:80"
+    networks:
+      - fm-project-network
+    entrypoint: /bin/sh -c "mkdir -p /home/ubuntu/arquivos && chmod 777 /home/ubuntu/arquivos && nginx -g 'daemon off;'"
 
 volumes:
   storage-local:
