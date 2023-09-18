@@ -16,17 +16,17 @@ services:
 
   fm-project-api:
     image: josiassxz/fm-projectfinalversion
-    command: ["java", "-jar", "fmproject.jar"]
     environment:
       DB_HOST: "fm-project-mysql"
     ports:
       - "8080:8080"
-    networks:
-      - fm-project-network
     depends_on:
       - fm-project-mysql
     volumes:
-      - /home/sxz/arquivos:/app
+      - /app:/home/ubuntu/arquivos
+    command: ["java", "-jar", "fmproject.jar"]
+    networks:
+      - fm-project-network
 
   fminspecao:
     image: josiassxz/fminspect-front
@@ -35,7 +35,6 @@ services:
       - "8081:80"
     networks:
       - fm-project-network
-    entrypoint: /bin/sh -c "mkdir -p /home/sxz/arquivos && chmod 777 /home/sxz/arquivos && nginx -g 'daemon off;'"
 
 volumes:
   storage-local:
