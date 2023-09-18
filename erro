@@ -26,8 +26,7 @@ services:
     depends_on:
       - fm-project-mysql
     volumes:
-      - /home/ubuntu/arquivos:/home/ubuntu/arquivos
-      # Adicionamos o volume acima para compartilhar o diretório com o host
+      - /home/sxz/arquivos:/app
 
   fminspecao:
     image: josiassxz/fminspect-front
@@ -36,7 +35,7 @@ services:
       - "8081:80"
     networks:
       - fm-project-network
-    entrypoint: /bin/sh -c "mkdir -p /home/ubuntu/arquivos && chmod 777 /home/ubuntu/arquivos && nginx -g 'daemon off;'"
+    entrypoint: /bin/sh -c "mkdir -p /home/sxz/arquivos && chmod 777 /home/sxz/arquivos && nginx -g 'daemon off;'"
 
 volumes:
   storage-local:
