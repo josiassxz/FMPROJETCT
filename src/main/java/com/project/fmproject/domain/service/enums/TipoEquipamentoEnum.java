@@ -9,7 +9,8 @@ public enum TipoEquipamentoEnum {
     LINHA( "LINHA", "Linha de vida"),
     ELEVADOR( "ELEVADOR", "Elevador"),
     INDICADOR_TEMPERATURA("INDICADOR_TEMPERATURA", "Indicador de temperatura"),
-    EQUIPAMENTO( "EQUIPAMENTO", "Equipamento");
+    EQUIPAMENTO( "EQUIPAMENTO", "Equipamento"),
+    TUBULACAO( "TUBULACAO", "Tubulação");
 
 
     TipoEquipamentoEnum(String codigo, String descricao) {
