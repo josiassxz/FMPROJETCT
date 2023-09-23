@@ -1,6 +1,11 @@
-version: '3'
+version: "3.9"
+
+networks:
+  fm-project-network:
+    driver: bridge
+
 services:
-  MySQL:
+  fm-project-mysql:
     image: mysql:8.0
     environment:
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
@@ -8,7 +13,30 @@ services:
       - "3306:3306"
     restart: always
     volumes:
-      - /data/mysql:/var/lib/mysql
+      - /home/ubuntu/banco_arquivos:/var/lib/mysql
+    networks:
+      - fm-project-network
 
-volumes:
-  mysql_data:
+  fm-project-api:
+    image: josiassxz/fm-projectfinalversion
+    command: ["java", "-jar", "/app/fmproject.jar"]  # Alterado o caminho para o arquivo JAR
+    environment:
+      DB_HOST: "fm-project-mysql"
+    ports:
+      - "8080:8080"
+    restart: always
+    volumes:
+      - /home/ubuntu/arquivos:/app  # Mapeamento de volume
+    working_dir: /app  # Definindo o diretório de trabalho como /app
+    networks:
+      - fm-project-network
+    depends_on:
+      - fm-project-mysql
+
+  fminspecao:
+    image: josiassxz/fminspect-front
+    build: .
+    ports:
+      - "8081:80"
+    networks:
+      - fm-project-network
