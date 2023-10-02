@@ -1,4 +1,4 @@
-version: "3.9"
+version: "23.0.3"
 
 networks:
   fm-project-network:
@@ -13,9 +13,16 @@ services:
       - "3306:3306"
     networks:
       - fm-project-network
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h 127.0.0.1 -u root -p$MYSQL_ROOT_PASSWORD"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
   fm-project-api:
     image: josiassxz/fm-projectfinalversion
-    command: ["java", "-jar", "fmproject.jar"]
+    volumes:
+      - storage-local:/app
     environment:
       DB_HOST: "fm-project-mysql"
     ports:
@@ -23,9 +30,12 @@ services:
     networks:
       - fm-project-network
     depends_on:
-      - fm-project-mysql
-    volumes:
-      - /app:/home/ubuntu/arquivos
-
+      fm-project-mysql:
+        condition: service_healthy
 volumes:
   storage-local:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: C:\arquivos
