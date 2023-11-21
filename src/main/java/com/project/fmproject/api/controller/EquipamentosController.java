@@ -1,6 +1,5 @@
 package com.project.fmproject.api.controller;
 
-
 import com.project.fmproject.domain.model.Documentos;
 import com.project.fmproject.domain.model.Equipamentos;
 import com.project.fmproject.domain.repository.DocumentosRepository;
@@ -14,6 +13,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import java.io.File;
@@ -22,28 +22,23 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 import org.springframework.http.ContentDisposition;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-
 
 import javax.activation.MimetypesFileTypeMap;
 import java.net.URI;
 
-
-
-
 @RestController
 @RequestMapping("/equipamentos")
 public class EquipamentosController {
-
 
     @Autowired
     private EquipamentosService service;
@@ -61,16 +56,19 @@ public class EquipamentosController {
     @GetMapping
     public ResponseEntity<Page<Equipamentos>> findAll(
             @RequestParam(defaultValue = "0") int page,
-            @RequestParam(defaultValue = "10") int size
-    ) {
+            @RequestParam(defaultValue = "10") int size) {
         Pageable pageable = PageRequest.of(page, size);
         Page<Equipamentos> equipamentosPage = service.findAll(pageable);
         return ResponseEntity.ok(equipamentosPage);
     }
 
     @GetMapping("/lista/{id}")
-    public ResponseEntity<List<Equipamentos>> findAll(@RequestParam Long id) {
-        return ResponseEntity.ok(equipamentosRepository.findAllByEmpresa_Id(id));
+    public ResponseEntity<List<Equipamentos>> findAll(@PathVariable Long id,
+                                                      @RequestParam(value = "anoVencimento", required = false) String anoVencimento) {
+
+        Specification<Equipamentos> specification = EquipamentosSpecification.filtrarEquipamentosPorVencimento(anoVencimento, id);
+        List<Equipamentos> equipamentos = equipamentosRepository.findAll(specification);
+        return new ResponseEntity<>(equipamentos, HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
@@ -79,30 +77,23 @@ public class EquipamentosController {
         return equipamentos.map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
     }
 
-
-
-
-
-//    @PostMapping(value = "/salvar")
-//    public ResponseEntity<Equipamentos> salvar(@RequestParam("equipamento") String equipamentosJson,
-//                                               @RequestPart("files") List<MultipartFile> files) throws IOException {
-//        Equipamentos novoEquipamento = service.salvar(equipamentosJson, files);
-//        return ResponseEntity.created(URI.create("/equipamentos/" + novoEquipamento.getId())).body(novoEquipamento);
-//    }
-
+    // @PostMapping(value = "/salvar")
+    // public ResponseEntity<Equipamentos> salvar(@RequestParam("equipamento")
+    // String equipamentosJson,
+    // @RequestPart("files") List<MultipartFile> files) throws IOException {
+    // Equipamentos novoEquipamento = service.salvar(equipamentosJson, files);
+    // return ResponseEntity.created(URI.create("/equipamentos/" +
+    // novoEquipamento.getId())).body(novoEquipamento);
+    // }
 
     @PostMapping(value = "/salvar")
     public ResponseEntity<Equipamentos> salvar(String equipamentosJson,
-                                               @RequestParam("files") List<MultipartFile> files) throws IOException {
+            @RequestParam("files") List<MultipartFile> files) throws IOException {
         Equipamentos novoEquipamento = service.salvar(equipamentosJson, files);
         return ResponseEntity.created(URI.create("/equipamentos/" + novoEquipamento.getId())).body(novoEquipamento);
     }
 
-
-
-
-
-    /*RETORNAR UM BINARIO !! RECOMENDADO*/
+    /* RETORNAR UM BINARIO !! RECOMENDADO */
     @GetMapping("/download/{idDocumento}")
     public ResponseEntity<byte[]> downloadDocumento(@PathVariable Long idDocumento) throws IOException {
         Optional<Documentos> optionalDocumento = documentosRepository.findById(idDocumento);
@@ -158,15 +149,13 @@ public class EquipamentosController {
                 .body(zipBytes);
     }
 
-
-
-
     @PutMapping(value = "/{equipamentoId}/alterar")
     public ResponseEntity<Equipamentos> alterarEquipamento(@PathVariable("equipamentoId") Long equipamentoId,
-                                                           @RequestParam("equipamentosJson") String equipamentosJson,
-                                                           @RequestParam("files") List<MultipartFile> files) throws IOException {
+            @RequestParam("equipamentosJson") String equipamentosJson,
+            @RequestParam("files") List<MultipartFile> files) throws IOException {
         Equipamentos equipamentoAtualizado = service.alterar(equipamentoId, equipamentosJson, files);
-        return ResponseEntity.ok(equipamentoAtualizado);}
+        return ResponseEntity.ok(equipamentoAtualizado);
+    }
 
     @DeleteMapping("/{id}")
     public void removerEquipamento(@PathVariable Long id) {
@@ -175,21 +164,23 @@ public class EquipamentosController {
 
     @GetMapping("/pesquisar")
     public Page<Equipamentos> filtrarEquipamentos(@RequestParam(required = false) String anoCadastro,
-                                                  @RequestParam(required = false) String tagEquipamento,
-                                                  @RequestParam(required = false) String norma,
-                                                  @RequestParam(required = false) String inspecaoExterna,
-                                                  @RequestParam(required = false) String inspecaoInterna,
-                                                  @RequestParam(required = false) String proximaInspecaoExterna,
-                                                  @RequestParam(required = false) String proximaInspecaoInterna,
-                                                  @RequestParam(required = false) String dataCalibracao,
-                                                  @RequestParam(required = false) String proximaCalibracao,
-                                                  @RequestParam(required = false) String inspecao,
-                                                  @RequestParam(required = false) String proximaInspecao,
-                                                  @RequestParam(required = false) Long idEmpresa,
-                                                  @RequestParam(required = false) TipoEquipamentoEnum tipoEquipamento,
-                                                  @RequestParam(required = false) String empresa,
-                                                  Pageable pageable) {
-        Specification<Equipamentos> specification = EquipamentosSpecification.filtrarEquipamentos(anoCadastro, tagEquipamento,
+            @RequestParam(required = false) String tagEquipamento,
+            @RequestParam(required = false) String norma,
+            @RequestParam(required = false) String inspecaoExterna,
+            @RequestParam(required = false) String inspecaoInterna,
+            @RequestParam(required = false) String proximaInspecaoExterna,
+            @RequestParam(required = false) String proximaInspecaoInterna,
+            @RequestParam(required = false) String dataCalibracao,
+            @RequestParam(required = false) String proximaCalibracao,
+            @RequestParam(required = false) String inspecao,
+            @RequestParam(required = false) String proximaInspecao,
+            @RequestParam(required = false) Long idEmpresa,
+            @RequestParam(required = false) TipoEquipamentoEnum tipoEquipamento,
+            @RequestParam(required = false) String empresa,
+            @RequestParam(required = false) String anoVencimento,
+            Pageable pageable) {
+        Specification<Equipamentos> specification = EquipamentosSpecification.filtrarEquipamentos(anoCadastro,
+                tagEquipamento,
                 norma, inspecaoExterna,
                 inspecaoInterna,
                 proximaInspecaoExterna,
@@ -199,12 +190,8 @@ public class EquipamentosController {
                 inspecao,
                 proximaInspecao,
                 idEmpresa,
-                tipoEquipamento, empresa);
+                tipoEquipamento, empresa, anoVencimento);
         return equipamentosRepository.findAll(specification, pageable);
     }
 
-
-
-
 }
-
